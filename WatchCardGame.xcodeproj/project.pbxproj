@@ -7,12 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2006D8AE1AED42500071D41C /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006D8AD1AED42500071D41C /* TimerManager.swift */; };
+		2089D0C11AED2FBE00517836 /* RouteUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089D0C01AED2FBE00517836 /* RouteUtil.swift */; };
+		2089D0C31AED2FE500517836 /* DrawUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089D0C21AED2FE500517836 /* DrawUtil.swift */; };
+		2089D0C51AED301300517836 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089D0C41AED301300517836 /* Config.swift */; };
 		208C35821AC8295A008F71CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C35811AC8295A008F71CC /* AppDelegate.swift */; };
 		208C35841AC8295A008F71CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C35831AC8295A008F71CC /* ViewController.swift */; };
 		208C35871AC8295A008F71CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 208C35851AC8295A008F71CC /* Main.storyboard */; };
 		208C35891AC8295A008F71CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 208C35881AC8295A008F71CC /* Images.xcassets */; };
 		208C358C1AC8295A008F71CC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 208C358A1AC8295A008F71CC /* LaunchScreen.xib */; };
 		208C35981AC8295A008F71CC /* WatchCardGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C35971AC8295A008F71CC /* WatchCardGameTests.swift */; };
+		208C35AB1AC82A34008F71CC /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C35AA1AC82A34008F71CC /* InterfaceController.swift */; };
+		208C35AD1AC82A34008F71CC /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C35AC1AC82A34008F71CC /* NotificationController.swift */; };
+		208C35AF1AC82A34008F71CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 208C35AE1AC82A34008F71CC /* Images.xcassets */; };
+		208C35B31AC82A34008F71CC /* WatchCardGame WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 208C35B21AC82A34008F71CC /* WatchCardGame WatchKit App.app */; };
+		208C35BB1AC82A34008F71CC /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 208C35B91AC82A34008F71CC /* Interface.storyboard */; };
+		208C35BD1AC82A34008F71CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 208C35BC1AC82A34008F71CC /* Images.xcassets */; };
+		208C35C01AC82A34008F71CC /* WatchCardGame WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 208C35A51AC82A34008F71CC /* WatchCardGame WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		20FCA5CA1AECF46C008E7018 /* slime@2px.png in Resources */ = {isa = PBXBuildFile; fileRef = 20FCA5C91AECF46C008E7018 /* slime@2px.png */; };
+		20FCA5CF1AECF47B008E7018 /* warrior0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20FCA5CB1AECF47B008E7018 /* warrior0@2x.png */; };
+		20FCA5D01AECF47B008E7018 /* warrior1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20FCA5CC1AECF47B008E7018 /* warrior1@2x.png */; };
+		20FCA5D11AECF47B008E7018 /* warrior2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20FCA5CD1AECF47B008E7018 /* warrior2@2x.png */; };
+		20FCA5D21AECF47B008E7018 /* warrior3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20FCA5CE1AECF47B008E7018 /* warrior3@2x.png */; };
+		20FCA5D41AECF48E008E7018 /* floor_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20FCA5D31AECF48E008E7018 /* floor_bg@2x.png */; };
+		20FCA5DC1AED2DAD008E7018 /* floor_origin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20FCA5DB1AED2DAD008E7018 /* floor_origin@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,9 +41,41 @@
 			remoteGlobalIDString = 208C357B1AC8295A008F71CC;
 			remoteInfo = WatchCardGame;
 		};
+		208C35B41AC82A34008F71CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 208C35741AC8295A008F71CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 208C35B11AC82A34008F71CC;
+			remoteInfo = "WatchCardGame WatchKit App";
+		};
+		208C35BE1AC82A34008F71CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 208C35741AC8295A008F71CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 208C35A41AC82A34008F71CC;
+			remoteInfo = "WatchCardGame WatchKit Extension";
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		208C35C71AC82A35008F71CC /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				208C35C01AC82A34008F71CC /* WatchCardGame WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		2006D8AD1AED42500071D41C /* TimerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
+		2089D0C01AED2FBE00517836 /* RouteUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteUtil.swift; sourceTree = "<group>"; };
+		2089D0C21AED2FE500517836 /* DrawUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawUtil.swift; sourceTree = "<group>"; };
+		2089D0C41AED301300517836 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		208C357C1AC8295A008F71CC /* WatchCardGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchCardGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		208C35801AC8295A008F71CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		208C35811AC8295A008F71CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +86,23 @@
 		208C35911AC8295A008F71CC /* WatchCardGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WatchCardGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		208C35961AC8295A008F71CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		208C35971AC8295A008F71CC /* WatchCardGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCardGameTests.swift; sourceTree = "<group>"; };
+		208C35A51AC82A34008F71CC /* WatchCardGame WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchCardGame WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		208C35A81AC82A34008F71CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		208C35A91AC82A34008F71CC /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		208C35AA1AC82A34008F71CC /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		208C35AC1AC82A34008F71CC /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		208C35AE1AC82A34008F71CC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		208C35B21AC82A34008F71CC /* WatchCardGame WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WatchCardGame WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		208C35B81AC82A34008F71CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		208C35BA1AC82A34008F71CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		208C35BC1AC82A34008F71CC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		20FCA5C91AECF46C008E7018 /* slime@2px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slime@2px.png"; sourceTree = "<group>"; };
+		20FCA5CB1AECF47B008E7018 /* warrior0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warrior0@2x.png"; sourceTree = "<group>"; };
+		20FCA5CC1AECF47B008E7018 /* warrior1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warrior1@2x.png"; sourceTree = "<group>"; };
+		20FCA5CD1AECF47B008E7018 /* warrior2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warrior2@2x.png"; sourceTree = "<group>"; };
+		20FCA5CE1AECF47B008E7018 /* warrior3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warrior3@2x.png"; sourceTree = "<group>"; };
+		20FCA5D31AECF48E008E7018 /* floor_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "floor_bg@2x.png"; sourceTree = "<group>"; };
+		20FCA5DB1AED2DAD008E7018 /* floor_origin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "floor_origin@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +120,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		208C35A21AC82A34008F71CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -61,6 +135,8 @@
 			children = (
 				208C357E1AC8295A008F71CC /* WatchCardGame */,
 				208C35941AC8295A008F71CC /* WatchCardGameTests */,
+				208C35A61AC82A34008F71CC /* WatchCardGame WatchKit Extension */,
+				208C35B61AC82A34008F71CC /* WatchCardGame WatchKit App */,
 				208C357D1AC8295A008F71CC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,6 +146,8 @@
 			children = (
 				208C357C1AC8295A008F71CC /* WatchCardGame.app */,
 				208C35911AC8295A008F71CC /* WatchCardGameTests.xctest */,
+				208C35A51AC82A34008F71CC /* WatchCardGame WatchKit Extension.appex */,
+				208C35B21AC82A34008F71CC /* WatchCardGame WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,6 +190,104 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		208C35A61AC82A34008F71CC /* WatchCardGame WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				20FCA5DE1AED2E76008E7018 /* Config */,
+				20FCA5DD1AED2E5A008E7018 /* Util */,
+				20F7D76C1AE3AF5000C96C87 /* Assets */,
+				208C35AA1AC82A34008F71CC /* InterfaceController.swift */,
+				208C35AC1AC82A34008F71CC /* NotificationController.swift */,
+				208C35AE1AC82A34008F71CC /* Images.xcassets */,
+				208C35A71AC82A34008F71CC /* Supporting Files */,
+			);
+			path = "WatchCardGame WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		208C35A71AC82A34008F71CC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				208C35A81AC82A34008F71CC /* Info.plist */,
+				208C35A91AC82A34008F71CC /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		208C35B61AC82A34008F71CC /* WatchCardGame WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				208C35C81AE28818008F71CC /* Assets */,
+				208C35B91AC82A34008F71CC /* Interface.storyboard */,
+				208C35B71AC82A34008F71CC /* Supporting Files */,
+			);
+			path = "WatchCardGame WatchKit App";
+			sourceTree = "<group>";
+		};
+		208C35B71AC82A34008F71CC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				208C35BC1AC82A34008F71CC /* Images.xcassets */,
+				208C35B81AC82A34008F71CC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		208C35C81AE28818008F71CC /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				20FCA5D31AECF48E008E7018 /* floor_bg@2x.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		20F7D76C1AE3AF5000C96C87 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				20FCA5DB1AED2DAD008E7018 /* floor_origin@2x.png */,
+				20FCA5C81AECF44E008E7018 /* avator */,
+				20FCA5C71AECF3C7008E7018 /* monster */,
+			);
+			name = Assets;
+			path = ../Assets;
+			sourceTree = "<group>";
+		};
+		20FCA5C71AECF3C7008E7018 /* monster */ = {
+			isa = PBXGroup;
+			children = (
+				20FCA5C91AECF46C008E7018 /* slime@2px.png */,
+			);
+			path = monster;
+			sourceTree = "<group>";
+		};
+		20FCA5C81AECF44E008E7018 /* avator */ = {
+			isa = PBXGroup;
+			children = (
+				20FCA5CB1AECF47B008E7018 /* warrior0@2x.png */,
+				20FCA5CC1AECF47B008E7018 /* warrior1@2x.png */,
+				20FCA5CD1AECF47B008E7018 /* warrior2@2x.png */,
+				20FCA5CE1AECF47B008E7018 /* warrior3@2x.png */,
+			);
+			path = avator;
+			sourceTree = "<group>";
+		};
+		20FCA5DD1AED2E5A008E7018 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				2089D0C01AED2FBE00517836 /* RouteUtil.swift */,
+				2089D0C21AED2FE500517836 /* DrawUtil.swift */,
+				2006D8AD1AED42500071D41C /* TimerManager.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		20FCA5DE1AED2E76008E7018 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				2089D0C41AED301300517836 /* Config.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,10 +298,12 @@
 				208C35781AC8295A008F71CC /* Sources */,
 				208C35791AC8295A008F71CC /* Frameworks */,
 				208C357A1AC8295A008F71CC /* Resources */,
+				208C35C71AC82A35008F71CC /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				208C35BF1AC82A34008F71CC /* PBXTargetDependency */,
 			);
 			name = WatchCardGame;
 			productName = WatchCardGame;
@@ -150,6 +328,39 @@
 			productReference = 208C35911AC8295A008F71CC /* WatchCardGameTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		208C35A41AC82A34008F71CC /* WatchCardGame WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 208C35C41AC82A35008F71CC /* Build configuration list for PBXNativeTarget "WatchCardGame WatchKit Extension" */;
+			buildPhases = (
+				208C35A11AC82A34008F71CC /* Sources */,
+				208C35A21AC82A34008F71CC /* Frameworks */,
+				208C35A31AC82A34008F71CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				208C35B51AC82A34008F71CC /* PBXTargetDependency */,
+			);
+			name = "WatchCardGame WatchKit Extension";
+			productName = "WatchCardGame WatchKit Extension";
+			productReference = 208C35A51AC82A34008F71CC /* WatchCardGame WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		208C35B11AC82A34008F71CC /* WatchCardGame WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 208C35C11AC82A35008F71CC /* Build configuration list for PBXNativeTarget "WatchCardGame WatchKit App" */;
+			buildPhases = (
+				208C35B01AC82A34008F71CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WatchCardGame WatchKit App";
+			productName = "WatchCardGame WatchKit App";
+			productReference = 208C35B21AC82A34008F71CC /* WatchCardGame WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -161,10 +372,19 @@
 				TargetAttributes = {
 					208C357B1AC8295A008F71CC = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 654RUZ9SAH;
 					};
 					208C35901AC8295A008F71CC = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 208C357B1AC8295A008F71CC;
+					};
+					208C35A41AC82A34008F71CC = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 654RUZ9SAH;
+					};
+					208C35B11AC82A34008F71CC = {
+						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 654RUZ9SAH;
 					};
 				};
 			};
@@ -183,6 +403,8 @@
 			targets = (
 				208C357B1AC8295A008F71CC /* WatchCardGame */,
 				208C35901AC8295A008F71CC /* WatchCardGameTests */,
+				208C35A41AC82A34008F71CC /* WatchCardGame WatchKit Extension */,
+				208C35B11AC82A34008F71CC /* WatchCardGame WatchKit App */,
 			);
 		};
 /* End PBXProject section */
@@ -202,6 +424,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		208C35A31AC82A34008F71CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20FCA5D11AECF47B008E7018 /* warrior2@2x.png in Resources */,
+				20FCA5DC1AED2DAD008E7018 /* floor_origin@2x.png in Resources */,
+				20FCA5D21AECF47B008E7018 /* warrior3@2x.png in Resources */,
+				20FCA5CA1AECF46C008E7018 /* slime@2px.png in Resources */,
+				208C35B31AC82A34008F71CC /* WatchCardGame WatchKit App.app in Resources */,
+				20FCA5CF1AECF47B008E7018 /* warrior0@2x.png in Resources */,
+				208C35AF1AC82A34008F71CC /* Images.xcassets in Resources */,
+				20FCA5D01AECF47B008E7018 /* warrior1@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		208C35B01AC82A34008F71CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				208C35BB1AC82A34008F71CC /* Interface.storyboard in Resources */,
+				20FCA5D41AECF48E008E7018 /* floor_bg@2x.png in Resources */,
+				208C35BD1AC82A34008F71CC /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +472,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		208C35A11AC82A34008F71CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2089D0C11AED2FBE00517836 /* RouteUtil.swift in Sources */,
+				2089D0C31AED2FE500517836 /* DrawUtil.swift in Sources */,
+				2089D0C51AED301300517836 /* Config.swift in Sources */,
+				2006D8AE1AED42500071D41C /* TimerManager.swift in Sources */,
+				208C35AD1AC82A34008F71CC /* NotificationController.swift in Sources */,
+				208C35AB1AC82A34008F71CC /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -232,6 +492,16 @@
 			isa = PBXTargetDependency;
 			target = 208C357B1AC8295A008F71CC /* WatchCardGame */;
 			targetProxy = 208C35921AC8295A008F71CC /* PBXContainerItemProxy */;
+		};
+		208C35B51AC82A34008F71CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 208C35B11AC82A34008F71CC /* WatchCardGame WatchKit App */;
+			targetProxy = 208C35B41AC82A34008F71CC /* PBXContainerItemProxy */;
+		};
+		208C35BF1AC82A34008F71CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 208C35A41AC82A34008F71CC /* WatchCardGame WatchKit Extension */;
+			targetProxy = 208C35BE1AC82A34008F71CC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -250,6 +520,14 @@
 				208C358B1AC8295A008F71CC /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		208C35B91AC82A34008F71CC /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				208C35BA1AC82A34008F71CC /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -336,9 +614,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = WatchCardGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -346,9 +628,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = WatchCardGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -367,6 +653,7 @@
 				INFOPLIST_FILE = WatchCardGameTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f012ad9d-b9be-4dc9-8be9-b26bc0906903";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WatchCardGame.app/WatchCardGame";
 			};
 			name = Debug;
@@ -382,7 +669,74 @@
 				INFOPLIST_FILE = WatchCardGameTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f012ad9d-b9be-4dc9-8be9-b26bc0906903";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WatchCardGame.app/WatchCardGame";
+			};
+			name = Release;
+		};
+		208C35C21AC82A35008F71CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = WatchCardGame_WatchKit_Extension;
+				INFOPLIST_FILE = "WatchCardGame WatchKit App/Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		208C35C31AC82A35008F71CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				IBSC_MODULE = WatchCardGame_WatchKit_Extension;
+				INFOPLIST_FILE = "WatchCardGame WatchKit App/Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
+		208C35C51AC82A35008F71CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "WatchCardGame WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		208C35C61AC82A35008F71CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "WatchCardGame WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -405,6 +759,7 @@
 				208C359D1AC8295A008F71CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		208C359E1AC8295A008F71CC /* Build configuration list for PBXNativeTarget "WatchCardGameTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +768,25 @@
 				208C35A01AC8295A008F71CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		208C35C11AC82A35008F71CC /* Build configuration list for PBXNativeTarget "WatchCardGame WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				208C35C21AC82A35008F71CC /* Debug */,
+				208C35C31AC82A35008F71CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		208C35C41AC82A35008F71CC /* Build configuration list for PBXNativeTarget "WatchCardGame WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				208C35C51AC82A35008F71CC /* Debug */,
+				208C35C61AC82A35008F71CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
