@@ -23,4 +23,8 @@ internal class Avatar
     internal var yPosition:Int = 0
     internal var image:UIImage!
     internal var attackProgress:Int = 0
+    internal func progressImage(no:Int) -> UIImage
+    {
+        return UIImage(named: "floor_origin.png")!
+    }
 }

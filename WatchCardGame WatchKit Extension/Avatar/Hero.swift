@@ -13,6 +13,7 @@ internal class Hero : Avatar
 {
     private var _walkType:Int
     internal var stopImage:UIImage!
+    internal var attackImage:UIImage!
     
     override init()
     {

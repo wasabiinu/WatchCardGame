@@ -53,7 +53,7 @@ class GameMainSceneController: WKInterfaceController {
         }
         else if(_floor1Manager.heroes[0].hp > 0 && _floor1Manager.monsters[0].hp > 0)
         {
-            
+            Floor1Content.setImage(_floor1Manager.play1Turn())
         }
         
     }

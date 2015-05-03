@@ -25,6 +25,8 @@
 		2006D8BA1AF0FCFD0071D41C /* Slime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006D8B91AF0FCFD0071D41C /* Slime.swift */; };
 		2006D8BC1AF0FE180071D41C /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006D8BB1AF0FE180071D41C /* Hero.swift */; };
 		2006D8BE1AF0FE390071D41C /* Warrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006D8BD1AF0FE390071D41C /* Warrior.swift */; };
+		204FBC861AF65C7400B5614F /* slime1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204FBC851AF65C7400B5614F /* slime1@2x.png */; };
+		204FBC881AF65C7E00B5614F /* warrior4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204FBC871AF65C7E00B5614F /* warrior4@2x.png */; };
 		2089D0C11AED2FBE00517836 /* RouteUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089D0C01AED2FBE00517836 /* RouteUtil.swift */; };
 		2089D0C31AED2FE500517836 /* DrawUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089D0C21AED2FE500517836 /* DrawUtil.swift */; };
 		2089D0C51AED301300517836 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089D0C41AED301300517836 /* Config.swift */; };
@@ -107,6 +109,8 @@
 		2006D8B91AF0FCFD0071D41C /* Slime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slime.swift; sourceTree = "<group>"; };
 		2006D8BB1AF0FE180071D41C /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		2006D8BD1AF0FE390071D41C /* Warrior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Warrior.swift; sourceTree = "<group>"; };
+		204FBC851AF65C7400B5614F /* slime1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slime1@2x.png"; sourceTree = "<group>"; };
+		204FBC871AF65C7E00B5614F /* warrior4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warrior4@2x.png"; sourceTree = "<group>"; };
 		2089D0C01AED2FBE00517836 /* RouteUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteUtil.swift; sourceTree = "<group>"; };
 		2089D0C21AED2FE500517836 /* DrawUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawUtil.swift; sourceTree = "<group>"; };
 		2089D0C41AED301300517836 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -328,6 +332,7 @@
 		20FCA5C71AECF3C7008E7018 /* monster */ = {
 			isa = PBXGroup;
 			children = (
+				204FBC851AF65C7400B5614F /* slime1@2x.png */,
 				2006CA0B1AF5DECB0077CC1B /* slime0@2x.png */,
 				20FCA5C91AECF46C008E7018 /* slime@2px.png */,
 			);
@@ -337,6 +342,7 @@
 		20FCA5C81AECF44E008E7018 /* avator */ = {
 			isa = PBXGroup;
 			children = (
+				204FBC871AF65C7E00B5614F /* warrior4@2x.png */,
 				20FCA5CB1AECF47B008E7018 /* warrior0@2x.png */,
 				20FCA5CC1AECF47B008E7018 /* warrior1@2x.png */,
 				20FCA5CD1AECF47B008E7018 /* warrior2@2x.png */,
@@ -507,12 +513,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2006CA261AF625870077CC1B /* battlestart0@2x.png in Resources */,
+				204FBC881AF65C7E00B5614F /* warrior4@2x.png in Resources */,
 				2006CA291AF625870077CC1B /* battlestart3@2x.png in Resources */,
 				20FCA5D11AECF47B008E7018 /* warrior2@2x.png in Resources */,
 				2006CA281AF625870077CC1B /* battlestart2@2x.png in Resources */,
 				20FCA5DC1AED2DAD008E7018 /* floor_origin@2x.png in Resources */,
 				2006CA2C1AF625870077CC1B /* battlestart6@2x.png in Resources */,
 				2006CA2D1AF625870077CC1B /* battlestart7@2x.png in Resources */,
+				204FBC861AF65C7400B5614F /* slime1@2x.png in Resources */,
 				2006CA271AF625870077CC1B /* battlestart1@2x.png in Resources */,
 				20FCA5D21AECF47B008E7018 /* warrior3@2x.png in Resources */,
 				20FCA5CA1AECF46C008E7018 /* slime@2px.png in Resources */,

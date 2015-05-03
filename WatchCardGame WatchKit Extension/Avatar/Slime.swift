@@ -20,4 +20,8 @@ internal class Slime : Monster
         elementType = "impact"
         image = UIImage(named: "slime0.png")!
     }
+    override internal func progressImage(no:Int) -> UIImage
+    {
+        return UIImage(named: "slime\(no).png")!
+    }
 }

@@ -19,6 +19,7 @@ internal class Warrior : Hero
         defence = super.level * 10
         elementType = "slash"
         stopImage = UIImage(named: "warrior0.png")!
+        attackImage = UIImage(named: "warrior3.png")!
     }
     
     override internal var image:UIImage!
@@ -39,5 +40,10 @@ internal class Warrior : Hero
         {
             
         }
+    }
+    
+    override internal func progressImage(no:Int) -> UIImage
+    {
+        return UIImage(named: "warrior\(no).png")!
     }
 }
