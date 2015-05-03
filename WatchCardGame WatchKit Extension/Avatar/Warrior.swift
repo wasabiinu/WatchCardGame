@@ -8,14 +8,36 @@
 //　戦士クラス
 
 import Foundation
+import WatchKit
 internal class Warrior : Hero
 {
     override init()
     {
         super.init()
-        super.hp = super.level * 10
-        super.attack = super.level * 10
-        super.defence = super.level * 10
-        super.elementType = "slash"
+        hp = super.level * 10
+        attack = super.level * 10
+        defence = super.level * 10
+        elementType = "slash"
+        stopImage = UIImage(named: "warrior0.png")!
+    }
+    
+    override internal var image:UIImage!
+    {
+        get
+        {
+            if (attackProgress == 0)
+            {
+                return UIImage(named: "warrior\(walkType).png")!
+            }
+            else
+            {
+                return UIImage(named: "warrior3.png")!
+            }
+            
+        }
+        set
+        {
+            
+        }
     }
 }

@@ -8,14 +8,16 @@
 //スライムクラス
 
 import Foundation
+import WatchKit
 internal class Slime : Monster
 {
     override init()
     {
         super.init()
-        super.hp = super.level * 100
-        super.attack = super.level * 30
-        super.defence = super.level * 30
-        super.elementType = "impact"
+        hp = super.level * 100
+        attack = super.level * 30
+        defence = super.level * 30
+        elementType = "impact"
+        image = UIImage(named: "slime0.png")!
     }
 }

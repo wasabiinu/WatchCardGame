@@ -13,10 +13,15 @@ import Foundation
 class GameMainSceneController: WKInterfaceController {
     
     @IBOutlet weak var Floor1Content: WKInterfaceImage!
-    private var _hero:Hero
+    private var _turnTimer:NSTimer!
+    private var _floor1Manager:FloorManager
     override init()
     {
-        _hero = Warrior()
+        var hero:Hero = Warrior()
+        var monster:Monster = Slime()
+        _floor1Manager = FloorManager()
+        _floor1Manager.heroes.append(hero)
+        _floor1Manager.monsters.append(monster)
     }
     
     override func awakeWithContext(context: AnyObject?) {
@@ -24,17 +29,32 @@ class GameMainSceneController: WKInterfaceController {
         
         // Configure interface objects here.
         
-        var turnTimer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(0.25), target: self, selector: Selector("onTimer:"), userInfo: nil, repeats: true)
+        _turnTimer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(0.25), target: self, selector: Selector("onTimer:"), userInfo: nil, repeats: true)
         
+    }
+    
+    override func didDeactivate() {
+        super.didDeactivate()
+        _turnTimer.invalidate()
+        _turnTimer = nil
     }
     
     internal func onTimer(timer:NSTimer)
     {
-        println("onTimer:x:\(_hero.xPosition),y:\(_hero.yPosition)")
-        var heroImage:UIImage = UIImage(named: "warrior\(_hero.walkType).png")!
-        var alphaImage:UIImage = UIImage(named: "floor_origin.png")!
-        var image:UIImage = DrawUtil.synthesizeImage(alphaImage, synthImage: heroImage, x: CGFloat(_hero.xPosition), y: CGFloat(_hero.yPosition))
-        Floor1Content.setImage(image)
-        _hero.xPosition -= 5
+        println("onTimer:x:\(_floor1Manager.heroes[0].xPosition),y:\(_floor1Manager.heroes[0].yPosition)")
+        
+        if (_floor1Manager.heroes[0].xPosition > 71)
+        {
+            Floor1Content.setImage(_floor1Manager.enterFloor())
+        }
+        else if(_floor1Manager.battleStartProgress < 8)
+        {
+            Floor1Content.setImage(_floor1Manager.battleStart())
+        }
+        else if(_floor1Manager.heroes[0].hp > 0 && _floor1Manager.monsters[0].hp > 0)
+        {
+            
+        }
+        
     }
 }

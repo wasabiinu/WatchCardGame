@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		2006CA061AF5B3CC0077CC1B /* GameMainSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006CA051AF5B3CC0077CC1B /* GameMainSceneController.swift */; };
+		2006CA081AF5CFF60077CC1B /* FloorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006CA071AF5CFF60077CC1B /* FloorManager.swift */; };
+		2006CA0C1AF5DECB0077CC1B /* slime0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2006CA0B1AF5DECB0077CC1B /* slime0@2x.png */; };
+		2006CA261AF625870077CC1B /* battlestart0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2006CA1E1AF625870077CC1B /* battlestart0@2x.png */; };
+		2006CA271AF625870077CC1B /* battlestart1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2006CA1F1AF625870077CC1B /* battlestart1@2x.png */; };
+		2006CA281AF625870077CC1B /* battlestart2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2006CA201AF625870077CC1B /* battlestart2@2x.png */; };
+		2006CA291AF625870077CC1B /* battlestart3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2006CA211AF625870077CC1B /* battlestart3@2x.png */; };
+		2006CA2A1AF625870077CC1B /* battlestart4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2006CA221AF625870077CC1B /* battlestart4@2x.png */; };
+		2006CA2B1AF625870077CC1B /* battlestart5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2006CA231AF625870077CC1B /* battlestart5@2x.png */; };
+		2006CA2C1AF625870077CC1B /* battlestart6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2006CA241AF625870077CC1B /* battlestart6@2x.png */; };
+		2006CA2D1AF625870077CC1B /* battlestart7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2006CA251AF625870077CC1B /* battlestart7@2x.png */; };
 		2006D8AE1AED42500071D41C /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006D8AD1AED42500071D41C /* TimerManager.swift */; };
 		2006D8B11AF0DA410071D41C /* AvatarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006D8B01AF0DA410071D41C /* AvatarManager.swift */; };
 		2006D8B61AF0FC630071D41C /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006D8B51AF0FC630071D41C /* Avatar.swift */; };
@@ -80,6 +90,16 @@
 
 /* Begin PBXFileReference section */
 		2006CA051AF5B3CC0077CC1B /* GameMainSceneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMainSceneController.swift; sourceTree = "<group>"; };
+		2006CA071AF5CFF60077CC1B /* FloorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloorManager.swift; sourceTree = "<group>"; };
+		2006CA0B1AF5DECB0077CC1B /* slime0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slime0@2x.png"; sourceTree = "<group>"; };
+		2006CA1E1AF625870077CC1B /* battlestart0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "battlestart0@2x.png"; sourceTree = "<group>"; };
+		2006CA1F1AF625870077CC1B /* battlestart1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "battlestart1@2x.png"; sourceTree = "<group>"; };
+		2006CA201AF625870077CC1B /* battlestart2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "battlestart2@2x.png"; sourceTree = "<group>"; };
+		2006CA211AF625870077CC1B /* battlestart3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "battlestart3@2x.png"; sourceTree = "<group>"; };
+		2006CA221AF625870077CC1B /* battlestart4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "battlestart4@2x.png"; sourceTree = "<group>"; };
+		2006CA231AF625870077CC1B /* battlestart5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "battlestart5@2x.png"; sourceTree = "<group>"; };
+		2006CA241AF625870077CC1B /* battlestart6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "battlestart6@2x.png"; sourceTree = "<group>"; };
+		2006CA251AF625870077CC1B /* battlestart7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "battlestart7@2x.png"; sourceTree = "<group>"; };
 		2006D8AD1AED42500071D41C /* TimerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		2006D8B01AF0DA410071D41C /* AvatarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarManager.swift; sourceTree = "<group>"; };
 		2006D8B51AF0FC630071D41C /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
@@ -144,10 +164,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2006CA0D1AF620210077CC1B /* effect */ = {
+			isa = PBXGroup;
+			children = (
+				2006CA1E1AF625870077CC1B /* battlestart0@2x.png */,
+				2006CA1F1AF625870077CC1B /* battlestart1@2x.png */,
+				2006CA201AF625870077CC1B /* battlestart2@2x.png */,
+				2006CA211AF625870077CC1B /* battlestart3@2x.png */,
+				2006CA221AF625870077CC1B /* battlestart4@2x.png */,
+				2006CA231AF625870077CC1B /* battlestart5@2x.png */,
+				2006CA241AF625870077CC1B /* battlestart6@2x.png */,
+				2006CA251AF625870077CC1B /* battlestart7@2x.png */,
+			);
+			path = effect;
+			sourceTree = "<group>";
+		};
 		2006D8AF1AF0DA290071D41C /* Manager */ = {
 			isa = PBXGroup;
 			children = (
 				2006D8B01AF0DA410071D41C /* AvatarManager.swift */,
+				2006CA071AF5CFF60077CC1B /* FloorManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -280,6 +316,7 @@
 		20F7D76C1AE3AF5000C96C87 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				2006CA0D1AF620210077CC1B /* effect */,
 				20FCA5DB1AED2DAD008E7018 /* floor_origin@2x.png */,
 				20FCA5C81AECF44E008E7018 /* avator */,
 				20FCA5C71AECF3C7008E7018 /* monster */,
@@ -291,6 +328,7 @@
 		20FCA5C71AECF3C7008E7018 /* monster */ = {
 			isa = PBXGroup;
 			children = (
+				2006CA0B1AF5DECB0077CC1B /* slime0@2x.png */,
 				20FCA5C91AECF46C008E7018 /* slime@2px.png */,
 			);
 			path = monster;
@@ -468,11 +506,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2006CA261AF625870077CC1B /* battlestart0@2x.png in Resources */,
+				2006CA291AF625870077CC1B /* battlestart3@2x.png in Resources */,
 				20FCA5D11AECF47B008E7018 /* warrior2@2x.png in Resources */,
+				2006CA281AF625870077CC1B /* battlestart2@2x.png in Resources */,
 				20FCA5DC1AED2DAD008E7018 /* floor_origin@2x.png in Resources */,
+				2006CA2C1AF625870077CC1B /* battlestart6@2x.png in Resources */,
+				2006CA2D1AF625870077CC1B /* battlestart7@2x.png in Resources */,
+				2006CA271AF625870077CC1B /* battlestart1@2x.png in Resources */,
 				20FCA5D21AECF47B008E7018 /* warrior3@2x.png in Resources */,
 				20FCA5CA1AECF46C008E7018 /* slime@2px.png in Resources */,
+				2006CA2A1AF625870077CC1B /* battlestart4@2x.png in Resources */,
 				208C35B31AC82A34008F71CC /* WatchCardGame WatchKit App.app in Resources */,
+				2006CA2B1AF625870077CC1B /* battlestart5@2x.png in Resources */,
+				2006CA0C1AF5DECB0077CC1B /* slime0@2x.png in Resources */,
 				20FCA5CF1AECF47B008E7018 /* warrior0@2x.png in Resources */,
 				208C35AF1AC82A34008F71CC /* Images.xcassets in Resources */,
 				20FCA5D01AECF47B008E7018 /* warrior1@2x.png in Resources */,
@@ -513,6 +560,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2006CA081AF5CFF60077CC1B /* FloorManager.swift in Sources */,
 				2089D0C11AED2FBE00517836 /* RouteUtil.swift in Sources */,
 				2006D8B81AF0FCCD0071D41C /* Monster.swift in Sources */,
 				2006CA061AF5B3CC0077CC1B /* GameMainSceneController.swift in Sources */,

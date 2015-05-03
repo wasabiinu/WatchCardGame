@@ -11,5 +11,9 @@
 import Foundation
 internal class Monster : Avatar
 {
-    
+    override init() {
+        super.init()
+        xPosition = 60
+        yPosition = 0
+    }
 }

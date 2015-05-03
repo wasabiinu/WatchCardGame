@@ -9,6 +9,7 @@
 //アバター基本クラス
 
 import Foundation
+import WatchKit
 internal class Avatar
 {
     internal var hp:Int = 1
@@ -18,4 +19,8 @@ internal class Avatar
     internal var defence:Int = 1
     internal var floor:Int = 1
     internal var standPosition:String = "left"
+    internal var xPosition:Int = 0
+    internal var yPosition:Int = 0
+    internal var image:UIImage!
+    internal var attackProgress:Int = 0
 }

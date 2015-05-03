@@ -8,19 +8,21 @@
 //　ヒーロー基本クラス
 
 import Foundation
+import WatchKit
 internal class Hero : Avatar
 {
-    internal var xPosition:Int = 170
     private var _walkType:Int
+    internal var stopImage:UIImage!
     
     override init()
     {
         _walkType = 0
         super.init()
+        xPosition = 170
     }
     
     //xの位置に応じてy位置が決まる
-    internal var yPosition:Int
+    override internal var yPosition:Int
     {
         get
         {
@@ -42,6 +44,11 @@ internal class Hero : Avatar
                 break
             }
             return y
+        }
+        
+        set
+        {
+            
         }
     }
     
