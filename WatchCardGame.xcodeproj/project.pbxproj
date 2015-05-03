@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2006CA061AF5B3CC0077CC1B /* GameMainSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006CA051AF5B3CC0077CC1B /* GameMainSceneController.swift */; };
 		2006D8AE1AED42500071D41C /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006D8AD1AED42500071D41C /* TimerManager.swift */; };
+		2006D8B11AF0DA410071D41C /* AvatarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006D8B01AF0DA410071D41C /* AvatarManager.swift */; };
+		2006D8B61AF0FC630071D41C /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006D8B51AF0FC630071D41C /* Avatar.swift */; };
+		2006D8B81AF0FCCD0071D41C /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006D8B71AF0FCCD0071D41C /* Monster.swift */; };
+		2006D8BA1AF0FCFD0071D41C /* Slime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006D8B91AF0FCFD0071D41C /* Slime.swift */; };
+		2006D8BC1AF0FE180071D41C /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006D8BB1AF0FE180071D41C /* Hero.swift */; };
+		2006D8BE1AF0FE390071D41C /* Warrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006D8BD1AF0FE390071D41C /* Warrior.swift */; };
 		2089D0C11AED2FBE00517836 /* RouteUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089D0C01AED2FBE00517836 /* RouteUtil.swift */; };
 		2089D0C31AED2FE500517836 /* DrawUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089D0C21AED2FE500517836 /* DrawUtil.swift */; };
 		2089D0C51AED301300517836 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089D0C41AED301300517836 /* Config.swift */; };
@@ -72,7 +79,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2006CA051AF5B3CC0077CC1B /* GameMainSceneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameMainSceneController.swift; sourceTree = "<group>"; };
 		2006D8AD1AED42500071D41C /* TimerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
+		2006D8B01AF0DA410071D41C /* AvatarManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarManager.swift; sourceTree = "<group>"; };
+		2006D8B51AF0FC630071D41C /* Avatar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
+		2006D8B71AF0FCCD0071D41C /* Monster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
+		2006D8B91AF0FCFD0071D41C /* Slime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slime.swift; sourceTree = "<group>"; };
+		2006D8BB1AF0FE180071D41C /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
+		2006D8BD1AF0FE390071D41C /* Warrior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Warrior.swift; sourceTree = "<group>"; };
 		2089D0C01AED2FBE00517836 /* RouteUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteUtil.swift; sourceTree = "<group>"; };
 		2089D0C21AED2FE500517836 /* DrawUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawUtil.swift; sourceTree = "<group>"; };
 		2089D0C41AED301300517836 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -130,6 +144,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2006D8AF1AF0DA290071D41C /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				2006D8B01AF0DA410071D41C /* AvatarManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		2006D8B41AF0FC3B0071D41C /* Avatar */ = {
+			isa = PBXGroup;
+			children = (
+				2006D8B51AF0FC630071D41C /* Avatar.swift */,
+				2006D8BD1AF0FE390071D41C /* Warrior.swift */,
+				2006D8BB1AF0FE180071D41C /* Hero.swift */,
+				2006D8B71AF0FCCD0071D41C /* Monster.swift */,
+				2006D8B91AF0FCFD0071D41C /* Slime.swift */,
+			);
+			path = Avatar;
+			sourceTree = "<group>";
+		};
 		208C35731AC8295A008F71CC = {
 			isa = PBXGroup;
 			children = (
@@ -193,10 +227,13 @@
 		208C35A61AC82A34008F71CC /* WatchCardGame WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				2006D8B41AF0FC3B0071D41C /* Avatar */,
+				2006D8AF1AF0DA290071D41C /* Manager */,
 				20FCA5DE1AED2E76008E7018 /* Config */,
 				20FCA5DD1AED2E5A008E7018 /* Util */,
 				20F7D76C1AE3AF5000C96C87 /* Assets */,
 				208C35AA1AC82A34008F71CC /* InterfaceController.swift */,
+				2006CA051AF5B3CC0077CC1B /* GameMainSceneController.swift */,
 				208C35AC1AC82A34008F71CC /* NotificationController.swift */,
 				208C35AE1AC82A34008F71CC /* Images.xcassets */,
 				208C35A71AC82A34008F71CC /* Supporting Files */,
@@ -477,10 +514,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				2089D0C11AED2FBE00517836 /* RouteUtil.swift in Sources */,
+				2006D8B81AF0FCCD0071D41C /* Monster.swift in Sources */,
+				2006CA061AF5B3CC0077CC1B /* GameMainSceneController.swift in Sources */,
 				2089D0C31AED2FE500517836 /* DrawUtil.swift in Sources */,
+				2006D8B11AF0DA410071D41C /* AvatarManager.swift in Sources */,
 				2089D0C51AED301300517836 /* Config.swift in Sources */,
 				2006D8AE1AED42500071D41C /* TimerManager.swift in Sources */,
+				2006D8BE1AF0FE390071D41C /* Warrior.swift in Sources */,
+				2006D8BC1AF0FE180071D41C /* Hero.swift in Sources */,
 				208C35AD1AC82A34008F71CC /* NotificationController.swift in Sources */,
+				2006D8B61AF0FC630071D41C /* Avatar.swift in Sources */,
+				2006D8BA1AF0FCFD0071D41C /* Slime.swift in Sources */,
 				208C35AB1AC82A34008F71CC /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

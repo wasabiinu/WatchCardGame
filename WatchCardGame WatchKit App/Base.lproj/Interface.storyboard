@@ -8,7 +8,23 @@
         <!--Main-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller identifier="Main" contentMode="TopLeft" spacing="0.0" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WatchCardGame_WatchKit_App" customModuleProvider="target">
+                <controller identifier="Main" contentMode="TopLeft" spacing="0.0" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WatchCardGame_WatchKit_Extension">
+                    <items>
+                        <button width="156" height="156" alignment="left" title="GAME START" id="CD5-XK-Aa0">
+                            <connections>
+                                <action selector="onTouchGameStartBtn" destination="AgC-eL-Hgc" id="ziF-Ds-par"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="344"/>
+        </scene>
+        <!--メイン-->
+        <scene sceneID="Myn-h3-P5Y">
+            <objects>
+                <controller identifier="GameMainSceneController" title="メイン" id="mGx-Vv-ZXk" customClass="GameMainSceneController" customModule="WatchCardGame_WatchKit_Extension">
                     <items>
                         <group width="156" height="32" alignment="left" backgroundImage="floor_bg.png" radius="0.0" spacing="0.0" id="0y6-eh-g3f" userLabel="FloorBg">
                             <items>
@@ -24,151 +40,13 @@
                                 <imageView width="56" height="6" alignment="left" id="Aeo-Ab-KP5" userLabel="RightAvatorStatus"/>
                             </items>
                         </group>
-                        <group width="156" height="32" alignment="left" backgroundImage="floor_bg.png" radius="0.0" spacing="0.0" id="bkC-AH-n1u" userLabel="FloorBg">
-                            <items>
-                                <imageView width="156" height="32" alignment="left" contentMode="TopLeft" id="N4X-cV-NYm"/>
-                            </items>
-                        </group>
-                        <group width="156" height="6" alignment="left" radius="0.0" spacing="0.0" id="LtW-S3-ZcD" userLabel="StatusBox">
-                            <items>
-                                <imageView width="41" height="6" alignment="left" contentMode="TopLeft" id="yEy-Lg-E4o" userLabel="LeftSpace"/>
-                                <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="SNw-JV-QCX" userLabel="LeftEnemyStatus"/>
-                                <imageView width="21" height="6" alignment="left" contentMode="TopLeft" id="baX-t9-Y25" userLabel="RightEnemyStatus"/>
-                                <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="xeX-Fx-TKr" userLabel="LeftAvatorStatus"/>
-                                <imageView width="56" height="6" alignment="left" id="UL2-UV-vf2" userLabel="RightAvatorStatus"/>
-                            </items>
-                        </group>
-                        <group width="156" height="32" alignment="left" backgroundImage="floor_bg.png" radius="0.0" spacing="0.0" id="VS4-nF-Lr8" userLabel="FloorBg">
-                            <items>
-                                <imageView width="156" height="32" alignment="left" contentMode="TopLeft" id="Bfg-nP-SNp"/>
-                            </items>
-                        </group>
-                        <group width="156" height="6" alignment="left" radius="0.0" spacing="0.0" id="bhT-1e-1NY" userLabel="StatusBox">
-                            <items>
-                                <imageView width="41" height="6" alignment="left" contentMode="TopLeft" id="Ty2-k1-lcX" userLabel="LeftSpace"/>
-                                <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="luf-Cu-LXZ" userLabel="LeftEnemyStatus"/>
-                                <imageView width="21" height="6" alignment="left" contentMode="TopLeft" id="dMH-Rm-D3o" userLabel="RightEnemyStatus"/>
-                                <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="IWt-tD-x6a" userLabel="LeftAvatorStatus"/>
-                                <imageView width="56" height="6" alignment="left" id="4fo-bA-YUo" userLabel="RightAvatorStatus"/>
-                            </items>
-                        </group>
-                        <group width="156" height="32" alignment="left" backgroundImage="floor_bg.png" radius="0.0" spacing="0.0" id="be9-9g-7uR" userLabel="FloorBg">
-                            <items>
-                                <imageView width="156" height="32" alignment="left" contentMode="TopLeft" id="0Qm-oQ-J7F"/>
-                            </items>
-                        </group>
-                        <group width="156" height="6" alignment="left" radius="0.0" spacing="0.0" id="23Z-j7-MnT" userLabel="StatusBox">
-                            <items>
-                                <imageView width="41" height="6" alignment="left" contentMode="TopLeft" id="vWj-vG-vT5" userLabel="LeftSpace"/>
-                                <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="tSA-NC-2B1" userLabel="LeftEnemyStatus"/>
-                                <imageView width="21" height="6" alignment="left" contentMode="TopLeft" id="qvg-NJ-qka" userLabel="RightEnemyStatus"/>
-                                <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="Llb-bV-ISs" userLabel="LeftAvatorStatus"/>
-                                <imageView width="56" height="6" alignment="left" id="u4A-hy-gf6" userLabel="RightAvatorStatus"/>
-                            </items>
-                        </group>
-                        <group width="156" height="32" alignment="left" backgroundImage="floor_bg.png" radius="0.0" spacing="0.0" id="gps-4z-Krp" userLabel="FloorBg">
-                            <items>
-                                <imageView width="156" height="32" alignment="left" contentMode="TopLeft" id="mQe-np-jkM"/>
-                            </items>
-                        </group>
-                        <group width="156" height="6" alignment="left" radius="0.0" spacing="0.0" id="T9l-Fb-ygR" userLabel="StatusBox">
-                            <items>
-                                <imageView width="41" height="6" alignment="left" contentMode="TopLeft" id="Df4-3a-FHm" userLabel="LeftSpace"/>
-                                <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="r46-t2-QQp" userLabel="LeftEnemyStatus"/>
-                                <imageView width="21" height="6" alignment="left" contentMode="TopLeft" id="q6s-Zw-18K" userLabel="RightEnemyStatus"/>
-                                <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="oJD-pA-MRO" userLabel="LeftAvatorStatus"/>
-                                <imageView width="56" height="6" alignment="left" id="KUm-3d-2CT" userLabel="RightAvatorStatus"/>
-                            </items>
-                        </group>
-                        <group width="156" height="32" alignment="left" backgroundImage="floor_bg.png" radius="0.0" spacing="0.0" id="ubi-h2-V9V" userLabel="FloorBg">
-                            <items>
-                                <imageView width="156" height="32" alignment="left" contentMode="TopLeft" id="KKW-8w-tPP"/>
-                            </items>
-                        </group>
-                        <group width="156" height="6" alignment="left" radius="0.0" spacing="0.0" id="gZq-lP-gy4" userLabel="StatusBox">
-                            <items>
-                                <imageView width="41" height="6" alignment="left" contentMode="TopLeft" id="UUU-5k-Kul" userLabel="LeftSpace"/>
-                                <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="S1G-K3-geK" userLabel="LeftEnemyStatus"/>
-                                <imageView width="21" height="6" alignment="left" contentMode="TopLeft" id="NKx-MK-ulw" userLabel="RightEnemyStatus"/>
-                                <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="wlC-zv-fhI" userLabel="LeftAvatorStatus"/>
-                                <imageView width="56" height="6" alignment="left" id="A37-4M-f9N" userLabel="RightAvatorStatus"/>
-                            </items>
-                        </group>
-                        <group width="156" height="32" alignment="left" backgroundImage="floor_bg.png" radius="0.0" spacing="0.0" id="f8S-fM-0Tb" userLabel="FloorBg">
-                            <items>
-                                <imageView width="156" height="32" alignment="left" contentMode="TopLeft" id="xqJ-QP-VBy"/>
-                            </items>
-                        </group>
-                        <group width="156" height="6" alignment="left" radius="0.0" spacing="0.0" id="NFz-Kb-ONO" userLabel="StatusBox">
-                            <items>
-                                <imageView width="41" height="6" alignment="left" contentMode="TopLeft" id="Zk9-pk-BX0" userLabel="LeftSpace"/>
-                                <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="BaB-7y-J0M" userLabel="LeftEnemyStatus"/>
-                                <imageView width="21" height="6" alignment="left" contentMode="TopLeft" id="zpL-Uq-EI7" userLabel="RightEnemyStatus"/>
-                                <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="ZN6-dC-qKe" userLabel="LeftAvatorStatus"/>
-                                <imageView width="56" height="6" alignment="left" id="bFa-ON-2Fg" userLabel="RightAvatorStatus"/>
-                            </items>
-                        </group>
-                        <group width="156" height="32" alignment="left" backgroundImage="floor_bg.png" radius="0.0" spacing="0.0" id="9br-Zr-jFb" userLabel="FloorBg">
-                            <items>
-                                <imageView width="156" height="32" alignment="left" contentMode="TopLeft" id="O3Q-nt-Dsk"/>
-                            </items>
-                        </group>
-                        <group width="156" height="6" alignment="left" radius="0.0" spacing="0.0" id="nad-KA-Jud" userLabel="StatusBox">
-                            <items>
-                                <imageView width="41" height="6" alignment="left" contentMode="TopLeft" id="L9d-rO-lEH" userLabel="LeftSpace"/>
-                                <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="sIr-Fr-eDF" userLabel="LeftEnemyStatus"/>
-                                <imageView width="21" height="6" alignment="left" contentMode="TopLeft" id="K0M-cl-Cah" userLabel="RightEnemyStatus"/>
-                                <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="uKw-9a-vVK" userLabel="LeftAvatorStatus"/>
-                                <imageView width="56" height="6" alignment="left" id="63o-pG-fcU" userLabel="RightAvatorStatus"/>
-                            </items>
-                        </group>
-                        <group width="156" height="32" alignment="left" backgroundImage="floor_bg.png" radius="0.0" spacing="0.0" id="A8e-0B-SFG" userLabel="FloorBg">
-                            <items>
-                                <imageView width="156" height="32" alignment="left" contentMode="TopLeft" id="YT2-xH-PTw"/>
-                            </items>
-                        </group>
-                        <group width="156" height="6" alignment="left" radius="0.0" spacing="0.0" id="A2A-dg-0aX" userLabel="StatusBox">
-                            <items>
-                                <imageView width="41" height="6" alignment="left" contentMode="TopLeft" id="4eI-8i-ncu" userLabel="LeftSpace"/>
-                                <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="cC9-2h-02M" userLabel="LeftEnemyStatus"/>
-                                <imageView width="21" height="6" alignment="left" contentMode="TopLeft" id="wiR-ew-yA9" userLabel="RightEnemyStatus"/>
-                                <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="Ji4-Ng-iug" userLabel="LeftAvatorStatus"/>
-                                <imageView width="56" height="6" alignment="left" id="zTt-hC-JPR" userLabel="RightAvatorStatus"/>
-                            </items>
-                        </group>
-                        <group width="156" height="32" alignment="left" backgroundImage="floor_bg.png" radius="0.0" spacing="0.0" id="gia-eN-cvM" userLabel="FloorBg">
-                            <items>
-                                <imageView width="156" height="32" alignment="left" contentMode="TopLeft" id="1ZN-Xk-qHM"/>
-                            </items>
-                        </group>
                     </items>
-                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                     <connections>
-                        <outlet property="Floor10Content" destination="UPI-Ns-UK0" id="hBr-RH-V65"/>
-                        <outlet property="Floor1Content" destination="1ZN-Xk-qHM" id="fTO-yD-8Qk"/>
-                        <outlet property="Floor2Content" destination="YT2-xH-PTw" id="GdU-Em-8uX"/>
-                        <outlet property="Floor3Content" destination="O3Q-nt-Dsk" id="CDI-Oj-sS9"/>
-                        <outlet property="Floor4Content" destination="xqJ-QP-VBy" id="7uS-ux-WT4"/>
-                        <outlet property="Floor5Content" destination="KKW-8w-tPP" id="4wV-cg-GNy"/>
-                        <outlet property="Floor6Content" destination="mQe-np-jkM" id="8w8-BX-dbY"/>
-                        <outlet property="Floor7Content" destination="0Qm-oQ-J7F" id="xOY-Wv-gBu"/>
-                        <outlet property="Floor8Content" destination="Bfg-nP-SNp" id="qPd-oZ-2CA"/>
-                        <outlet property="Floor9Content" destination="N4X-cV-NYm" id="hNk-vi-L3j"/>
+                        <outlet property="Floor1Content" destination="UPI-Ns-UK0" id="a91-fF-6C0"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="344"/>
-        </scene>
-        <!--WeaponMenu-->
-        <scene sceneID="p8p-x0-CLn">
-            <objects>
-                <controller identifier="WeaponMenu" id="rb1-2C-8PI">
-                    <items>
-                        <imageView alignment="left" image="bg_" id="JgU-a5-iiW"/>
-                    </items>
-                </controller>
-            </objects>
-            <point key="canvasLocation" x="378" y="344"/>
+            <point key="canvasLocation" x="384" y="342"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
