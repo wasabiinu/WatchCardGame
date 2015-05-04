@@ -13,6 +13,7 @@ import WatchKit
 internal class Avatar
 {
     internal var hp:Int = 1
+    internal var maxHp:Int = 1
     internal var elementType:String = "impact"
     internal var level:Int = 1
     internal var attack:Int = 1

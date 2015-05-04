@@ -43,6 +43,8 @@
                     </items>
                     <connections>
                         <outlet property="Floor1Content" destination="UPI-Ns-UK0" id="a91-fF-6C0"/>
+                        <outlet property="HeroLeftHpBar" destination="X1P-cH-HCf" id="MY5-rS-4fI"/>
+                        <outlet property="MonsterRightHpBar" destination="vLV-Ji-TwL" id="7r8-9N-ECh"/>
                     </connections>
                 </controller>
             </objects>

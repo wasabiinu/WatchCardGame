@@ -15,6 +15,7 @@ internal class Warrior : Hero
     {
         super.init()
         hp = super.level * 10
+        maxHp = hp
         attack = super.level * 10
         defence = super.level * 10
         elementType = "slash"

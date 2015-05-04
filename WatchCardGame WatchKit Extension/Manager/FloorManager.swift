@@ -65,7 +65,7 @@ internal class FloorManager
         {
             //モンスターのターン処理を書く
             monsters[0].attackProgress++
-            
+            println("monsters[0].attackProgress:\(monsters[0].attackProgress)")
             switch monsters[0].attackProgress
             {
             case 1:
@@ -81,6 +81,9 @@ internal class FloorManager
                 monsters[0].attackEffect.point.y = CGFloat(heroes[0].yPosition)
                 
                 effectImage = monsters[0].attackEffect.image
+                
+                //ヒーローのHPを削る
+                heroes[0].hp -= 1
                 break
             case 4:
                 //ヒットした瞬間
@@ -111,6 +114,8 @@ internal class FloorManager
         {
             //ヒーローのターン処理を書く
             heroes[0].attackProgress++
+            println("heroes[0].attackProgress:\(heroes[0].attackProgress)")
+            
             switch heroes[0].attackProgress
             {
             case 1:
@@ -128,6 +133,9 @@ internal class FloorManager
                 heroes[0].attackEffect.point.y = CGFloat(monsters[0].yPosition)
                 
                 effectImage = heroes[0].attackEffect.reverseImage
+                
+                //モンスターのHPを削る
+                monsters[0].hp -= 5
                 break
             case 4:
                 //ヒットした瞬間

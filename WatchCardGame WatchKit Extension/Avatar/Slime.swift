@@ -15,6 +15,7 @@ internal class Slime : Monster
     {
         super.init()
         hp = super.level * 100
+        maxHp = hp
         attack = super.level * 30
         defence = super.level * 30
         elementType = "impact"
