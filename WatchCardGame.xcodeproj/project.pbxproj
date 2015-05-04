@@ -27,6 +27,13 @@
 		2006D8BE1AF0FE390071D41C /* Warrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006D8BD1AF0FE390071D41C /* Warrior.swift */; };
 		204FBC861AF65C7400B5614F /* slime1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204FBC851AF65C7400B5614F /* slime1@2x.png */; };
 		204FBC881AF65C7E00B5614F /* warrior4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204FBC871AF65C7E00B5614F /* warrior4@2x.png */; };
+		204FBC8E1AF7045400B5614F /* impact0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204FBC891AF7045400B5614F /* impact0@2x.png */; };
+		204FBC8F1AF7045400B5614F /* impact1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204FBC8A1AF7045400B5614F /* impact1@2x.png */; };
+		204FBC901AF7045400B5614F /* impact2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204FBC8B1AF7045400B5614F /* impact2@2x.png */; };
+		204FBC911AF7045400B5614F /* impact3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204FBC8C1AF7045400B5614F /* impact3@2x.png */; };
+		204FBC921AF7045400B5614F /* impact4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204FBC8D1AF7045400B5614F /* impact4@2x.png */; };
+		204FBC951AF704EC00B5614F /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204FBC941AF704EC00B5614F /* Effect.swift */; };
+		204FBC971AF7051800B5614F /* ImpactEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204FBC961AF7051800B5614F /* ImpactEffect.swift */; };
 		2089D0C11AED2FBE00517836 /* RouteUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089D0C01AED2FBE00517836 /* RouteUtil.swift */; };
 		2089D0C31AED2FE500517836 /* DrawUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089D0C21AED2FE500517836 /* DrawUtil.swift */; };
 		2089D0C51AED301300517836 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089D0C41AED301300517836 /* Config.swift */; };
@@ -111,6 +118,13 @@
 		2006D8BD1AF0FE390071D41C /* Warrior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Warrior.swift; sourceTree = "<group>"; };
 		204FBC851AF65C7400B5614F /* slime1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slime1@2x.png"; sourceTree = "<group>"; };
 		204FBC871AF65C7E00B5614F /* warrior4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warrior4@2x.png"; sourceTree = "<group>"; };
+		204FBC891AF7045400B5614F /* impact0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "impact0@2x.png"; sourceTree = "<group>"; };
+		204FBC8A1AF7045400B5614F /* impact1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "impact1@2x.png"; sourceTree = "<group>"; };
+		204FBC8B1AF7045400B5614F /* impact2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "impact2@2x.png"; sourceTree = "<group>"; };
+		204FBC8C1AF7045400B5614F /* impact3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "impact3@2x.png"; sourceTree = "<group>"; };
+		204FBC8D1AF7045400B5614F /* impact4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "impact4@2x.png"; sourceTree = "<group>"; };
+		204FBC941AF704EC00B5614F /* Effect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
+		204FBC961AF7051800B5614F /* ImpactEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImpactEffect.swift; sourceTree = "<group>"; };
 		2089D0C01AED2FBE00517836 /* RouteUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteUtil.swift; sourceTree = "<group>"; };
 		2089D0C21AED2FE500517836 /* DrawUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawUtil.swift; sourceTree = "<group>"; };
 		2089D0C41AED301300517836 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -171,6 +185,11 @@
 		2006CA0D1AF620210077CC1B /* effect */ = {
 			isa = PBXGroup;
 			children = (
+				204FBC891AF7045400B5614F /* impact0@2x.png */,
+				204FBC8A1AF7045400B5614F /* impact1@2x.png */,
+				204FBC8B1AF7045400B5614F /* impact2@2x.png */,
+				204FBC8C1AF7045400B5614F /* impact3@2x.png */,
+				204FBC8D1AF7045400B5614F /* impact4@2x.png */,
 				2006CA1E1AF625870077CC1B /* battlestart0@2x.png */,
 				2006CA1F1AF625870077CC1B /* battlestart1@2x.png */,
 				2006CA201AF625870077CC1B /* battlestart2@2x.png */,
@@ -202,6 +221,15 @@
 				2006D8B91AF0FCFD0071D41C /* Slime.swift */,
 			);
 			path = Avatar;
+			sourceTree = "<group>";
+		};
+		204FBC931AF704CC00B5614F /* Effect */ = {
+			isa = PBXGroup;
+			children = (
+				204FBC941AF704EC00B5614F /* Effect.swift */,
+				204FBC961AF7051800B5614F /* ImpactEffect.swift */,
+			);
+			path = Effect;
 			sourceTree = "<group>";
 		};
 		208C35731AC8295A008F71CC = {
@@ -267,6 +295,7 @@
 		208C35A61AC82A34008F71CC /* WatchCardGame WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				204FBC931AF704CC00B5614F /* Effect */,
 				2006D8B41AF0FC3B0071D41C /* Avatar */,
 				2006D8AF1AF0DA290071D41C /* Manager */,
 				20FCA5DE1AED2E76008E7018 /* Config */,
@@ -515,6 +544,7 @@
 				2006CA261AF625870077CC1B /* battlestart0@2x.png in Resources */,
 				204FBC881AF65C7E00B5614F /* warrior4@2x.png in Resources */,
 				2006CA291AF625870077CC1B /* battlestart3@2x.png in Resources */,
+				204FBC8F1AF7045400B5614F /* impact1@2x.png in Resources */,
 				20FCA5D11AECF47B008E7018 /* warrior2@2x.png in Resources */,
 				2006CA281AF625870077CC1B /* battlestart2@2x.png in Resources */,
 				20FCA5DC1AED2DAD008E7018 /* floor_origin@2x.png in Resources */,
@@ -522,13 +552,17 @@
 				2006CA2D1AF625870077CC1B /* battlestart7@2x.png in Resources */,
 				204FBC861AF65C7400B5614F /* slime1@2x.png in Resources */,
 				2006CA271AF625870077CC1B /* battlestart1@2x.png in Resources */,
+				204FBC901AF7045400B5614F /* impact2@2x.png in Resources */,
 				20FCA5D21AECF47B008E7018 /* warrior3@2x.png in Resources */,
 				20FCA5CA1AECF46C008E7018 /* slime@2px.png in Resources */,
 				2006CA2A1AF625870077CC1B /* battlestart4@2x.png in Resources */,
+				204FBC8E1AF7045400B5614F /* impact0@2x.png in Resources */,
+				204FBC911AF7045400B5614F /* impact3@2x.png in Resources */,
 				208C35B31AC82A34008F71CC /* WatchCardGame WatchKit App.app in Resources */,
 				2006CA2B1AF625870077CC1B /* battlestart5@2x.png in Resources */,
 				2006CA0C1AF5DECB0077CC1B /* slime0@2x.png in Resources */,
 				20FCA5CF1AECF47B008E7018 /* warrior0@2x.png in Resources */,
+				204FBC921AF7045400B5614F /* impact4@2x.png in Resources */,
 				208C35AF1AC82A34008F71CC /* Images.xcassets in Resources */,
 				20FCA5D01AECF47B008E7018 /* warrior1@2x.png in Resources */,
 			);
@@ -568,6 +602,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				204FBC951AF704EC00B5614F /* Effect.swift in Sources */,
 				2006CA081AF5CFF60077CC1B /* FloorManager.swift in Sources */,
 				2089D0C11AED2FBE00517836 /* RouteUtil.swift in Sources */,
 				2006D8B81AF0FCCD0071D41C /* Monster.swift in Sources */,
@@ -575,6 +610,7 @@
 				2089D0C31AED2FE500517836 /* DrawUtil.swift in Sources */,
 				2006D8B11AF0DA410071D41C /* AvatarManager.swift in Sources */,
 				2089D0C51AED301300517836 /* Config.swift in Sources */,
+				204FBC971AF7051800B5614F /* ImpactEffect.swift in Sources */,
 				2006D8AE1AED42500071D41C /* TimerManager.swift in Sources */,
 				2006D8BE1AF0FE390071D41C /* Warrior.swift in Sources */,
 				2006D8BC1AF0FE180071D41C /* Hero.swift in Sources */,

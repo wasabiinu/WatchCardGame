@@ -58,12 +58,14 @@ internal class FloorManager
     internal func play1Turn() -> UIImage
     {
         var heroImage:UIImage = heroes[0].stopImage
-        var monsterImage:UIImage! = monsters[0].image
+        var monsterImage:UIImage = monsters[0].image
+        var effectImage:UIImage = UIImage(named: "floor_origin.png")!
         
         if (isMonsterTurn == true)
         {
             //モンスターのターン処理を書く
             monsters[0].attackProgress++
+            
             switch monsters[0].attackProgress
             {
             case 1:
@@ -71,19 +73,29 @@ internal class FloorManager
                 
                 break
             case 3:
+                //ヒットした瞬間
                 monsters[0].xPosition += 10
                 
+                monsters[0].attackEffect.progress = 0
+                monsters[0].attackEffect.point.x = CGFloat(heroes[0].xPosition)
+                monsters[0].attackEffect.point.y = CGFloat(heroes[0].yPosition)
+                
+                effectImage = monsters[0].attackEffect.image
+                break
+            case 4:
+                //ヒットした瞬間
+                monsters[0].xPosition += 0
+                effectImage = monsters[0].attackEffect.image
                 break
             case 5:
                 monsters[0].xPosition -= 5
-                
-                
                 heroes[0].xPosition += 5
                 heroImage = heroes[0].progressImage(4)
-                
+                effectImage = monsters[0].attackEffect.image
                 break
             case 6:
                 heroes[0].xPosition -= 5
+                effectImage = monsters[0].attackEffect.image
                 break
             case 8:
                 isMonsterTurn = false
@@ -133,11 +145,20 @@ internal class FloorManager
             }
         }
         
+        var effectPoint:CGPoint = CGPointMake(0, 0)
+        if (isMonsterTurn == true)
+        {
+            effectPoint = monsters[0].attackEffect.point
+        }
+        
         //ヒーロー画像
         var image:UIImage = DrawUtil.synthesizeImage(_alphaImage, synthImage: heroImage, x: CGFloat(heroes[0].xPosition), y: CGFloat(heroes[0].yPosition))
         
         //モンスター画像
         image = DrawUtil.synthesizeImage(image, synthImage: monsterImage, x: CGFloat(monsters[0].xPosition), y: CGFloat(monsters[0].yPosition))
+        
+        //エフェクト
+        image = DrawUtil.synthesizeImage(image, synthImage: effectImage, x: effectPoint.x, y: effectPoint.y)
         
         return image
     }
