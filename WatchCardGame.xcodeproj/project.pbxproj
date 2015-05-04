@@ -34,6 +34,12 @@
 		204FBC921AF7045400B5614F /* impact4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204FBC8D1AF7045400B5614F /* impact4@2x.png */; };
 		204FBC951AF704EC00B5614F /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204FBC941AF704EC00B5614F /* Effect.swift */; };
 		204FBC971AF7051800B5614F /* ImpactEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204FBC961AF7051800B5614F /* ImpactEffect.swift */; };
+		204FBCA31AF7165C00B5614F /* SlashEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204FBCA21AF7165C00B5614F /* SlashEffect.swift */; };
+		204FBCA91AF717A600B5614F /* slash0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204FBCA41AF717A600B5614F /* slash0@2x.png */; };
+		204FBCAA1AF717A600B5614F /* slash1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204FBCA51AF717A600B5614F /* slash1@2x.png */; };
+		204FBCAB1AF717A600B5614F /* slash2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204FBCA61AF717A600B5614F /* slash2@2x.png */; };
+		204FBCAC1AF717A600B5614F /* slash3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204FBCA71AF717A600B5614F /* slash3@2x.png */; };
+		204FBCAD1AF717A600B5614F /* slash4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204FBCA81AF717A600B5614F /* slash4@2x.png */; };
 		2089D0C11AED2FBE00517836 /* RouteUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089D0C01AED2FBE00517836 /* RouteUtil.swift */; };
 		2089D0C31AED2FE500517836 /* DrawUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089D0C21AED2FE500517836 /* DrawUtil.swift */; };
 		2089D0C51AED301300517836 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089D0C41AED301300517836 /* Config.swift */; };
@@ -125,6 +131,12 @@
 		204FBC8D1AF7045400B5614F /* impact4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "impact4@2x.png"; sourceTree = "<group>"; };
 		204FBC941AF704EC00B5614F /* Effect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
 		204FBC961AF7051800B5614F /* ImpactEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImpactEffect.swift; sourceTree = "<group>"; };
+		204FBCA21AF7165C00B5614F /* SlashEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlashEffect.swift; sourceTree = "<group>"; };
+		204FBCA41AF717A600B5614F /* slash0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slash0@2x.png"; sourceTree = "<group>"; };
+		204FBCA51AF717A600B5614F /* slash1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slash1@2x.png"; sourceTree = "<group>"; };
+		204FBCA61AF717A600B5614F /* slash2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slash2@2x.png"; sourceTree = "<group>"; };
+		204FBCA71AF717A600B5614F /* slash3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slash3@2x.png"; sourceTree = "<group>"; };
+		204FBCA81AF717A600B5614F /* slash4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slash4@2x.png"; sourceTree = "<group>"; };
 		2089D0C01AED2FBE00517836 /* RouteUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteUtil.swift; sourceTree = "<group>"; };
 		2089D0C21AED2FE500517836 /* DrawUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawUtil.swift; sourceTree = "<group>"; };
 		2089D0C41AED301300517836 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -185,6 +197,11 @@
 		2006CA0D1AF620210077CC1B /* effect */ = {
 			isa = PBXGroup;
 			children = (
+				204FBCA41AF717A600B5614F /* slash0@2x.png */,
+				204FBCA51AF717A600B5614F /* slash1@2x.png */,
+				204FBCA61AF717A600B5614F /* slash2@2x.png */,
+				204FBCA71AF717A600B5614F /* slash3@2x.png */,
+				204FBCA81AF717A600B5614F /* slash4@2x.png */,
 				204FBC891AF7045400B5614F /* impact0@2x.png */,
 				204FBC8A1AF7045400B5614F /* impact1@2x.png */,
 				204FBC8B1AF7045400B5614F /* impact2@2x.png */,
@@ -228,6 +245,7 @@
 			children = (
 				204FBC941AF704EC00B5614F /* Effect.swift */,
 				204FBC961AF7051800B5614F /* ImpactEffect.swift */,
+				204FBCA21AF7165C00B5614F /* SlashEffect.swift */,
 			);
 			path = Effect;
 			sourceTree = "<group>";
@@ -542,8 +560,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2006CA261AF625870077CC1B /* battlestart0@2x.png in Resources */,
+				204FBCAD1AF717A600B5614F /* slash4@2x.png in Resources */,
 				204FBC881AF65C7E00B5614F /* warrior4@2x.png in Resources */,
 				2006CA291AF625870077CC1B /* battlestart3@2x.png in Resources */,
+				204FBCAB1AF717A600B5614F /* slash2@2x.png in Resources */,
 				204FBC8F1AF7045400B5614F /* impact1@2x.png in Resources */,
 				20FCA5D11AECF47B008E7018 /* warrior2@2x.png in Resources */,
 				2006CA281AF625870077CC1B /* battlestart2@2x.png in Resources */,
@@ -555,11 +575,14 @@
 				204FBC901AF7045400B5614F /* impact2@2x.png in Resources */,
 				20FCA5D21AECF47B008E7018 /* warrior3@2x.png in Resources */,
 				20FCA5CA1AECF46C008E7018 /* slime@2px.png in Resources */,
+				204FBCA91AF717A600B5614F /* slash0@2x.png in Resources */,
 				2006CA2A1AF625870077CC1B /* battlestart4@2x.png in Resources */,
 				204FBC8E1AF7045400B5614F /* impact0@2x.png in Resources */,
 				204FBC911AF7045400B5614F /* impact3@2x.png in Resources */,
 				208C35B31AC82A34008F71CC /* WatchCardGame WatchKit App.app in Resources */,
+				204FBCAC1AF717A600B5614F /* slash3@2x.png in Resources */,
 				2006CA2B1AF625870077CC1B /* battlestart5@2x.png in Resources */,
+				204FBCAA1AF717A600B5614F /* slash1@2x.png in Resources */,
 				2006CA0C1AF5DECB0077CC1B /* slime0@2x.png in Resources */,
 				20FCA5CF1AECF47B008E7018 /* warrior0@2x.png in Resources */,
 				204FBC921AF7045400B5614F /* impact4@2x.png in Resources */,
@@ -609,6 +632,7 @@
 				2006CA061AF5B3CC0077CC1B /* GameMainSceneController.swift in Sources */,
 				2089D0C31AED2FE500517836 /* DrawUtil.swift in Sources */,
 				2006D8B11AF0DA410071D41C /* AvatarManager.swift in Sources */,
+				204FBCA31AF7165C00B5614F /* SlashEffect.swift in Sources */,
 				2089D0C51AED301300517836 /* Config.swift in Sources */,
 				204FBC971AF7051800B5614F /* ImpactEffect.swift in Sources */,
 				2006D8AE1AED42500071D41C /* TimerManager.swift in Sources */,

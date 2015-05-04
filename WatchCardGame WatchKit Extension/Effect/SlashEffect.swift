@@ -1,5 +1,5 @@
 //
-//  ImpactEffect.swift
+//  SlashEffect.swift
 //  WatchCardGame
 //
 //  Created by 横山 優 on 2015/05/04.
@@ -8,7 +8,7 @@
 
 import Foundation
 import WatchKit
-internal class ImpactEffect : Effect
+internal class SlashEffect : Effect
 {
     override init()
     {
@@ -16,14 +16,14 @@ internal class ImpactEffect : Effect
     }
     
     override internal var image:UIImage!
-    {
+        {
         get
         {
             if (progress > 4)
             {
                 progress = 0
             }
-            var _image:UIImage = UIImage(named: "impact\(progress).png")!
+            var _image:UIImage = UIImage(named: "slash\(progress).png")!
             progress++
             return _image
         }
@@ -31,10 +31,11 @@ internal class ImpactEffect : Effect
         {
             
         }
+        
     }
     
     override internal var point:CGPoint
-    {
+        {
         get
         {
             return super.point
@@ -42,8 +43,8 @@ internal class ImpactEffect : Effect
         set
         {
             var newPoint:CGPoint = newValue as CGPoint
-            super.point.x = newPoint.x - 2
-            super.point.y = newPoint.y - 6
+            super.point.x = CGFloat(newPoint.x - 3)
+            super.point.y = CGFloat(newPoint.y + 12)
             
         }
     }

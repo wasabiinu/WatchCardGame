@@ -118,21 +118,35 @@ internal class FloorManager
                 heroImage = heroes[0].progressImage(1)
                 break
             case 3:
+                //ヒットした瞬間
                 heroes[0].xPosition -= 10
                 heroImage = heroes[0].progressImage(2)
                 heroImage = heroes[0].attackImage
+                
+                heroes[0].attackEffect.progress = 0
+                heroes[0].attackEffect.point.x = CGFloat(monsters[0].xPosition)
+                heroes[0].attackEffect.point.y = CGFloat(monsters[0].yPosition)
+                
+                effectImage = heroes[0].attackEffect.reverseImage
                 break
             case 4:
+                //ヒットした瞬間
                 heroes[0].xPosition += 0
                 heroImage = heroes[0].attackImage
+                
+                effectImage = heroes[0].attackEffect.reverseImage
                 break
             case 5:
                 heroes[0].xPosition += 5
                 monsterImage = monsters[0].progressImage(1)
                 
                 monsters[0].xPosition -= 5
+                
+                effectImage = heroes[0].attackEffect.reverseImage
             case 6:
                 monsters[0].xPosition += 5
+                
+                effectImage = heroes[0].attackEffect.reverseImage
                 break
             case 8 :
                 isMonsterTurn = true
@@ -149,6 +163,10 @@ internal class FloorManager
         if (isMonsterTurn == true)
         {
             effectPoint = monsters[0].attackEffect.point
+        }
+        else
+        {
+            effectPoint = heroes[0].attackEffect.point
         }
         
         //ヒーロー画像

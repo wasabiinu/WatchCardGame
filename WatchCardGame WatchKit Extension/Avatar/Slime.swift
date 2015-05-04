@@ -19,6 +19,7 @@ internal class Slime : Monster
         defence = super.level * 30
         elementType = "impact"
         image = UIImage(named: "slime0.png")!
+        attackEffect = ImpactEffect()
     }
     override internal func progressImage(no:Int) -> UIImage
     {

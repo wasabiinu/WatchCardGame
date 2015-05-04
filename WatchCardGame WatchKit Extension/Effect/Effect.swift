@@ -18,4 +18,11 @@ internal class Effect
     }
     
     internal var image:UIImage!
+    internal var reverseImage:UIImage
+    {
+        get
+        {
+            return DrawUtil.reverseImage(image)
+        }
+    }
 }

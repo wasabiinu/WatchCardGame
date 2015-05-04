@@ -50,6 +50,24 @@ internal class DrawUtil {
         return uiImage
     }
     
+    internal class func reverseImage(origin:UIImage) -> UIImage
+    {
+        var image:UIImage = UIImage(CGImage: origin.CGImage, scale: 2.0, orientation: UIImageOrientation.RightMirrored)!
+        
+        /*
+        var imgRef:CGImageRef = origin.CGImage
+        UIGraphicsBeginImageContext(origin.size)
+        var context:CGContextRef = UIGraphicsGetCurrentContext()
+        CGContextTranslateCTM( context, origin.size.width, origin.size.height)
+        CGContextScaleCTM( context, -1.0, 1.0)
+        CGContextDrawImage( context, CGRectMake( 0, 0, origin.size.width, origin.size.height), imgRef)
+        var retImg:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return retImg*/
+        
+        return image
+    }
+    
     internal class func draw1frame()
     {
         
