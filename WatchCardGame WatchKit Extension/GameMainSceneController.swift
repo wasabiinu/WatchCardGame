@@ -54,19 +54,26 @@ class GameMainSceneController: WKInterfaceController {
         {
             Floor1Content.setImage(_floor1Manager.battleStart())
         }
-        else if (_floor1Manager.heroes[0].hp > 0 && _floor1Manager.monsters[0].hp > 0)
+        else if (!((_floor1Manager.heroes[0].hp == 0 && _floor1Manager.monsters[0].attackProgress == 0) ||
+            (_floor1Manager.monsters[0].hp == 0 && _floor1Manager.heroes[0].attackProgress == 0)))
         {
             Floor1Content.setImage(_floor1Manager.play1Turn())
         }
+        //ヒーローのHPが0かつ、進捗が0の場合　または、モンスターのHPが0かつ、進捗が0の場合　下に抜ける
+        
         else if (_floor1Manager.heroes[0].hp <= 0)
         {
             //ヒーローが負けた場合の処理
             //勝利演出
+            println("Chased out!")
+            Floor1Content.setImage(_floor1Manager.playWin())
         }
         else if (_floor1Manager.monsters[0].hp <= 0)
         {
             //モンスターが負けた場合の処理
             //負け演出
+            println("Invaded next floor...")
+            _floor1Manager.playLose()
         }
         manageHp()
     }

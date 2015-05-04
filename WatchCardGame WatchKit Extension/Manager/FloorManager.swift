@@ -16,6 +16,7 @@ internal class FloorManager
     internal var battleStartProgress:Int
     internal var isMonsterTurn:Bool
     private var _alphaImage:UIImage = UIImage(named: "floor_origin.png")!
+    private var _effect:Effect!
     
     init()
     {
@@ -93,16 +94,47 @@ internal class FloorManager
             case 5:
                 monsters[0].xPosition -= 5
                 heroes[0].xPosition += 5
-                heroImage = heroes[0].progressImage(4)
+                
                 effectImage = monsters[0].attackEffect.image
+                
+                //死亡時
+                if (heroes[0].hp <= 0)
+                {
+                    _effect = WinEffect()
+                    heroImage = heroes[0].progressImage(5)
+                }
+                else
+                {
+                    heroImage = heroes[0].progressImage(4)
+                }
+                
                 break
             case 6:
                 heroes[0].xPosition -= 5
                 effectImage = monsters[0].attackEffect.image
+                
+                //死亡時
+                if (heroes[0].hp <= 0)
+                {
+                    heroImage = heroes[0].progressImage(6)
+                }
+                break
+            case 7:
+                //死亡時
+                if (heroes[0].hp <= 0)
+                {
+                    heroImage = heroes[0].progressImage(7)
+                }
                 break
             case 8:
                 isMonsterTurn = false
                 monsters[0].attackProgress = 0
+                
+                //死亡時
+                if (heroes[0].hp <= 0)
+                {
+                    heroImage = heroes[0].progressImage(8)
+                }
                 break
             default :
                 monsters[0].xPosition += 0
@@ -146,19 +178,49 @@ internal class FloorManager
                 break
             case 5:
                 heroes[0].xPosition += 5
-                monsterImage = monsters[0].progressImage(1)
+                
                 
                 monsters[0].xPosition -= 5
                 
                 effectImage = heroes[0].attackEffect.reverseImage
+                
+                //死亡時
+                if (heroes[0].hp <= 0)
+                {
+                    _effect = LoseEffect()
+                    monsterImage = monsters[0].progressImage(2)
+                }
+                else
+                {
+                    monsterImage = monsters[0].progressImage(1)
+                }
             case 6:
                 monsters[0].xPosition += 5
                 
                 effectImage = heroes[0].attackEffect.reverseImage
+                
+                //死亡時
+                if (heroes[0].hp <= 0)
+                {
+                    monsterImage = monsters[0].progressImage(3)
+                }
+                break
+            case 7:
+                //死亡時
+                if (heroes[0].hp <= 0)
+                {
+                    monsterImage = monsters[0].progressImage(4)
+                }
                 break
             case 8 :
                 isMonsterTurn = true
                 heroes[0].attackProgress = 0
+                
+                //死亡時
+                if (heroes[0].hp <= 0)
+                {
+                    monsterImage = monsters[0].progressImage(5)
+                }
                 break
             default :
                 heroes[0].xPosition += 0
@@ -187,5 +249,26 @@ internal class FloorManager
         image = DrawUtil.synthesizeImage(image, synthImage: effectImage, x: effectPoint.x, y: effectPoint.y)
         
         return image
+    }
+    
+    //ヒーロー全滅時処理
+    internal func playWin() -> UIImage
+    {
+        var monsterImage:UIImage = monsters[0].image
+        var effectImage:UIImage = _effect.image
+        
+        //モンスター画像
+        var image:UIImage = DrawUtil.synthesizeImage(_alphaImage, synthImage: monsterImage, x: CGFloat(monsters[0].xPosition), y: CGFloat(monsters[0].yPosition))
+        
+        //エフェクト
+        image = DrawUtil.synthesizeImage(image, synthImage: effectImage, x: 28, y: 1)
+        
+        return image
+    }
+    
+    //モンスター全滅時処理
+    internal func playLose()
+    {
+        
     }
 }
