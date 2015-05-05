@@ -46,23 +46,29 @@ class GameMainSceneController: WKInterfaceController {
     internal func onTimer(timer:NSTimer)
     {
         
-        if (_floor1Manager.heroes[0].xPosition > 71)
+        println("onTimer: \(_floor1Manager.heroes[0].xPosition)")
+        
+        if (_floor1Manager.heroes[0].xPosition > 71 && _floor1Manager.isBattle == false)
         {
             Floor1Content.setImage(_floor1Manager.enterFloor())
+            println("enterFloor")
         }
         else if (_floor1Manager.battleStartProgress < 8)
         {
             Floor1Content.setImage(_floor1Manager.battleStart())
+            println("battleStart")
         }
         else if (!((_floor1Manager.heroes[0].hp == 0 && _floor1Manager.monsters[0].attackProgress == 0) ||
             (_floor1Manager.monsters[0].hp == 0 && _floor1Manager.heroes[0].attackProgress == 0)))
         {
             Floor1Content.setImage(_floor1Manager.play1Turn())
+            println("play1Turn")
         }
         //ヒーローのHPが0かつ、進捗が0の場合　または、モンスターのHPが0かつ、進捗が0の場合　下に抜ける
         
         else if (_floor1Manager.heroes[0].hp <= 0)
         {
+            println("playWin")
             //ヒーローが負けた場合の処理
             if (_floor1Manager.winEffect.progress < 8)
             {
@@ -73,12 +79,15 @@ class GameMainSceneController: WKInterfaceController {
             else
             {
                 //次のヒーロー登場演出
+                Floor1Content.setImage(_floor1Manager.summonNextHero())
+                _floor1Manager.heroes.append(Warrior())
             }
         }
         else if (_floor1Manager.monsters[0].hp <= 0)
         {
             //モンスターが負けた場合の処理
             //負け演出
+            println("playLose")
             if (_floor1Manager.loseEffect.progress < 8)
             {
                 println("Invaded next floor...")
@@ -90,9 +99,14 @@ class GameMainSceneController: WKInterfaceController {
                 Floor1Content.setImage(_floor1Manager.enterFloor())
             }
         }
+        else
+        {
+            println("超例外")
+        }
         manageHp()
     }
     
+    //処理が軽いのでHPバーを監視して常に更新する
     private func manageHp()
     {
         var monsterRightHp:Int = Int(Float(_floor1Manager.monsters[0].hp) / Float(_floor1Manager.monsters[0].maxHp) * 30.0)
@@ -111,23 +125,24 @@ class GameMainSceneController: WKInterfaceController {
         
         //println("MonsterRightHpBar:\(monsterRightHp), heroesLeftHp:\(heroesLeftHp)")
         
-        if (monsterRightHp != 3)
+        //hp3.pngだけ、hp30.pngが読み込まれてしまうバグの対応が必要
+        if (monsterRightHp <= 0 || monsterRightHp > 3)
         {
             MonsterRightHpBar.setImageNamed("hp\(monsterRightHp).png")
         }
         else
         {
-            MonsterRightHpBar.setImageNamed("_hp3.png")
+            MonsterRightHpBar.setImageNamed("_hp\(monsterRightHp).png")
         }
         
-        if (heroesLeftHp != 3)
+        if (heroesLeftHp <= 0 || heroesLeftHp > 3)
         {
             HeroLeftHpBar.setImageNamed("hp\(heroesLeftHp).png")
         }
         else
         {
-            HeroLeftHpBar.setImageNamed("_hp3.png")
+            HeroLeftHpBar.setImageNamed("_hp\(heroesLeftHp).png")
         }
-        println("hp\(heroesLeftHp).png")
+        //println("hp\(heroesLeftHp).png")
     }
 }
