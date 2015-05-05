@@ -46,34 +46,28 @@ class GameMainSceneController: WKInterfaceController {
     internal func onTimer(timer:NSTimer)
     {
         
-        println("onTimer: \(_floor1Manager.heroes[0].xPosition)")
         
         if (_floor1Manager.heroes[0].xPosition > 71 && _floor1Manager.isBattle == false)
         {
             Floor1Content.setImage(_floor1Manager.enterFloor())
-            println("enterFloor")
         }
         else if (_floor1Manager.battleStartProgress < 8)
         {
             Floor1Content.setImage(_floor1Manager.battleStart())
-            println("battleStart")
         }
         else if (!((_floor1Manager.heroes[0].hp == 0 && _floor1Manager.monsters[0].attackProgress == 0) ||
             (_floor1Manager.monsters[0].hp == 0 && _floor1Manager.heroes[0].attackProgress == 0)))
         {
             Floor1Content.setImage(_floor1Manager.play1Turn())
-            println("play1Turn")
         }
         //ヒーローのHPが0かつ、進捗が0の場合　または、モンスターのHPが0かつ、進捗が0の場合　下に抜ける
         
         else if (_floor1Manager.heroes[0].hp <= 0)
         {
-            println("playWin")
             //ヒーローが負けた場合の処理
             if (_floor1Manager.winEffect.progress < 8)
             {
                 //勝利演出
-                println("Chased out!:progress\(_floor1Manager.winEffect.progress)")
                 Floor1Content.setImage(_floor1Manager.playWin())
             }
             else
@@ -87,10 +81,8 @@ class GameMainSceneController: WKInterfaceController {
         {
             //モンスターが負けた場合の処理
             //負け演出
-            println("playLose")
             if (_floor1Manager.loseEffect.progress < 8)
             {
-                println("Invaded next floor...")
                 Floor1Content.setImage(_floor1Manager.playLose())
             }
             else
@@ -143,6 +135,5 @@ class GameMainSceneController: WKInterfaceController {
         {
             HeroLeftHpBar.setImageNamed("_hp\(heroesLeftHp).png")
         }
-        //println("hp\(heroesLeftHp).png")
     }
 }

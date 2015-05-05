@@ -64,7 +64,6 @@ internal class FloorManager
     
     internal func play1Turn() -> UIImage
     {
-        println("progress_start: \(heroes[0].xPosition)")
         isBattle = true
         var heroImage:UIImage = heroes[0].stopImage
         var monsterImage:UIImage = monsters[0].image
@@ -101,12 +100,9 @@ internal class FloorManager
                 break
             case 5:
                 
-                println("progress_5 before: \(heroes[0].xPosition)")
                 
                 monsters[0].xPosition -= 5
                 heroes[0].xPosition += 5
-                
-                println("progress_5 after: \(heroes[0].xPosition)")
                 
                 effectImage = monsters[0].attackEffect.image
                 
@@ -123,11 +119,9 @@ internal class FloorManager
                 
                 break
             case 6:
-                println("progress_6 before: \(heroes[0].xPosition)")
                 
                 heroes[0].xPosition -= 5
                 
-                println("progress_6 after: \(heroes[0].xPosition)")
                 
                 effectImage = monsters[0].attackEffect.image
                 
@@ -160,7 +154,6 @@ internal class FloorManager
                 break
             }
             
-            println("progress_end: \(heroes[0].xPosition)")
             
         }
         else
