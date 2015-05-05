@@ -12,10 +12,9 @@ import Foundation
 
 class GameMainSceneController: WKInterfaceController {
     
-    @IBOutlet weak var Floor1Content: WKInterfaceImage!
     @IBOutlet weak var MonsterRightHpBar: WKInterfaceImage!
     @IBOutlet weak var HeroLeftHpBar: WKInterfaceImage!
-    
+    @IBOutlet weak var Floor1Content: WKInterfaceImage!
     
     private var _turnTimer:NSTimer!
     private var _floor1Manager:FloorManager

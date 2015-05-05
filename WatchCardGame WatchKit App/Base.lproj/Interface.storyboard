@@ -28,7 +28,7 @@
                     <items>
                         <group width="156" height="32" alignment="left" backgroundImage="floor_bg.png" radius="0.0" spacing="0.0" id="0y6-eh-g3f" userLabel="FloorBg">
                             <items>
-                                <imageView width="156" height="32" alignment="left" contentMode="TopLeft" id="UPI-Ns-UK0"/>
+                                <imageView width="156" height="32" alignment="left" id="M45-z4-3im"/>
                             </items>
                         </group>
                         <group width="156" height="6" alignment="left" radius="0.0" spacing="0.0" id="SVd-dV-k8G" userLabel="StatusBox">
@@ -42,7 +42,7 @@
                         </group>
                     </items>
                     <connections>
-                        <outlet property="Floor1Content" destination="UPI-Ns-UK0" id="a91-fF-6C0"/>
+                        <outlet property="Floor1Content" destination="M45-z4-3im" id="ta9-cF-VcZ"/>
                         <outlet property="HeroLeftHpBar" destination="X1P-cH-HCf" id="MY5-rS-4fI"/>
                         <outlet property="MonsterRightHpBar" destination="vLV-Ji-TwL" id="7r8-9N-ECh"/>
                     </connections>

@@ -19,13 +19,11 @@ internal class WinEffect : Effect
         {
         get
         {
-            println("progress:\(progress)")
             if (progress > 7)
             {
                 progress = 0
             }
             var _image:UIImage = UIImage(named: "win\(progress).png")!
-            println("win\(progress).png")
             progress++
             return _image
         }
