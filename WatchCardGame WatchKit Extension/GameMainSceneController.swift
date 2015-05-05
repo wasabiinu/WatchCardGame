@@ -64,16 +64,31 @@ class GameMainSceneController: WKInterfaceController {
         else if (_floor1Manager.heroes[0].hp <= 0)
         {
             //ヒーローが負けた場合の処理
-            //勝利演出
-            println("Chased out!")
-            Floor1Content.setImage(_floor1Manager.playWin())
+            if (_floor1Manager.winEffect.progress < 8)
+            {
+                //勝利演出
+                println("Chased out!:progress\(_floor1Manager.winEffect.progress)")
+                Floor1Content.setImage(_floor1Manager.playWin())
+            }
+            else
+            {
+                //次のヒーロー登場演出
+            }
         }
         else if (_floor1Manager.monsters[0].hp <= 0)
         {
             //モンスターが負けた場合の処理
             //負け演出
-            println("Invaded next floor...")
-            _floor1Manager.playLose()
+            if (_floor1Manager.loseEffect.progress < 8)
+            {
+                println("Invaded next floor...")
+                Floor1Content.setImage(_floor1Manager.playLose())
+            }
+            else
+            {
+                //次のフロアまで歩く
+                Floor1Content.setImage(_floor1Manager.enterFloor())
+            }
         }
         manageHp()
     }
@@ -84,15 +99,35 @@ class GameMainSceneController: WKInterfaceController {
         
         var heroesLeftHp:Int = Int(Float(_floor1Manager.heroes[0].hp) / Float(_floor1Manager.heroes[0].maxHp) * 30.0)
         
-        println("MonsterRightHpBar:\(monsterRightHp), heroesLeftHp:\(heroesLeftHp)")
+        if (monsterRightHp < 0)
+        {
+            monsterRightHp = 0
+        }
         
-        if (monsterRightHp >= 0)
+        if (heroesLeftHp < 0)
+        {
+            heroesLeftHp = 0
+        }
+        
+        //println("MonsterRightHpBar:\(monsterRightHp), heroesLeftHp:\(heroesLeftHp)")
+        
+        if (monsterRightHp != 3)
         {
             MonsterRightHpBar.setImageNamed("hp\(monsterRightHp).png")
         }
-        if (heroesLeftHp >= 0)
+        else
+        {
+            MonsterRightHpBar.setImageNamed("_hp3.png")
+        }
+        
+        if (heroesLeftHp != 3)
         {
             HeroLeftHpBar.setImageNamed("hp\(heroesLeftHp).png")
         }
+        else
+        {
+            HeroLeftHpBar.setImageNamed("_hp3.png")
+        }
+        println("hp\(heroesLeftHp).png")
     }
 }

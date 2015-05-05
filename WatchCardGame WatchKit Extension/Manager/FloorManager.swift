@@ -15,8 +15,9 @@ internal class FloorManager
     internal var monsters:[Monster]
     internal var battleStartProgress:Int
     internal var isMonsterTurn:Bool
+    internal var winEffect:Effect!
+    internal var loseEffect:Effect!
     private var _alphaImage:UIImage = UIImage(named: "floor_origin.png")!
-    private var _effect:Effect!
     
     init()
     {
@@ -66,7 +67,7 @@ internal class FloorManager
         {
             //モンスターのターン処理を書く
             monsters[0].attackProgress++
-            println("monsters[0].attackProgress:\(monsters[0].attackProgress)")
+            //println("monsters[0].attackProgress:\(monsters[0].attackProgress)")
             switch monsters[0].attackProgress
             {
             case 1:
@@ -100,7 +101,7 @@ internal class FloorManager
                 //死亡時
                 if (heroes[0].hp <= 0)
                 {
-                    _effect = WinEffect()
+                    winEffect = WinEffect()
                     heroImage = heroes[0].progressImage(5)
                 }
                 else
@@ -146,7 +147,7 @@ internal class FloorManager
         {
             //ヒーローのターン処理を書く
             heroes[0].attackProgress++
-            println("heroes[0].attackProgress:\(heroes[0].attackProgress)")
+            //println("heroes[0].attackProgress:\(heroes[0].attackProgress)")
             
             switch heroes[0].attackProgress
             {
@@ -187,7 +188,7 @@ internal class FloorManager
                 //死亡時
                 if (heroes[0].hp <= 0)
                 {
-                    _effect = LoseEffect()
+                    loseEffect = LoseEffect()
                     monsterImage = monsters[0].progressImage(2)
                 }
                 else
@@ -255,7 +256,7 @@ internal class FloorManager
     internal func playWin() -> UIImage
     {
         var monsterImage:UIImage = monsters[0].image
-        var effectImage:UIImage = _effect.image
+        var effectImage:UIImage = winEffect.image
         
         //モンスター画像
         var image:UIImage = DrawUtil.synthesizeImage(_alphaImage, synthImage: monsterImage, x: CGFloat(monsters[0].xPosition), y: CGFloat(monsters[0].yPosition))
@@ -267,8 +268,17 @@ internal class FloorManager
     }
     
     //モンスター全滅時処理
-    internal func playLose()
+    internal func playLose() -> UIImage
     {
+        var monsterImage:UIImage = monsters[0].image
+        var effectImage:UIImage = loseEffect.image
         
+        //モンスター画像
+        var image:UIImage = DrawUtil.synthesizeImage(_alphaImage, synthImage: monsterImage, x: CGFloat(monsters[0].xPosition), y: CGFloat(monsters[0].yPosition))
+        
+        //エフェクト
+        image = DrawUtil.synthesizeImage(image, synthImage: effectImage, x: 28, y: 1)
+        
+        return image
     }
 }
