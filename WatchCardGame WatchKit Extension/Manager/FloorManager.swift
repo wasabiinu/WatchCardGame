@@ -29,6 +29,15 @@ internal class FloorManager
         isBattle = false
     }
     
+    internal func reset()
+    {
+        heroes = [Hero]()
+        monsters = [Monster]()
+        battleStartProgress = 0
+        isMonsterTurn = true
+        isBattle = false
+    }
+    
     internal func enterFloor() -> UIImage
     {
         

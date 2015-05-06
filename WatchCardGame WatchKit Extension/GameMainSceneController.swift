@@ -17,14 +17,17 @@ class GameMainSceneController: WKInterfaceController {
     @IBOutlet weak var Floor1Content: WKInterfaceImage!
     
     private var _turnTimer:NSTimer!
-    private var _floor1Manager:FloorManager
+    private var _floor1Manager:FloorManager!
     override init()
     {
-        var hero:Hero = Warrior()
-        var monster:Monster = Slime()
-        _floor1Manager = FloorManager()
-        _floor1Manager.heroes.append(hero)
-        _floor1Manager.monsters.append(monster)
+        println("init")
+    }
+    
+    deinit
+    {
+        
+        _turnTimer = nil
+        println("deinit")
     }
     
     override func awakeWithContext(context: AnyObject?) {
@@ -32,14 +35,28 @@ class GameMainSceneController: WKInterfaceController {
         
         // Configure interface objects here.
         
-        _turnTimer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(0.25), target: self, selector: Selector("onTimer:"), userInfo: nil, repeats: true)
+        var floorManagerArray:[FloorManager] = context as! [FloorManager]
         
+        var hero:Hero = Warrior()
+        var monster:Monster = Slime()
+        _floor1Manager = floorManagerArray[0]
+        _floor1Manager.heroes.append(hero)
+        _floor1Manager.monsters.append(monster)
+        
+        
+        println("awakeWithContext")
+    }
+    
+    override func willActivate() {
+        super.willActivate()
+        _turnTimer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(0.25), target: self, selector: Selector("onTimer:"), userInfo: nil, repeats: true)
+        println("willActivate")
     }
     
     override func didDeactivate() {
         super.didDeactivate()
         _turnTimer.invalidate()
-        _turnTimer = nil
+        println("didDeactivate")
     }
     
     internal func onTimer(timer:NSTimer)

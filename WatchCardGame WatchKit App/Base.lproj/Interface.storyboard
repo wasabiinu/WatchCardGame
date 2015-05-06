@@ -10,16 +10,21 @@
             <objects>
                 <controller identifier="Main" contentMode="TopLeft" spacing="0.0" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WatchCardGame_WatchKit_Extension">
                     <items>
-                        <button width="156" height="156" alignment="left" title="GAME START" id="CD5-XK-Aa0">
+                        <button width="156" height="115" alignment="left" title="GAME START" id="CD5-XK-Aa0">
                             <connections>
                                 <action selector="onTouchGameStartBtn" destination="AgC-eL-Hgc" id="ziF-Ds-par"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="RESET" id="8so-vi-rx2">
+                            <connections>
+                                <action selector="onTouchResetBtn" destination="AgC-eL-Hgc" id="HvM-Ct-b3p"/>
                             </connections>
                         </button>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="220" y="344"/>
+            <point key="canvasLocation" x="220" y="341"/>
         </scene>
         <!--メイン-->
         <scene sceneID="Myn-h3-P5Y">
@@ -49,6 +54,58 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="384" y="342"/>
+        </scene>
+        <!--モンスター選択-->
+        <scene sceneID="ICX-Oe-uwH">
+            <objects>
+                <controller identifier="MonsterSelectController" title="モンスター選択" id="MPV-do-OPo" customClass="MonsterSelectController" customModule="WatchCardGame_WatchKit_Extension">
+                    <items>
+                        <group width="156" height="38" alignment="left" id="pGL-Wm-n0G">
+                            <items>
+                                <button width="0.5" height="38" alignment="left" title="1FLeft" id="GRy-l0-IWw">
+                                    <connections>
+                                        <action selector="onPush1FLeftBtn" destination="MPV-do-OPo" id="cHs-Zw-jZF"/>
+                                    </connections>
+                                </button>
+                                <button width="0.5" height="38" alignment="left" id="TYh-xs-Sii">
+                                    <connections>
+                                        <action selector="onPush1FRightBtn" destination="MPV-do-OPo" id="Ns3-gS-fcG"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="FirstFloorLeftBtn" destination="GRy-l0-IWw" id="1Rw-RU-PrM"/>
+                        <outlet property="FirstFloorRightBtn" destination="TYh-xs-Sii" id="Ddd-eR-3Rv"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="540" y="346"/>
+        </scene>
+        <!--モンスターリスト-->
+        <scene sceneID="D5a-iC-ZrS">
+            <objects>
+                <controller identifier="MonsterListController" title="モンスターリスト" id="JEJ-O9-8jm" customClass="MonsterListController" customModule="WatchCardGame_WatchKit_Extension">
+                    <items>
+                        <button width="156" height="32" alignment="left" id="W0q-WJ-p6t">
+                            <connections>
+                                <action selector="onTouchMonsterList1" destination="JEJ-O9-8jm" id="IWY-pZ-KNJ"/>
+                            </connections>
+                        </button>
+                        <button width="156" height="32" alignment="left" id="iAf-nL-xey">
+                            <connections>
+                                <action selector="onTouchMonsterList2" destination="JEJ-O9-8jm" id="ITK-SW-xzY"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="MonsterList1" destination="W0q-WJ-p6t" id="qt5-Pt-Uzh"/>
+                        <outlet property="MonsterList2" destination="iAf-nL-xey" id="clQ-Hy-JbG"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="698" y="345"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">

@@ -12,11 +12,18 @@ import Foundation
 
 class InterfaceController: WKInterfaceController {
     
-    
+    private var _floor1Manager:FloorManager!
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
         // Configure interface objects here.
+        
+        _floor1Manager = FloorManager()
+        
+        var floorManagerArray:[FloorManager] = [FloorManager]()
+        floorManagerArray.append(_floor1Manager)
+        
+        Config.floorManagers = floorManagerArray
     }
 
     override func willActivate() {
@@ -34,7 +41,14 @@ class InterfaceController: WKInterfaceController {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
     }
+    @IBAction func onTouchResetBtn() {
+        _floor1Manager.reset()
+    }
     @IBAction func onTouchGameStartBtn() {
-        self.pushControllerWithName("GameMainSceneController", context: "hoge")
+        var array:NSArray = ["GameMainSceneController", "MonsterSelectController"]
+        
+        var contextArray:NSArray = [Config.floorManagers, Config.floorManagers]
+        
+        self.presentControllerWithNames(array as [AnyObject], contexts: contextArray as [AnyObject])
     }
 }

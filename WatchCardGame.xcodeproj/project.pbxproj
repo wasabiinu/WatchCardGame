@@ -25,6 +25,10 @@
 		2006D8BA1AF0FCFD0071D41C /* Slime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006D8B91AF0FCFD0071D41C /* Slime.swift */; };
 		2006D8BC1AF0FE180071D41C /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006D8BB1AF0FE180071D41C /* Hero.swift */; };
 		2006D8BE1AF0FE390071D41C /* Warrior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2006D8BD1AF0FE390071D41C /* Warrior.swift */; };
+		2031142E1AF8AC7400AE01EC /* MonsterSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2031142D1AF8AC7400AE01EC /* MonsterSelectController.swift */; };
+		203F765F1AF8FB9C0029AB13 /* impact@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203F765C1AF8FB9C0029AB13 /* impact@2x.png */; };
+		203F76601AF8FB9C0029AB13 /* magic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203F765D1AF8FB9C0029AB13 /* magic@2x.png */; };
+		203F76611AF8FB9C0029AB13 /* slash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 203F765E1AF8FB9C0029AB13 /* slash@2x.png */; };
 		204FBC861AF65C7400B5614F /* slime1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204FBC851AF65C7400B5614F /* slime1@2x.png */; };
 		204FBC881AF65C7E00B5614F /* warrior4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204FBC871AF65C7E00B5614F /* warrior4@2x.png */; };
 		204FBC8E1AF7045400B5614F /* impact0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204FBC891AF7045400B5614F /* impact0@2x.png */; };
@@ -40,6 +44,20 @@
 		204FBCAB1AF717A600B5614F /* slash2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204FBCA61AF717A600B5614F /* slash2@2x.png */; };
 		204FBCAC1AF717A600B5614F /* slash3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204FBCA71AF717A600B5614F /* slash3@2x.png */; };
 		204FBCAD1AF717A600B5614F /* slash4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 204FBCA81AF717A600B5614F /* slash4@2x.png */; };
+		2051AD031AF983620086635C /* bat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2051ACFC1AF983620086635C /* bat@2x.png */; };
+		2051AD041AF983620086635C /* bat0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2051ACFD1AF983620086635C /* bat0@2x.png */; };
+		2051AD051AF983620086635C /* bat1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2051ACFE1AF983620086635C /* bat1@2x.png */; };
+		2051AD061AF983620086635C /* bat2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2051ACFF1AF983620086635C /* bat2@2x.png */; };
+		2051AD071AF983620086635C /* bat3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2051AD001AF983620086635C /* bat3@2x.png */; };
+		2051AD081AF983620086635C /* bat4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2051AD011AF983620086635C /* bat4@2x.png */; };
+		2051AD091AF983620086635C /* bat5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2051AD021AF983620086635C /* bat5@2x.png */; };
+		2051AD0B1AF984350086635C /* Bat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2051AD0A1AF984350086635C /* Bat.swift */; };
+		2051AD171AF994E00086635C /* MagicEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2051AD161AF994E00086635C /* MagicEffect.swift */; };
+		2051AD1D1AF996870086635C /* magic0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2051AD181AF996870086635C /* magic0@2x.png */; };
+		2051AD1E1AF996870086635C /* magic1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2051AD191AF996870086635C /* magic1@2x.png */; };
+		2051AD1F1AF996870086635C /* magic2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2051AD1A1AF996870086635C /* magic2@2x.png */; };
+		2051AD201AF996870086635C /* magic3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2051AD1B1AF996870086635C /* magic3@2x.png */; };
+		2051AD211AF996870086635C /* magic4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2051AD1C1AF996870086635C /* magic4@2x.png */; };
 		20842DF51AF77B930014A073 /* lose0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20842DED1AF77B930014A073 /* lose0@2x.png */; };
 		20842DF61AF77B930014A073 /* lose1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20842DEE1AF77B930014A073 /* lose1@2x.png */; };
 		20842DF71AF77B930014A073 /* lose2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20842DEF1AF77B930014A073 /* lose2@2x.png */; };
@@ -66,6 +84,9 @@
 		20842E1C1AF79DD70014A073 /* warrior8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20842E181AF79DD70014A073 /* warrior8@2x.png */; };
 		20842E1E1AF7A2CA0014A073 /* LoseEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20842E1D1AF7A2CA0014A073 /* LoseEffect.swift */; };
 		20842E201AF7A2D90014A073 /* WinEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20842E1F1AF7A2D90014A073 /* WinEffect.swift */; };
+		2085FA841AF8C9FE00C5FF3C /* btn_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2085FA831AF8C9FE00C5FF3C /* btn_bg@2x.png */; };
+		2085FA861AF8F16800C5FF3C /* MonsterListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2085FA851AF8F16800C5FF3C /* MonsterListController.swift */; };
+		2085FA881AF8F36500C5FF3C /* list_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2085FA871AF8F36500C5FF3C /* list_bg@2x.png */; };
 		2089D0C11AED2FBE00517836 /* RouteUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089D0C01AED2FBE00517836 /* RouteUtil.swift */; };
 		2089D0C31AED2FE500517836 /* DrawUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089D0C21AED2FE500517836 /* DrawUtil.swift */; };
 		2089D0C51AED301300517836 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2089D0C41AED301300517836 /* Config.swift */; };
@@ -82,7 +103,7 @@
 		208C35BB1AC82A34008F71CC /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 208C35B91AC82A34008F71CC /* Interface.storyboard */; };
 		208C35BD1AC82A34008F71CC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 208C35BC1AC82A34008F71CC /* Images.xcassets */; };
 		208C35C01AC82A34008F71CC /* WatchCardGame WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 208C35A51AC82A34008F71CC /* WatchCardGame WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		20FCA5CA1AECF46C008E7018 /* slime@2px.png in Resources */ = {isa = PBXBuildFile; fileRef = 20FCA5C91AECF46C008E7018 /* slime@2px.png */; };
+		209073C71AF8FD9A00F4B526 /* slime@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 209073C61AF8FD9A00F4B526 /* slime@2x.png */; };
 		20FCA5CF1AECF47B008E7018 /* warrior0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20FCA5CB1AECF47B008E7018 /* warrior0@2x.png */; };
 		20FCA5D01AECF47B008E7018 /* warrior1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20FCA5CC1AECF47B008E7018 /* warrior1@2x.png */; };
 		20FCA5D11AECF47B008E7018 /* warrior2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 20FCA5CD1AECF47B008E7018 /* warrior2@2x.png */; };
@@ -148,6 +169,10 @@
 		2006D8B91AF0FCFD0071D41C /* Slime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slime.swift; sourceTree = "<group>"; };
 		2006D8BB1AF0FE180071D41C /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		2006D8BD1AF0FE390071D41C /* Warrior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Warrior.swift; sourceTree = "<group>"; };
+		2031142D1AF8AC7400AE01EC /* MonsterSelectController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterSelectController.swift; sourceTree = "<group>"; };
+		203F765C1AF8FB9C0029AB13 /* impact@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "impact@2x.png"; sourceTree = "<group>"; };
+		203F765D1AF8FB9C0029AB13 /* magic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "magic@2x.png"; sourceTree = "<group>"; };
+		203F765E1AF8FB9C0029AB13 /* slash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slash@2x.png"; sourceTree = "<group>"; };
 		204FBC851AF65C7400B5614F /* slime1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slime1@2x.png"; sourceTree = "<group>"; };
 		204FBC871AF65C7E00B5614F /* warrior4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warrior4@2x.png"; sourceTree = "<group>"; };
 		204FBC891AF7045400B5614F /* impact0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "impact0@2x.png"; sourceTree = "<group>"; };
@@ -163,6 +188,20 @@
 		204FBCA61AF717A600B5614F /* slash2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slash2@2x.png"; sourceTree = "<group>"; };
 		204FBCA71AF717A600B5614F /* slash3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slash3@2x.png"; sourceTree = "<group>"; };
 		204FBCA81AF717A600B5614F /* slash4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slash4@2x.png"; sourceTree = "<group>"; };
+		2051ACFC1AF983620086635C /* bat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bat@2x.png"; sourceTree = "<group>"; };
+		2051ACFD1AF983620086635C /* bat0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bat0@2x.png"; sourceTree = "<group>"; };
+		2051ACFE1AF983620086635C /* bat1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bat1@2x.png"; sourceTree = "<group>"; };
+		2051ACFF1AF983620086635C /* bat2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bat2@2x.png"; sourceTree = "<group>"; };
+		2051AD001AF983620086635C /* bat3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bat3@2x.png"; sourceTree = "<group>"; };
+		2051AD011AF983620086635C /* bat4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bat4@2x.png"; sourceTree = "<group>"; };
+		2051AD021AF983620086635C /* bat5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bat5@2x.png"; sourceTree = "<group>"; };
+		2051AD0A1AF984350086635C /* Bat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bat.swift; sourceTree = "<group>"; };
+		2051AD161AF994E00086635C /* MagicEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicEffect.swift; sourceTree = "<group>"; };
+		2051AD181AF996870086635C /* magic0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "magic0@2x.png"; sourceTree = "<group>"; };
+		2051AD191AF996870086635C /* magic1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "magic1@2x.png"; sourceTree = "<group>"; };
+		2051AD1A1AF996870086635C /* magic2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "magic2@2x.png"; sourceTree = "<group>"; };
+		2051AD1B1AF996870086635C /* magic3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "magic3@2x.png"; sourceTree = "<group>"; };
+		2051AD1C1AF996870086635C /* magic4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "magic4@2x.png"; sourceTree = "<group>"; };
 		20842DED1AF77B930014A073 /* lose0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lose0@2x.png"; sourceTree = "<group>"; };
 		20842DEE1AF77B930014A073 /* lose1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lose1@2x.png"; sourceTree = "<group>"; };
 		20842DEF1AF77B930014A073 /* lose2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lose2@2x.png"; sourceTree = "<group>"; };
@@ -189,6 +228,9 @@
 		20842E181AF79DD70014A073 /* warrior8@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warrior8@2x.png"; sourceTree = "<group>"; };
 		20842E1D1AF7A2CA0014A073 /* LoseEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoseEffect.swift; sourceTree = "<group>"; };
 		20842E1F1AF7A2D90014A073 /* WinEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinEffect.swift; sourceTree = "<group>"; };
+		2085FA831AF8C9FE00C5FF3C /* btn_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_bg@2x.png"; sourceTree = "<group>"; };
+		2085FA851AF8F16800C5FF3C /* MonsterListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterListController.swift; sourceTree = "<group>"; };
+		2085FA871AF8F36500C5FF3C /* list_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list_bg@2x.png"; sourceTree = "<group>"; };
 		2089D0C01AED2FBE00517836 /* RouteUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteUtil.swift; sourceTree = "<group>"; };
 		2089D0C21AED2FE500517836 /* DrawUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawUtil.swift; sourceTree = "<group>"; };
 		2089D0C41AED301300517836 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -212,7 +254,7 @@
 		208C35B81AC82A34008F71CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		208C35BA1AC82A34008F71CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		208C35BC1AC82A34008F71CC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		20FCA5C91AECF46C008E7018 /* slime@2px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slime@2px.png"; sourceTree = "<group>"; };
+		209073C61AF8FD9A00F4B526 /* slime@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slime@2x.png"; sourceTree = "<group>"; };
 		20FCA5CB1AECF47B008E7018 /* warrior0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warrior0@2x.png"; sourceTree = "<group>"; };
 		20FCA5CC1AECF47B008E7018 /* warrior1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warrior1@2x.png"; sourceTree = "<group>"; };
 		20FCA5CD1AECF47B008E7018 /* warrior2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "warrior2@2x.png"; sourceTree = "<group>"; };
@@ -252,6 +294,11 @@
 				20842DFD1AF77BA00014A073 /* win0@2x.png */,
 				20842DFE1AF77BA00014A073 /* win1@2x.png */,
 				20842DFF1AF77BA00014A073 /* win2@2x.png */,
+				2051AD181AF996870086635C /* magic0@2x.png */,
+				2051AD191AF996870086635C /* magic1@2x.png */,
+				2051AD1A1AF996870086635C /* magic2@2x.png */,
+				2051AD1B1AF996870086635C /* magic3@2x.png */,
+				2051AD1C1AF996870086635C /* magic4@2x.png */,
 				20842E001AF77BA00014A073 /* win3@2x.png */,
 				20842E011AF77BA00014A073 /* win4@2x.png */,
 				20842E021AF77BA00014A073 /* win5@2x.png */,
@@ -300,6 +347,7 @@
 			isa = PBXGroup;
 			children = (
 				2006D8B51AF0FC630071D41C /* Avatar.swift */,
+				2051AD0A1AF984350086635C /* Bat.swift */,
 				2006D8BD1AF0FE390071D41C /* Warrior.swift */,
 				2006D8BB1AF0FE180071D41C /* Hero.swift */,
 				2006D8B71AF0FCCD0071D41C /* Monster.swift */,
@@ -313,11 +361,22 @@
 			children = (
 				204FBC941AF704EC00B5614F /* Effect.swift */,
 				204FBC961AF7051800B5614F /* ImpactEffect.swift */,
+				2051AD161AF994E00086635C /* MagicEffect.swift */,
 				204FBCA21AF7165C00B5614F /* SlashEffect.swift */,
 				20842E1D1AF7A2CA0014A073 /* LoseEffect.swift */,
 				20842E1F1AF7A2D90014A073 /* WinEffect.swift */,
 			);
 			path = Effect;
+			sourceTree = "<group>";
+		};
+		2085FA8B1AF8FB0500C5FF3C /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				203F765C1AF8FB9C0029AB13 /* impact@2x.png */,
+				203F765D1AF8FB9C0029AB13 /* magic@2x.png */,
+				203F765E1AF8FB9C0029AB13 /* slash@2x.png */,
+			);
+			path = icon;
 			sourceTree = "<group>";
 		};
 		208C35731AC8295A008F71CC = {
@@ -390,6 +449,8 @@
 				20FCA5DD1AED2E5A008E7018 /* Util */,
 				20F7D76C1AE3AF5000C96C87 /* Assets */,
 				208C35AA1AC82A34008F71CC /* InterfaceController.swift */,
+				2031142D1AF8AC7400AE01EC /* MonsterSelectController.swift */,
+				2085FA851AF8F16800C5FF3C /* MonsterListController.swift */,
 				2006CA051AF5B3CC0077CC1B /* GameMainSceneController.swift */,
 				208C35AC1AC82A34008F71CC /* NotificationController.swift */,
 				208C35AE1AC82A34008F71CC /* Images.xcassets */,
@@ -437,8 +498,11 @@
 		20F7D76C1AE3AF5000C96C87 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				2085FA8B1AF8FB0500C5FF3C /* icon */,
 				2006CA0D1AF620210077CC1B /* effect */,
 				20FCA5DB1AED2DAD008E7018 /* floor_origin@2x.png */,
+				2085FA871AF8F36500C5FF3C /* list_bg@2x.png */,
+				2085FA831AF8C9FE00C5FF3C /* btn_bg@2x.png */,
 				20FCA5C81AECF44E008E7018 /* avator */,
 				20FCA5C71AECF3C7008E7018 /* monster */,
 			);
@@ -449,13 +513,20 @@
 		20FCA5C71AECF3C7008E7018 /* monster */ = {
 			isa = PBXGroup;
 			children = (
+				2051ACFC1AF983620086635C /* bat@2x.png */,
+				2051ACFD1AF983620086635C /* bat0@2x.png */,
+				2051ACFE1AF983620086635C /* bat1@2x.png */,
+				2051ACFF1AF983620086635C /* bat2@2x.png */,
+				2051AD001AF983620086635C /* bat3@2x.png */,
+				2051AD011AF983620086635C /* bat4@2x.png */,
+				2051AD021AF983620086635C /* bat5@2x.png */,
 				20842E0D1AF79DC40014A073 /* slime2@2x.png */,
+				209073C61AF8FD9A00F4B526 /* slime@2x.png */,
 				20842E0E1AF79DC40014A073 /* slime3@2x.png */,
 				20842E0F1AF79DC40014A073 /* slime4@2x.png */,
 				20842E101AF79DC40014A073 /* slime5@2x.png */,
 				204FBC851AF65C7400B5614F /* slime1@2x.png */,
 				2006CA0B1AF5DECB0077CC1B /* slime0@2x.png */,
-				20FCA5C91AECF46C008E7018 /* slime@2px.png */,
 			);
 			path = monster;
 			sourceTree = "<group>";
@@ -640,39 +711,54 @@
 				20842E071AF77BA00014A073 /* win2@2x.png in Resources */,
 				20842E191AF79DD70014A073 /* warrior5@2x.png in Resources */,
 				20842E1C1AF79DD70014A073 /* warrior8@2x.png in Resources */,
+				2051AD091AF983620086635C /* bat5@2x.png in Resources */,
 				2006CA261AF625870077CC1B /* battlestart0@2x.png in Resources */,
 				204FBCAD1AF717A600B5614F /* slash4@2x.png in Resources */,
 				204FBC881AF65C7E00B5614F /* warrior4@2x.png in Resources */,
 				20842E091AF77BA00014A073 /* win4@2x.png in Resources */,
+				209073C71AF8FD9A00F4B526 /* slime@2x.png in Resources */,
 				20842DFA1AF77B930014A073 /* lose5@2x.png in Resources */,
+				2051AD061AF983620086635C /* bat2@2x.png in Resources */,
 				2006CA291AF625870077CC1B /* battlestart3@2x.png in Resources */,
 				204FBCAB1AF717A600B5614F /* slash2@2x.png in Resources */,
 				204FBC8F1AF7045400B5614F /* impact1@2x.png in Resources */,
 				20FCA5D11AECF47B008E7018 /* warrior2@2x.png in Resources */,
+				2051AD071AF983620086635C /* bat3@2x.png in Resources */,
 				2006CA281AF625870077CC1B /* battlestart2@2x.png in Resources */,
 				20FCA5DC1AED2DAD008E7018 /* floor_origin@2x.png in Resources */,
 				2006CA2C1AF625870077CC1B /* battlestart6@2x.png in Resources */,
 				20842DF91AF77B930014A073 /* lose4@2x.png in Resources */,
+				2051AD081AF983620086635C /* bat4@2x.png in Resources */,
+				2051AD1D1AF996870086635C /* magic0@2x.png in Resources */,
 				2006CA2D1AF625870077CC1B /* battlestart7@2x.png in Resources */,
 				204FBC861AF65C7400B5614F /* slime1@2x.png in Resources */,
+				2051AD051AF983620086635C /* bat1@2x.png in Resources */,
 				2006CA271AF625870077CC1B /* battlestart1@2x.png in Resources */,
 				204FBC901AF7045400B5614F /* impact2@2x.png in Resources */,
+				2051AD1E1AF996870086635C /* magic1@2x.png in Resources */,
 				20842DF71AF77B930014A073 /* lose2@2x.png in Resources */,
+				2051AD031AF983620086635C /* bat@2x.png in Resources */,
+				2051AD041AF983620086635C /* bat0@2x.png in Resources */,
 				20842DF51AF77B930014A073 /* lose0@2x.png in Resources */,
+				2085FA841AF8C9FE00C5FF3C /* btn_bg@2x.png in Resources */,
+				203F76611AF8FB9C0029AB13 /* slash@2x.png in Resources */,
 				20842E1B1AF79DD70014A073 /* warrior7@2x.png in Resources */,
+				2051AD211AF996870086635C /* magic4@2x.png in Resources */,
 				20FCA5D21AECF47B008E7018 /* warrior3@2x.png in Resources */,
-				20FCA5CA1AECF46C008E7018 /* slime@2px.png in Resources */,
 				20842E121AF79DC40014A073 /* slime3@2x.png in Resources */,
 				204FBCA91AF717A600B5614F /* slash0@2x.png in Resources */,
 				20842E131AF79DC40014A073 /* slime4@2x.png in Resources */,
 				2006CA2A1AF625870077CC1B /* battlestart4@2x.png in Resources */,
 				20842E0C1AF77BA00014A073 /* win7@2x.png in Resources */,
+				2051AD201AF996870086635C /* magic3@2x.png in Resources */,
 				20842E141AF79DC40014A073 /* slime5@2x.png in Resources */,
 				20842E081AF77BA00014A073 /* win3@2x.png in Resources */,
+				203F76601AF8FB9C0029AB13 /* magic@2x.png in Resources */,
 				20842E061AF77BA00014A073 /* win1@2x.png in Resources */,
 				20842DFB1AF77B930014A073 /* lose6@2x.png in Resources */,
 				204FBC8E1AF7045400B5614F /* impact0@2x.png in Resources */,
 				20842E0B1AF77BA00014A073 /* win6@2x.png in Resources */,
+				2085FA881AF8F36500C5FF3C /* list_bg@2x.png in Resources */,
 				20842E111AF79DC40014A073 /* slime2@2x.png in Resources */,
 				204FBC911AF7045400B5614F /* impact3@2x.png in Resources */,
 				208C35B31AC82A34008F71CC /* WatchCardGame WatchKit App.app in Resources */,
@@ -683,7 +769,9 @@
 				20842DFC1AF77B930014A073 /* lose7@2x.png in Resources */,
 				2006CA2B1AF625870077CC1B /* battlestart5@2x.png in Resources */,
 				204FBCAA1AF717A600B5614F /* slash1@2x.png in Resources */,
+				203F765F1AF8FB9C0029AB13 /* impact@2x.png in Resources */,
 				2006CA0C1AF5DECB0077CC1B /* slime0@2x.png in Resources */,
+				2051AD1F1AF996870086635C /* magic2@2x.png in Resources */,
 				20FCA5CF1AECF47B008E7018 /* warrior0@2x.png in Resources */,
 				20842DF81AF77B930014A073 /* lose3@2x.png in Resources */,
 				204FBC921AF7045400B5614F /* impact4@2x.png in Resources */,
@@ -736,13 +824,17 @@
 				2006D8B11AF0DA410071D41C /* AvatarManager.swift in Sources */,
 				20842E1E1AF7A2CA0014A073 /* LoseEffect.swift in Sources */,
 				204FBCA31AF7165C00B5614F /* SlashEffect.swift in Sources */,
+				2051AD0B1AF984350086635C /* Bat.swift in Sources */,
 				2089D0C51AED301300517836 /* Config.swift in Sources */,
 				204FBC971AF7051800B5614F /* ImpactEffect.swift in Sources */,
 				2006D8AE1AED42500071D41C /* TimerManager.swift in Sources */,
+				2031142E1AF8AC7400AE01EC /* MonsterSelectController.swift in Sources */,
 				2006D8BE1AF0FE390071D41C /* Warrior.swift in Sources */,
 				2006D8BC1AF0FE180071D41C /* Hero.swift in Sources */,
 				208C35AD1AC82A34008F71CC /* NotificationController.swift in Sources */,
+				2051AD171AF994E00086635C /* MagicEffect.swift in Sources */,
 				2006D8B61AF0FC630071D41C /* Avatar.swift in Sources */,
+				2085FA861AF8F16800C5FF3C /* MonsterListController.swift in Sources */,
 				2006D8BA1AF0FCFD0071D41C /* Slime.swift in Sources */,
 				208C35AB1AC82A34008F71CC /* InterfaceController.swift in Sources */,
 				20842E201AF7A2D90014A073 /* WinEffect.swift in Sources */,

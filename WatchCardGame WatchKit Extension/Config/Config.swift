@@ -18,6 +18,14 @@ internal class Config {
         }
     }
     
+    internal class var BUTTON_SIZE:CGSize
+        {
+        get
+    {
+        return ClassProperty.buttonSize
+        }
+    }
+    
     internal class var MOVE_SEC:Float
         {
         get
@@ -26,9 +34,23 @@ internal class Config {
         }
     }
     
+    internal class var floorManagers:[FloorManager]
+    {
+        get
+        {
+            return ClassProperty._floorManagers
+        }
+        set
+        {
+            ClassProperty._floorManagers = newValue
+        }
+    }
+    
     private struct ClassProperty {
         static var floorSize:CGSize = CGSizeMake(156, 32)
+        static var buttonSize:CGSize = CGSizeMake(78, 38)
         static var heartbeatRate:Float = 10
         static var moveSec:Float = 60 / heartbeatRate
+        static var _floorManagers:[FloorManager] = [FloorManager]()
     }
 }

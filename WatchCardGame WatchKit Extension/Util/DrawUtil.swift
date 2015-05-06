@@ -33,6 +33,25 @@ internal class DrawUtil {
         return newImage
     }
     
+    internal class func synthesizeButtonImage(originImage:UIImage, synthImage:UIImage, x:CGFloat, y:CGFloat) -> UIImage
+    {
+        
+        //let startDate = NSDate()
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(Config.BUTTON_SIZE.width,Config.BUTTON_SIZE.height), false, 0.0);
+        
+        originImage.drawInRect(CGRectMake(0, 0, originImage.size.width, originImage.size.height))
+        
+        synthImage.drawInRect(CGRectMake(x, y, synthImage.size.width, synthImage.size.height))
+        
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        //let elapsed = NSDate().timeIntervalSinceDate(startDate)
+        //println("synthesizeImage ended:\(elapsed)")
+        return newImage
+    }
+    
     internal class func animatedUIImage(array:[UIImage]) -> UIImage
     {
         var duration: NSTimeInterval = NSTimeInterval(Config.MOVE_SEC)

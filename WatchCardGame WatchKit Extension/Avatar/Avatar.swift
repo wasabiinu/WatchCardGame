@@ -23,6 +23,7 @@ internal class Avatar
     internal var xPosition:Int = 0
     internal var yPosition:Int = 0
     internal var image:UIImage!
+    internal var iconImage:UIImage!
     internal var attackProgress:Int = 0
     internal var attackEffect:Effect!
     internal func progressImage(no:Int) -> UIImage

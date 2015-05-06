@@ -1,15 +1,14 @@
 //
-//  Slime.swift
+//  Bat.swift
 //  WatchCardGame
 //
-//  Created by 横山 優 on 2015/04/29.
+//  Created by 横山 優 on 2015/05/06.
 //  Copyright (c) 2015年 Yu Yokoyama. All rights reserved.
 //
-//スライムクラス
 
 import Foundation
 import WatchKit
-internal class Slime : Monster
+internal class Bat : Monster
 {
     override init()
     {
@@ -18,13 +17,13 @@ internal class Slime : Monster
         maxHp = hp
         attack = super.level * 30
         defence = super.level * 30
-        elementType = "impact"
-        image = UIImage(named: "slime0.png")!
-        iconImage = UIImage(named: "slime.png")!
-        attackEffect = ImpactEffect()
+        elementType = "magic"
+        image = UIImage(named: "bat0.png")!
+        iconImage = UIImage(named: "bat.png")!
+        attackEffect = MagicEffect()
     }
     override internal func progressImage(no:Int) -> UIImage
     {
-        return UIImage(named: "slime\(no).png")!
+        return UIImage(named: "bat\(no).png")!
     }
 }
