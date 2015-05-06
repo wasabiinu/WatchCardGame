@@ -38,9 +38,12 @@ class GameMainSceneController: WKInterfaceController {
         var floorManagerArray:[FloorManager] = context as! [FloorManager]
         
         var hero:Hero = Warrior()
+        var hero2:Hero = Warrior()
+        hero2.xPosition += 15
         var monster:Monster = Slime()
         _floor1Manager = floorManagerArray[0]
         _floor1Manager.heroes.append(hero)
+        _floor1Manager.heroes.append(hero2)
         _floor1Manager.monsters.append(monster)
         
         
