@@ -101,6 +101,7 @@ internal class FloorManager
             _heroImage2 = heroes[1].stopImage
         }
         _monsterImage = monsters[0].image
+        
         _effectImage = UIImage(named: "floor_origin.png")!
         
         //println("isMonsterTurn: \(isMonsterTurn)")
@@ -130,6 +131,12 @@ internal class FloorManager
                 isMonsterTurn = true
                 heroes[0].attackProgress = 0
                 heroes[1].attackProgress = 0
+                
+                //ターンチェンジするときにモンスターの画像が一瞬復活する
+                if (monsters[0].hp <= 0)
+                {
+                    _monsterImage = monsters[0].progressImage(5)
+                }
             }
                 
             //１人目のヒーロー処理
@@ -152,6 +159,10 @@ internal class FloorManager
                 {
                     secondHeroProgress()
                 }
+            }
+            else
+            {
+                println("heroes turn exception")
             }
             
         }
@@ -189,6 +200,7 @@ internal class FloorManager
     {
         monsters[0].attackProgress++
         
+        
         var currentHero:Hero = heroes[0]
         var currentHeroImage:UIImage!
         
@@ -215,7 +227,7 @@ internal class FloorManager
             _effectImage = monsters[0].attackEffect.image
             
             //ヒーローのHPを削る
-            currentHero.hp -= 5
+            currentHero.hp -= 1
             break
         case 4:
             //ヒットした瞬間
@@ -259,7 +271,6 @@ internal class FloorManager
             //死亡時
             if (currentHero.hp <= 0)
             {
-                println("7")
                 currentHeroImage = currentHero.progressImage(7)
             }
             break
@@ -267,7 +278,6 @@ internal class FloorManager
             //死亡時
             if (currentHero.hp <= 0)
             {
-                println("8")
                 currentHeroImage = currentHero.progressImage(8)
             }
             break
@@ -298,6 +308,7 @@ internal class FloorManager
         //ヒーローのターン処理を書く
         heroes[0].attackProgress++
         
+        
         switch heroes[0].attackProgress
         {
         case 1:
@@ -317,7 +328,7 @@ internal class FloorManager
             _effectImage = heroes[0].attackEffect.reverseImage
             
             //モンスターのHPを削る
-            monsters[0].hp -= 1
+            monsters[0].hp -= 50
             break
         case 4:
             //ヒットした瞬間
@@ -383,6 +394,7 @@ internal class FloorManager
         //ヒーローのターン処理を書く
         heroes[1].attackProgress++
         
+        
         switch heroes[1].attackProgress
         {
         case 1:
@@ -402,7 +414,7 @@ internal class FloorManager
             _effectImage = heroes[1].attackEffect.reverseImage
             
             //モンスターのHPを削る
-            monsters[0].hp -= 1
+            monsters[0].hp -= 50
             break
         case 4:
             //ヒットした瞬間
@@ -485,8 +497,13 @@ internal class FloorManager
         var _heroImage:UIImage = heroes[0].image
         var _effectImage:UIImage = loseEffect.image
         
-        //モンスター画像
+        //ヒーロー画像
         var image:UIImage = DrawUtil.synthesizeImage(_alphaImage, synthImage: _heroImage, x: CGFloat(heroes[0].xPosition), y: CGFloat(heroes[0].yPosition))
+        
+        if (heroes.count <= 2 && heroes[1].hp > 0)
+        {
+            image = DrawUtil.synthesizeImage(image, synthImage: heroes[1].image, x: CGFloat(heroes[1].xPosition), y: CGFloat(heroes[1].yPosition))
+        }
         
         //エフェクト
         image = DrawUtil.synthesizeImage(image, synthImage: _effectImage, x: 28, y: 1)
