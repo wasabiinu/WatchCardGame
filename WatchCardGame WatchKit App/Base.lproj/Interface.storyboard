@@ -42,13 +42,14 @@
                                 <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="8Ee-sc-4c7" userLabel="LeftEnemyStatus"/>
                                 <imageView width="21" height="6" alignment="left" contentMode="TopLeft" id="vLV-Ji-TwL" userLabel="RightEnemyStatus"/>
                                 <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="X1P-cH-HCf" userLabel="LeftAvatorStatus"/>
-                                <imageView width="56" height="6" alignment="left" id="Aeo-Ab-KP5" userLabel="RightAvatorStatus"/>
+                                <imageView width="56" height="6" alignment="left" contentMode="TopLeft" id="Aeo-Ab-KP5" userLabel="RightAvatorStatus"/>
                             </items>
                         </group>
                     </items>
                     <connections>
                         <outlet property="Floor1Content" destination="M45-z4-3im" id="ta9-cF-VcZ"/>
                         <outlet property="HeroLeftHpBar" destination="X1P-cH-HCf" id="MY5-rS-4fI"/>
+                        <outlet property="HeroRightHpBar" destination="Aeo-Ab-KP5" id="rO4-6g-N30"/>
                         <outlet property="MonsterRightHpBar" destination="vLV-Ji-TwL" id="7r8-9N-ECh"/>
                     </connections>
                 </controller>

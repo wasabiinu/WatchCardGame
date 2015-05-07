@@ -92,98 +92,24 @@ internal class FloorManager
     internal func play1Turn() -> UIImage
     {
         isBattle = true
-        _heroImage1 = heroes[0].stopImage
-        if (heroes.count >= 2)
+        if (heroes[0].hp > 0)
+        {
+            _heroImage1 = heroes[0].stopImage
+        }
+        if (heroes.count >= 2 && heroes[1].hp > 0)
         {
             _heroImage2 = heroes[1].stopImage
         }
         _monsterImage = monsters[0].image
         _effectImage = UIImage(named: "floor_origin.png")!
         
+        //println("isMonsterTurn: \(isMonsterTurn)")
+        
         if (isMonsterTurn == true)
         {
             //モンスターのターン処理を書く
-            monsters[0].attackProgress++
+            firstMonsterProgress()
             
-            
-            switch monsters[0].attackProgress
-            {
-            case 1:
-                monsters[0].xPosition -= 5
-                
-                break
-            case 3:
-                //ヒットした瞬間
-                monsters[0].xPosition += 10
-                
-                monsters[0].attackEffect.progress = 0
-                monsters[0].attackEffect.point.x = CGFloat(heroes[0].xPosition)
-                monsters[0].attackEffect.point.y = CGFloat(heroes[0].yPosition)
-                
-                _effectImage = monsters[0].attackEffect.image
-                
-                //ヒーローのHPを削る
-                heroes[0].hp -= 1
-                break
-            case 4:
-                //ヒットした瞬間
-                monsters[0].xPosition += 0
-                _effectImage = monsters[0].attackEffect.image
-                break
-            case 5:
-                
-                
-                monsters[0].xPosition -= 5
-                heroes[0].xPosition += 5
-                
-                _effectImage = monsters[0].attackEffect.image
-                
-                //死亡時
-                if (heroes[0].hp <= 0)
-                {
-                    winEffect = WinEffect()
-                    _heroImage1 = heroes[0].progressImage(5)
-                }
-                else
-                {
-                    _heroImage1 = heroes[0].progressImage(4)
-                }
-                
-                break
-            case 6:
-                
-                heroes[0].xPosition -= 5
-                
-                
-                _effectImage = monsters[0].attackEffect.image
-                
-                //死亡時
-                if (heroes[0].hp <= 0)
-                {
-                    _heroImage1 = heroes[0].progressImage(6)
-                }
-                break
-            case 7:
-                //死亡時
-                if (heroes[0].hp <= 0)
-                {
-                    _heroImage1 = heroes[0].progressImage(7)
-                }
-                break
-            case 8:
-                
-                
-                //死亡時
-                if (heroes[0].hp <= 0)
-                {
-                    _heroImage1 = heroes[0].progressImage(8)
-                }
-                break
-            default :
-                monsters[0].xPosition += 0
-                
-                break
-            }
             
             if (monsters[0].attackProgress == 8)
             {
@@ -199,14 +125,20 @@ internal class FloorManager
         }
         else
         {
-            if (heroes[1].attackProgress == 9)
+            if (heroes.count >= 2 && heroes[1].attackProgress == 9)
             {
                 isMonsterTurn = true
                 heroes[0].attackProgress = 0
                 heroes[1].attackProgress = 0
             }
+                
+            //１人目のヒーロー処理
+            else if (heroes[0].hp > 0 && heroes[0].attackProgress <= 8)
+            {
+                firstHeroProgress()
+            }
             
-            if (heroes[0].attackProgress == 9)
+            else if (heroes[0].attackProgress == 9 || heroes[0].hp <= 0)
             {
                 //2人目のヒーローがいない、又は、2人目のヒーローが死亡している場合、ターンエンド
                 if ((heroes.count >= 2 && heroes[1].hp <= 0)
@@ -221,11 +153,7 @@ internal class FloorManager
                     secondHeroProgress()
                 }
             }
-                //１人目のヒーロー処理
-            else
-            {
-                firstHeroProgress()
-            }
+            
         }
         
         var effectPoint:CGPoint = CGPointMake(0, 0)
@@ -256,12 +184,119 @@ internal class FloorManager
         return image
     }
     
+    //１匹目のモンスター処理
+    private func firstMonsterProgress()
+    {
+        monsters[0].attackProgress++
+        
+        var currentHero:Hero = heroes[0]
+        var currentHeroImage:UIImage!
+        
+        if (heroes[0].hp <= 0 && currentHero.attackLock == false)
+        {
+            currentHero = heroes[1]
+        }
+        
+        switch monsters[0].attackProgress
+        {
+        case 1:
+            currentHero.attackLock = true
+            monsters[0].xPosition -= 5
+            
+            break
+        case 3:
+            //ヒットした瞬間
+            monsters[0].xPosition += 10
+            
+            monsters[0].attackEffect.progress = 0
+            monsters[0].attackEffect.point.x = CGFloat(currentHero.xPosition)
+            monsters[0].attackEffect.point.y = CGFloat(currentHero.yPosition)
+            
+            _effectImage = monsters[0].attackEffect.image
+            
+            //ヒーローのHPを削る
+            currentHero.hp -= 5
+            break
+        case 4:
+            //ヒットした瞬間
+            monsters[0].xPosition += 0
+            _effectImage = monsters[0].attackEffect.image
+            break
+        case 5:
+            
+            
+            monsters[0].xPosition -= 5
+            currentHero.xPosition += 5
+            
+            _effectImage = monsters[0].attackEffect.image
+            
+            //死亡時
+            if (currentHero.hp <= 0)
+            {
+                winEffect = WinEffect()
+                currentHeroImage = currentHero.progressImage(5)
+            }
+            else
+            {
+                currentHeroImage = currentHero.progressImage(4)
+            }
+            
+            break
+        case 6:
+            
+            currentHero.xPosition -= 5
+            
+            
+            _effectImage = monsters[0].attackEffect.image
+            
+            //死亡時
+            if (currentHero.hp <= 0)
+            {
+                currentHeroImage = currentHero.progressImage(6)
+            }
+            break
+        case 7:
+            //死亡時
+            if (currentHero.hp <= 0)
+            {
+                println("7")
+                currentHeroImage = currentHero.progressImage(7)
+            }
+            break
+        case 8:
+            //死亡時
+            if (currentHero.hp <= 0)
+            {
+                println("8")
+                currentHeroImage = currentHero.progressImage(8)
+            }
+            break
+        default :
+            monsters[0].xPosition += 0
+            
+            break
+        }
+        
+        if (heroes[0].hp <= 0 && heroes[0].attackLock == false && currentHeroImage != nil)
+        {
+            _heroImage2 = currentHeroImage
+        }
+        else if (currentHeroImage != nil)
+        {
+            _heroImage1 = currentHeroImage
+            if (monsters[0].attackProgress >= 8)
+            {
+                currentHero.attackLock = false
+            }
+        }
+
+    }
+    
     //1人目のヒーロー処理
     private func firstHeroProgress()
     {
         //ヒーローのターン処理を書く
         heroes[0].attackProgress++
-        println("heroes[0].attackProgress:\(heroes[0].attackProgress)")
         
         switch heroes[0].attackProgress
         {
@@ -282,7 +317,7 @@ internal class FloorManager
             _effectImage = heroes[0].attackEffect.reverseImage
             
             //モンスターのHPを削る
-            monsters[0].hp -= 5
+            monsters[0].hp -= 1
             break
         case 4:
             //ヒットした瞬間
@@ -338,7 +373,6 @@ internal class FloorManager
             break
         default :
             heroes[0].xPosition += 0
-            _heroImage1 = heroes[0].progressImage(0)
             break
         }
     }
@@ -348,8 +382,6 @@ internal class FloorManager
     {
         //ヒーローのターン処理を書く
         heroes[1].attackProgress++
-        
-        println("heroes[1].attackProgress: \(heroes[1].attackProgress)")
         
         switch heroes[1].attackProgress
         {
@@ -370,7 +402,7 @@ internal class FloorManager
             _effectImage = heroes[1].attackEffect.reverseImage
             
             //モンスターのHPを削る
-            monsters[0].hp -= 5
+            monsters[0].hp -= 1
             break
         case 4:
             //ヒットした瞬間
@@ -426,7 +458,6 @@ internal class FloorManager
             break
         default :
             heroes[1].xPosition += 0
-            _heroImage2 = heroes[1].progressImage(0)
             break
         }
     }

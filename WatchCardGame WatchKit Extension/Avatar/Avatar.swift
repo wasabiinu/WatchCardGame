@@ -26,6 +26,7 @@ internal class Avatar
     internal var iconImage:UIImage!
     internal var attackProgress:Int = 0
     internal var attackEffect:Effect!
+    internal var attackLock:Bool = false
     internal func progressImage(no:Int) -> UIImage
     {
         return UIImage(named: "floor_origin.png")!

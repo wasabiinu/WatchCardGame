@@ -15,6 +15,7 @@ class GameMainSceneController: WKInterfaceController {
     @IBOutlet weak var MonsterRightHpBar: WKInterfaceImage!
     @IBOutlet weak var HeroLeftHpBar: WKInterfaceImage!
     @IBOutlet weak var Floor1Content: WKInterfaceImage!
+    @IBOutlet weak var HeroRightHpBar: WKInterfaceImage!
     
     private var _turnTimer:NSTimer!
     private var _floor1Manager:FloorManager!
@@ -39,7 +40,7 @@ class GameMainSceneController: WKInterfaceController {
         
         var hero:Hero = Warrior()
         var hero2:Hero = Warrior()
-        hero2.xPosition += 15
+        hero2.xPosition += 20
         var monster:Monster = Slime()
         _floor1Manager = floorManagerArray[0]
         _floor1Manager.heroes.append(hero)
@@ -64,8 +65,7 @@ class GameMainSceneController: WKInterfaceController {
     
     internal func onTimer(timer:NSTimer)
     {
-        
-        
+
         if (_floor1Manager.heroes[0].xPosition > 71 && _floor1Manager.isBattle == false)
         {
             Floor1Content.setImage(_floor1Manager.enterFloor())
@@ -74,14 +74,37 @@ class GameMainSceneController: WKInterfaceController {
         {
             Floor1Content.setImage(_floor1Manager.battleStart())
         }
-        else if (!((_floor1Manager.heroes[0].hp == 0 && _floor1Manager.monsters[0].attackProgress == 0) ||
-            (_floor1Manager.monsters[0].hp == 0 && _floor1Manager.heroes[0].attackProgress == 0)))
+        else if (
+            !(
+                (
+                    //生き残っているヒーローがいなかったらtrue
+                    (_floor1Manager.heroes[0].hp <= 0 && _floor1Manager.monsters[0].attackProgress == 0)
+                    &&
+                    (
+                        _floor1Manager.heroes.count < 2
+                        ||
+                        (_floor1Manager.heroes.count >= 2 && _floor1Manager.heroes[1].hp <= 0 && _floor1Manager.monsters[0].attackProgress == 0)
+                    )
+                )
+                ||
+                (
+                    //モンスター0が死んだらtrue
+                    (_floor1Manager.monsters[0].hp <= 0 && _floor1Manager.heroes[0].attackProgress == 0)
+                    &&
+                    (
+                        _floor1Manager.heroes.count < 2
+                        ||
+                        (_floor1Manager.heroes.count >= 2 && _floor1Manager.monsters[0].hp <= 0 && _floor1Manager.heroes[1].attackProgress == 0)
+                    )
+                )
+            )
+        )
         {
             Floor1Content.setImage(_floor1Manager.play1Turn())
         }
         //ヒーローのHPが0かつ、進捗が0の場合　または、モンスターのHPが0かつ、進捗が0の場合　下に抜ける
         
-        else if (_floor1Manager.heroes[0].hp <= 0)
+        else if (_floor1Manager.heroes[0].hp <= 0 && (_floor1Manager.heroes.count < 2 || (_floor1Manager.heroes.count >= 2 && _floor1Manager.heroes[1].hp <= 0)))
         {
             //ヒーローが負けた場合の処理
             if (_floor1Manager.winEffect.progress < 8)
@@ -112,7 +135,7 @@ class GameMainSceneController: WKInterfaceController {
         }
         else
         {
-            println("超例外")
+            println("super exception")
         }
         manageHp()
     }
@@ -124,6 +147,13 @@ class GameMainSceneController: WKInterfaceController {
         
         var heroesLeftHp:Int = Int(Float(_floor1Manager.heroes[0].hp) / Float(_floor1Manager.heroes[0].maxHp) * 30.0)
         
+        var heroesRightHp:Int = 0
+        
+        if (_floor1Manager.heroes.count >= 2)
+        {
+            heroesRightHp = Int(Float(_floor1Manager.heroes[1].hp) / Float(_floor1Manager.heroes[0].maxHp) * 30.0)
+        }
+        
         if (monsterRightHp < 0)
         {
             monsterRightHp = 0
@@ -132,6 +162,11 @@ class GameMainSceneController: WKInterfaceController {
         if (heroesLeftHp < 0)
         {
             heroesLeftHp = 0
+        }
+        
+        if (heroesRightHp < 0)
+        {
+            heroesRightHp = 0
         }
         
         //println("MonsterRightHpBar:\(monsterRightHp), heroesLeftHp:\(heroesLeftHp)")
@@ -154,5 +189,15 @@ class GameMainSceneController: WKInterfaceController {
         {
             HeroLeftHpBar.setImageNamed("_hp\(heroesLeftHp).png")
         }
+        
+        if (heroesRightHp <= 0 || heroesRightHp > 3)
+        {
+            HeroRightHpBar.setImageNamed("hp\(heroesRightHp).png")
+        }
+        else
+        {
+            HeroRightHpBar.setImageNamed("_hp\(heroesRightHp).png")
+        }
+        
     }
 }
