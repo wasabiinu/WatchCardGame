@@ -45,7 +45,6 @@ internal class FloorManager
     
     internal func enterFloor() -> UIImage
     {
-        
         //ヒーロー画像
         var image:UIImage = DrawUtil.synthesizeImage(_alphaImage, synthImage: heroes[0].image, x: CGFloat(heroes[0].xPosition), y: CGFloat(heroes[0].yPosition))
         if (heroes.count >= 2)
@@ -748,6 +747,10 @@ internal class FloorManager
         
         //モンスター画像
         var image:UIImage = DrawUtil.synthesizeImage(_alphaImage, synthImage: _monsterImage1, x: CGFloat(monsters[0].xPosition), y: CGFloat(monsters[0].yPosition))
+        if (monsters.count >= 2 && monsters[1].hp > 0)
+        {
+            image = DrawUtil.synthesizeImage(image, synthImage: monsters[1].image, x: CGFloat(monsters[1].xPosition), y: CGFloat(monsters[1].yPosition))
+        }
         
         heroes = [Hero]()
         battleStartProgress = 0
