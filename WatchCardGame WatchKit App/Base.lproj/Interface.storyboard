@@ -64,7 +64,7 @@
                     <items>
                         <group width="156" height="38" alignment="left" id="pGL-Wm-n0G">
                             <items>
-                                <button width="0.5" height="38" alignment="left" title="1FLeft" id="GRy-l0-IWw">
+                                <button width="0.5" height="38" alignment="left" id="GRy-l0-IWw">
                                     <connections>
                                         <action selector="onPush1FLeftBtn" destination="MPV-do-OPo" id="cHs-Zw-jZF"/>
                                     </connections>

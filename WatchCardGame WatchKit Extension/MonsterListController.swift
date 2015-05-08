@@ -14,7 +14,25 @@ class MonsterListController: WKInterfaceController {
     @IBOutlet weak var MonsterList1: WKInterfaceButton!
     @IBOutlet weak var MonsterList2: WKInterfaceButton!
     
+    private var monsterNo:Int = 0
+    
     override func awakeWithContext(context: AnyObject?) {
+        var contextString:String = context as! String
+        
+        switch contextString
+        {
+        case "onPush1FRightBtn" :
+            monsterNo = 0
+            break
+        case "onPush1FLeftBtn" :
+            monsterNo = 1
+            break
+        default :
+            monsterNo = 0
+            break
+        }
+        
+        
         var bgImage:UIImage = UIImage(named: "list_bg.png")!
         
         var slime:Monster = Slime()
@@ -33,16 +51,20 @@ class MonsterListController: WKInterfaceController {
     }
     
     @IBAction func onTouchMonsterList1() {
-        Config.floorManagers[0].monsters[0] = Slime()
+        Config.floorManagers[0].monsters[monsterNo] = Slime()
         openMainScene()
     }
     @IBAction func onTouchMonsterList2() {
-        Config.floorManagers[0].monsters[0] = Bat()
+        Config.floorManagers[0].monsters[monsterNo] = Bat()
         openMainScene()
     }
     
     private func openMainScene()
     {
+        if (monsterNo == 1)
+        {
+            Config.floorManagers[0].monsters[monsterNo].xPosition -= 20
+        }
         var array:NSArray = ["GameMainSceneController", "MonsterSelectController"]
         var contextArray:NSArray = [Config.floorManagers, Config.floorManagers]
         self.presentControllerWithNames(array as [AnyObject], contexts: contextArray as [AnyObject])
