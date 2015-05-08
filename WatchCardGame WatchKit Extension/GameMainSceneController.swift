@@ -12,6 +12,7 @@ import Foundation
 
 class GameMainSceneController: WKInterfaceController {
     
+    @IBOutlet weak var MonsterLeftHpBar: WKInterfaceImage!
     @IBOutlet weak var MonsterRightHpBar: WKInterfaceImage!
     @IBOutlet weak var HeroLeftHpBar: WKInterfaceImage!
     @IBOutlet weak var Floor1Content: WKInterfaceImage!
@@ -42,10 +43,13 @@ class GameMainSceneController: WKInterfaceController {
         var hero2:Hero = Warrior()
         hero2.xPosition += 20
         var monster:Monster = Slime()
+        var monster2:Monster = Bat()
+        monster2.xPosition -= 20
         _floor1Manager = floorManagerArray[0]
         _floor1Manager.heroes.append(hero)
         _floor1Manager.heroes.append(hero2)
         _floor1Manager.monsters.append(monster)
+        _floor1Manager.monsters.append(monster2)
         
         
         println("awakeWithContext")
@@ -78,23 +82,37 @@ class GameMainSceneController: WKInterfaceController {
             !(
                 (
                     //生き残っているヒーローがいなかったらtrue
-                    (_floor1Manager.heroes[0].hp <= 0 && _floor1Manager.monsters[0].attackProgress == 0)
+                    (_floor1Manager.heroes[0].hp <= 0 && (_floor1Manager.monsters[0].attackProgress == 0 || _floor1Manager.monsters[1].attackProgress == 0))
                     &&
                     (
                         _floor1Manager.heroes.count < 2
                         ||
-                        (_floor1Manager.heroes.count >= 2 && _floor1Manager.heroes[1].hp <= 0 && _floor1Manager.monsters[0].attackProgress == 0)
+                        (_floor1Manager.heroes.count >= 2 && _floor1Manager.heroes[1].hp <= 0 &&
+                            (_floor1Manager.monsters[0].attackProgress == 0 || _floor1Manager.monsters[1].attackProgress == 0)
+                        )
                     )
                 )
                 ||
                 (
-                    //モンスター0が死んだらtrue
-                    (_floor1Manager.monsters[0].hp <= 0 && _floor1Manager.heroes[0].attackProgress == 0)
+                    //モンスター0とモンスター１が死んだらtrue
+                    (
+                        (_floor1Manager.monsters[0].hp <= 0 && _floor1Manager.heroes[0].attackProgress == 0)
+                        &&
+                        (
+                            _floor1Manager.heroes.count < 2
+                            ||
+                            (_floor1Manager.heroes.count >= 2 && _floor1Manager.monsters[0].hp <= 0 && _floor1Manager.heroes[1].attackProgress == 0)
+                        )
+                    )
                     &&
                     (
-                        _floor1Manager.heroes.count < 2
-                        ||
-                        (_floor1Manager.heroes.count >= 2 && _floor1Manager.monsters[0].hp <= 0 && _floor1Manager.heroes[1].attackProgress == 0)
+                        (_floor1Manager.monsters[1].hp <= 0 && _floor1Manager.heroes[0].attackProgress == 0)
+                            &&
+                            (
+                                _floor1Manager.heroes.count < 2
+                                    ||
+                                    (_floor1Manager.heroes.count >= 2 && _floor1Manager.monsters[1].hp <= 0 && _floor1Manager.heroes[1].attackProgress == 0)
+                        )
                     )
                 )
             )
@@ -145,6 +163,8 @@ class GameMainSceneController: WKInterfaceController {
     {
         var monsterRightHp:Int = Int(Float(_floor1Manager.monsters[0].hp) / Float(_floor1Manager.monsters[0].maxHp) * 30.0)
         
+        var monsterLeftHp:Int = Int(Float(_floor1Manager.monsters[1].hp) / Float(_floor1Manager.monsters[1].maxHp) * 30.0)
+        
         var heroesLeftHp:Int = Int(Float(_floor1Manager.heroes[0].hp) / Float(_floor1Manager.heroes[0].maxHp) * 30.0)
         
         var heroesRightHp:Int = 0
@@ -152,6 +172,11 @@ class GameMainSceneController: WKInterfaceController {
         if (_floor1Manager.heroes.count >= 2)
         {
             heroesRightHp = Int(Float(_floor1Manager.heroes[1].hp) / Float(_floor1Manager.heroes[0].maxHp) * 30.0)
+        }
+        
+        if (monsterLeftHp < 0)
+        {
+            monsterLeftHp = 0
         }
         
         if (monsterRightHp < 0)
@@ -179,6 +204,15 @@ class GameMainSceneController: WKInterfaceController {
         else
         {
             MonsterRightHpBar.setImageNamed("_hp\(monsterRightHp).png")
+        }
+        
+        if (monsterLeftHp <= 0 || monsterLeftHp > 3)
+        {
+            MonsterLeftHpBar.setImageNamed("hp\(monsterLeftHp).png")
+        }
+        else
+        {
+            MonsterLeftHpBar.setImageNamed("_hp\(monsterLeftHp).png")
         }
         
         if (heroesLeftHp <= 0 || heroesLeftHp > 3)
