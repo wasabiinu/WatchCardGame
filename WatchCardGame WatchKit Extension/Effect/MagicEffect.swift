@@ -42,7 +42,7 @@ internal class MagicEffect : Effect
         set
         {
             var newPoint:CGPoint = newValue as CGPoint
-            super.point.x = newPoint.x - 12
+            super.point.x = newPoint.x - 25
             super.point.y = newPoint.y - 6
             
         }

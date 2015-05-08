@@ -123,6 +123,8 @@ internal class FloorManager
         
         //println("isMonsterTurn: \(isMonsterTurn)")
         
+        var effectPoint:CGPoint = CGPointMake(0, 0)
+        
         if (isMonsterTurn == true)
         {
             //モンスター二体ともアタックプログレスを終えている場合
@@ -142,6 +144,7 @@ internal class FloorManager
             else if (monsters[0].hp > 0 && monsters[0].attackProgress <= 8)
             {
                 firstMonsterProgress()
+                effectPoint = monsters[0].attackEffect.point
             }
             else if (monsters[0].attackProgress == 9 || monsters[0].hp <= 0)
             {
@@ -156,6 +159,7 @@ internal class FloorManager
                 else
                 {
                     secondMonsterProgress()
+                    effectPoint = monsters[1].attackEffect.point
                 }
             }
             else
@@ -183,6 +187,7 @@ internal class FloorManager
             else if (heroes[0].hp > 0 && heroes[0].attackProgress <= 8)
             {
                 firstHeroProgress()
+                effectPoint = heroes[0].attackEffect.point
             }
             
             else if (heroes[0].attackProgress == 9 || heroes[0].hp <= 0)
@@ -198,6 +203,7 @@ internal class FloorManager
                 else
                 {
                     secondHeroProgress()
+                    effectPoint = heroes[1].attackEffect.point
                 }
             }
             else
@@ -207,15 +213,18 @@ internal class FloorManager
             
         }
         
+        /*
         var effectPoint:CGPoint = CGPointMake(0, 0)
         if (isMonsterTurn == true)
         {
             if (monsters.count >= 2 && monsters[0].hp <= 0)
             {
+                println("monsters[1]")
                 effectPoint = monsters[1].attackEffect.point
             }
             else
             {
+                println("monsters[0]")
                 effectPoint = monsters[0].attackEffect.point
             }
             
@@ -224,13 +233,15 @@ internal class FloorManager
         {
             if (heroes.count >= 2 && heroes[0].hp <= 0)
             {
+                println("heroes[1]")
                 effectPoint = heroes[1].attackEffect.point
             }
             else
             {
+                println("heroes[0]")
                 effectPoint = heroes[0].attackEffect.point
             }
-        }
+        }*/
         
         //ヒーロー画像
         var image:UIImage = DrawUtil.synthesizeImage(_alphaImage, synthImage: _heroImage1, x: CGFloat(heroes[0].xPosition), y: CGFloat(heroes[0].yPosition))
@@ -253,12 +264,15 @@ internal class FloorManager
         //エフェクト
         image = DrawUtil.synthesizeImage(image, synthImage: _effectImage, x: effectPoint.x, y: effectPoint.y)
         
+        //println("effectPoint: \(effectPoint)")
+        
         return image
     }
     
     //１匹目のモンスター処理
     private func firstMonsterProgress()
     {
+        println("firstMonsterProgress")
         monsters[0].attackProgress++
         
         
@@ -282,8 +296,7 @@ internal class FloorManager
             monsters[0].xPosition += 10
             
             monsters[0].attackEffect.progress = 0
-            monsters[0].attackEffect.point.x = CGFloat(currentHero.xPosition)
-            monsters[0].attackEffect.point.y = CGFloat(currentHero.yPosition)
+            monsters[0].attackEffect.point = CGPointMake(CGFloat(currentHero.xPosition), CGFloat(currentHero.yPosition))
             
             _effectImage = monsters[0].attackEffect.image
             
@@ -366,6 +379,7 @@ internal class FloorManager
     //2匹目のモンスター処理
     private func secondMonsterProgress()
     {
+        println("secondMonsterProgress")
         monsters[1].attackProgress++
         
         
@@ -389,8 +403,7 @@ internal class FloorManager
             monsters[1].xPosition += 10
             
             monsters[1].attackEffect.progress = 0
-            monsters[1].attackEffect.point.x = CGFloat(currentHero.xPosition)
-            monsters[1].attackEffect.point.y = CGFloat(currentHero.yPosition)
+            monsters[1].attackEffect.point = CGPointMake(CGFloat(currentHero.xPosition), CGFloat(currentHero.yPosition))
             
             _effectImage = monsters[1].attackEffect.image
             
@@ -473,7 +486,7 @@ internal class FloorManager
     //1人目のヒーロー処理
     private func firstHeroProgress()
     {
-        
+        println("firstHeroProgress")
         var currentMonster:Monster = monsters[0]
         var currentMonsterImage:UIImage!
         
@@ -501,8 +514,7 @@ internal class FloorManager
             _heroImage1 = heroes[0].attackImage
             
             heroes[0].attackEffect.progress = 0
-            heroes[0].attackEffect.point.x = CGFloat(currentMonster.xPosition)
-            heroes[0].attackEffect.point.y = CGFloat(currentMonster.yPosition)
+            heroes[0].attackEffect.point = CGPointMake(CGFloat(currentMonster.xPosition), CGFloat(currentMonster.yPosition))
             
             _effectImage = heroes[0].attackEffect.reverseImage
             
@@ -583,6 +595,7 @@ internal class FloorManager
     //2人目のヒーロー処理
     private func secondHeroProgress()
     {
+        println("secondHeroProgress")
         //ヒーローのターン処理を書く
         heroes[1].attackProgress++
         
@@ -609,8 +622,7 @@ internal class FloorManager
             _heroImage2 = heroes[1].attackImage
             
             heroes[1].attackEffect.progress = 0
-            heroes[1].attackEffect.point.x = CGFloat(currentMonster.xPosition)
-            heroes[1].attackEffect.point.y = CGFloat(currentMonster.yPosition)
+            heroes[1].attackEffect.point = CGPointMake(CGFloat(currentMonster.xPosition), CGFloat(currentMonster.yPosition))
             
             _effectImage = heroes[1].attackEffect.reverseImage
             
