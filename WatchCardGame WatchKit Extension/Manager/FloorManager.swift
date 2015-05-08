@@ -213,36 +213,6 @@ internal class FloorManager
             
         }
         
-        /*
-        var effectPoint:CGPoint = CGPointMake(0, 0)
-        if (isMonsterTurn == true)
-        {
-            if (monsters.count >= 2 && monsters[0].hp <= 0)
-            {
-                println("monsters[1]")
-                effectPoint = monsters[1].attackEffect.point
-            }
-            else
-            {
-                println("monsters[0]")
-                effectPoint = monsters[0].attackEffect.point
-            }
-            
-        }
-        else
-        {
-            if (heroes.count >= 2 && heroes[0].hp <= 0)
-            {
-                println("heroes[1]")
-                effectPoint = heroes[1].attackEffect.point
-            }
-            else
-            {
-                println("heroes[0]")
-                effectPoint = heroes[0].attackEffect.point
-            }
-        }*/
-        
         //ヒーロー画像
         var image:UIImage = DrawUtil.synthesizeImage(_alphaImage, synthImage: _heroImage1, x: CGFloat(heroes[0].xPosition), y: CGFloat(heroes[0].yPosition))
         
@@ -272,7 +242,6 @@ internal class FloorManager
     //１匹目のモンスター処理
     private func firstMonsterProgress()
     {
-        println("firstMonsterProgress")
         monsters[0].attackProgress++
         
         
@@ -379,7 +348,6 @@ internal class FloorManager
     //2匹目のモンスター処理
     private func secondMonsterProgress()
     {
-        println("secondMonsterProgress")
         monsters[1].attackProgress++
         
         
@@ -486,7 +454,6 @@ internal class FloorManager
     //1人目のヒーロー処理
     private func firstHeroProgress()
     {
-        println("firstHeroProgress")
         var currentMonster:Monster = monsters[0]
         var currentMonsterImage:UIImage!
         
@@ -595,7 +562,6 @@ internal class FloorManager
     //2人目のヒーロー処理
     private func secondHeroProgress()
     {
-        println("secondHeroProgress")
         //ヒーローのターン処理を書く
         heroes[1].attackProgress++
         
@@ -704,7 +670,6 @@ internal class FloorManager
     internal func playWin() -> UIImage
     {
         isBattle = false
-        var _monsterImage1:UIImage = monsters[0].image
         _effectImage = winEffect.image
         
         //モンスター画像
@@ -715,7 +680,7 @@ internal class FloorManager
             image = DrawUtil.synthesizeImage(image, synthImage: _monsterImage1, x: CGFloat(monsters[0].xPosition), y: CGFloat(monsters[0].yPosition))
         }
         
-        if (monsters.count <= 2 && monsters[1].hp > 0)
+        if (monsters.count >= 2 && monsters[1].hp > 0)
         {
             image = DrawUtil.synthesizeImage(image, synthImage: _monsterImage2, x: CGFloat(monsters[1].xPosition), y: CGFloat(monsters[1].yPosition))
         }
