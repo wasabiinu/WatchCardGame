@@ -22,6 +22,7 @@ internal class Slime : Monster
         image = UIImage(named: "slime0.png")!
         iconImage = UIImage(named: "slime.png")!
         attackEffect = ImpactEffect()
+        name = "slime"
     }
     override internal func progressImage(no:Int) -> UIImage
     {

@@ -22,6 +22,7 @@ internal class Warrior : Hero
         stopImage = UIImage(named: "warrior0.png")!
         attackImage = UIImage(named: "warrior3.png")!
         attackEffect = SlashEffect()
+        name = "warrior"
     }
     
     override internal var image:UIImage!

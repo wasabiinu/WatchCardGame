@@ -24,6 +24,7 @@ internal class FloorManager
     private var _heroImage2:UIImage!
     private var _monsterImage1:UIImage!
     private var _monsterImage2:UIImage!
+    private var _previousProgressName:String = ""
     
     init()
     {
@@ -98,25 +99,33 @@ internal class FloorManager
         return image
     }
     
-    internal func play1Turn() -> UIImage
+    internal func play1Turn() -> [AnyObject]
     {
+        var cacheName:String = ""
         isBattle = true
+        
+        cacheName += "heroSide:"
         if (heroes[0].hp > 0)
         {
             _heroImage1 = heroes[0].stopImage
+            cacheName += heroes[0].name
         }
         if (heroes.count >= 2 && heroes[1].hp > 0)
         {
             _heroImage2 = heroes[1].stopImage
+            cacheName += heroes[1].name
         }
         
+        cacheName += "monsterSide:"
         if (monsters[0].hp > 0)
         {
             _monsterImage1 = monsters[0].image
+            cacheName += monsters[0].name
         }
         if (monsters.count >= 2 && monsters[1].hp > 0)
         {
             _monsterImage2 = monsters[1].image
+            cacheName += monsters[1].name
         }
         
         _effectImage = UIImage(named: "floor_origin.png")!
@@ -143,12 +152,13 @@ internal class FloorManager
             //１匹目のモンスター処理
             else if (monsters[0].hp > 0 && monsters[0].attackProgress <= 8)
             {
-                firstMonsterProgress()
+                
+                _previousProgressName = "firstMonsterProgress\(firstMonsterProgress())"
                 effectPoint = monsters[0].attackEffect.point
             }
             else if (monsters[0].attackProgress == 9 || monsters[0].hp <= 0)
             {
-            
+                
                 //2匹目のモンスターがいない、又は、2匹目のモンスターが死亡している場合、ターンエンド
                 if ((monsters.count >= 2 && monsters[1].hp <= 0)
                     || monsters.count < 2)
@@ -158,7 +168,7 @@ internal class FloorManager
                 }
                 else
                 {
-                    secondMonsterProgress()
+                    _previousProgressName = "secondMonsterProgress\(secondMonsterProgress())"
                     effectPoint = monsters[1].attackEffect.point
                 }
             }
@@ -186,12 +196,14 @@ internal class FloorManager
             //１人目のヒーロー処理
             else if (heroes[0].hp > 0 && heroes[0].attackProgress <= 8)
             {
-                firstHeroProgress()
+                
+                _previousProgressName = "firstHeroProgress\(firstHeroProgress())"
                 effectPoint = heroes[0].attackEffect.point
             }
             
             else if (heroes[0].attackProgress == 9 || heroes[0].hp <= 0)
             {
+                
                 //2人目のヒーローがいない、又は、2人目のヒーローが死亡している場合、ターンエンド
                 if ((heroes.count >= 2 && heroes[1].hp <= 0)
                     || heroes.count < 2)
@@ -202,7 +214,7 @@ internal class FloorManager
                 //2人目のヒーローの処理
                 else
                 {
-                    secondHeroProgress()
+                    _previousProgressName = "secondHeroProgress\(secondHeroProgress())"
                     effectPoint = heroes[1].attackEffect.point
                 }
             }
@@ -236,21 +248,26 @@ internal class FloorManager
         
         //println("effectPoint: \(effectPoint)")
         
-        return image
+        cacheName += _previousProgressName
+        
+        var returnArray:[AnyObject] = [image, cacheName]
+        
+        return returnArray
     }
     
     //１匹目のモンスター処理
-    private func firstMonsterProgress()
+    private func firstMonsterProgress() -> Int
     {
         monsters[0].attackProgress++
         
-        
+        var currentTargetNo:Int = 0
         var currentHero:Hero = heroes[0]
         var currentHeroImage:UIImage!
         
         if (heroes[0].hp <= 0 && currentHero.attackLock == false)
         {
             currentHero = heroes[1]
+            currentTargetNo = 1
         }
         
         switch monsters[0].attackProgress
@@ -342,21 +359,22 @@ internal class FloorManager
                 currentHero.attackLock = false
             }
         }
-
+        return currentTargetNo
     }
     
     //2匹目のモンスター処理
-    private func secondMonsterProgress()
+    private func secondMonsterProgress() -> Int
     {
         monsters[1].attackProgress++
         
-        
+        var currentTargetNo:Int = 0
         var currentHero:Hero = heroes[0]
         var currentHeroImage:UIImage!
         
         if (heroes[0].hp <= 0 && currentHero.attackLock == false)
         {
             currentHero = heroes[1]
+            currentTargetNo = 1
         }
         
         switch monsters[1].attackProgress
@@ -448,18 +466,20 @@ internal class FloorManager
                 currentHero.attackLock = false
             }
         }
-        
+        return currentTargetNo
     }
     
     //1人目のヒーロー処理
-    private func firstHeroProgress()
+    private func firstHeroProgress() -> Int
     {
+        var currentTargetNo:Int = 0
         var currentMonster:Monster = monsters[0]
         var currentMonsterImage:UIImage!
         
         if (monsters[0].hp <= 0 && monsters[0].attackLock == false)
         {
             currentMonster = monsters[1]
+            currentTargetNo = 1
         }
         
         //ヒーローのターン処理を書く
@@ -557,20 +577,23 @@ internal class FloorManager
                 currentMonster.attackLock = false
             }
         }
+        
+        return currentTargetNo
     }
     
     //2人目のヒーロー処理
-    private func secondHeroProgress()
+    private func secondHeroProgress() -> Int
     {
         //ヒーローのターン処理を書く
         heroes[1].attackProgress++
-        
+        var currentTargetNo:Int = 0
         var currentMonster:Monster = monsters[0]
         var currentMonsterImage:UIImage!
         
         if (monsters[0].hp <= 0 && monsters[0].attackLock == false)
         {
             currentMonster = monsters[1]
+            currentTargetNo = 1
         }
         
         switch heroes[1].attackProgress
@@ -664,6 +687,7 @@ internal class FloorManager
                 currentMonster.attackLock = false
             }
         }
+        return currentTargetNo
     }
     
     //ヒーロー全滅時処理

@@ -21,6 +21,7 @@ internal class Bat : Monster
         image = UIImage(named: "bat0.png")!
         iconImage = UIImage(named: "bat.png")!
         attackEffect = MagicEffect()
+        name = "bat"
     }
     override internal func progressImage(no:Int) -> UIImage
     {

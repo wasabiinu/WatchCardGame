@@ -75,6 +75,7 @@ class GameMainSceneController: WKInterfaceController {
         var animationArray:[UIImage] = [UIImage]()
         var count:Int = 0
         var interval:NSTimeInterval = 0
+        var play1TurnArray:[AnyObject] = [AnyObject]()
         
         if (_floor1Manager.heroes[0].xPosition > 71 && _floor1Manager.isBattle == false)
         {
@@ -95,11 +96,13 @@ class GameMainSceneController: WKInterfaceController {
         
         else if (isPlay1Turn())
         {
+            
             if (_floor1Manager.monsters[0].attackProgress <= 9 && _floor1Manager.isMonsterTurn == true && _floor1Manager.monsters[0].hp > 0)
             {
                 while (_floor1Manager.monsters[0].attackProgress <= 9 && _floor1Manager.isMonsterTurn == true && _floor1Manager.monsters[0].hp > 0)
                 {
-                    animationArray.append(_floor1Manager.play1Turn())
+                    play1TurnArray = _floor1Manager.play1Turn()
+                    animationArray.append(play1TurnArray[0] as! UIImage)
                     count++
                 }
             }
@@ -107,7 +110,8 @@ class GameMainSceneController: WKInterfaceController {
             {
                 while (_floor1Manager.monsters.count >= 2 && _floor1Manager.monsters[1].attackProgress <= 9 && _floor1Manager.isMonsterTurn == true && _floor1Manager.monsters[1].hp > 0)
                 {
-                    animationArray.append(_floor1Manager.play1Turn())
+                    play1TurnArray = _floor1Manager.play1Turn()
+                    animationArray.append(play1TurnArray[0] as! UIImage)
                     count++
                 }
             }
@@ -115,7 +119,8 @@ class GameMainSceneController: WKInterfaceController {
             {
                 while (_floor1Manager.heroes[0].attackProgress <= 9 && _floor1Manager.isMonsterTurn == false && _floor1Manager.heroes[0].hp > 0)
                 {
-                    animationArray.append(_floor1Manager.play1Turn())
+                    play1TurnArray = _floor1Manager.play1Turn()
+                    animationArray.append(play1TurnArray[0] as! UIImage)
                     count++
                 }
             }
@@ -123,7 +128,8 @@ class GameMainSceneController: WKInterfaceController {
             {
                 while (_floor1Manager.heroes.count >= 2 && _floor1Manager.heroes[1].attackProgress <= 9 && _floor1Manager.isMonsterTurn == false && _floor1Manager.heroes[1].hp > 0)
                 {
-                    animationArray.append(_floor1Manager.play1Turn())
+                    play1TurnArray = _floor1Manager.play1Turn()
+                    animationArray.append(play1TurnArray[0] as! UIImage)
                     count++
                 }
             }
@@ -178,8 +184,30 @@ class GameMainSceneController: WKInterfaceController {
         {
             var setImage:UIImage = UIImage.animatedImageWithImages(animationArray, duration: 1)
             var range:NSRange = NSMakeRange(0, count)
-            Floor1Content.setImage(setImage)
-            interval = NSTimeInterval(Double(count) * 0.25)
+            
+            
+            if (play1TurnArray.count >= 2)
+            {
+                //キャッシュ処理
+                var cacheName:String = play1TurnArray[1] as! String
+                
+                if (Config.DEVICE.cachedImages[cacheName] != nil)
+                {
+                    Floor1Content.setImageNamed(cacheName)
+                }
+                else
+                {
+                    //Config.DEVICE.removeCachedImageWithName(cacheName)
+                    Config.DEVICE.addCachedImage(setImage, name: cacheName)
+                    Floor1Content.setImage(setImage)
+                }
+            }
+            else
+            {
+                Floor1Content.setImage(setImage)
+            }
+            
+            interval = NSTimeInterval(Double(count + 1) * 0.25)
             Floor1Content.startAnimatingWithImagesInRange(range, duration: interval, repeatCount: 1)
         }
         else

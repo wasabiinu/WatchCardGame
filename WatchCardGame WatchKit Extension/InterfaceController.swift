@@ -23,6 +23,8 @@ class InterfaceController: WKInterfaceController {
         var floorManagerArray:[FloorManager] = [FloorManager]()
         floorManagerArray.append(_floor1Manager)
         
+        Config.DEVICE = WKInterfaceDevice.currentDevice()
+        
         Config.floorManagers = floorManagerArray
     }
 

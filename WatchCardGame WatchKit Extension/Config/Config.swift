@@ -46,11 +46,24 @@ internal class Config {
         }
     }
     
+    internal class var DEVICE:WKInterfaceDevice
+    {
+        get
+        {
+            return ClassProperty.device
+        }
+        set
+        {
+            ClassProperty.device = newValue
+        }
+    }
+    
     private struct ClassProperty {
         static var floorSize:CGSize = CGSizeMake(156, 32)
         static var buttonSize:CGSize = CGSizeMake(78, 38)
         static var heartbeatRate:Float = 10
         static var moveSec:Float = 60 / heartbeatRate
         static var _floorManagers:[FloorManager] = [FloorManager]()
+        static var device:WKInterfaceDevice!
     }
 }
