@@ -59,6 +59,9 @@ class MonsterListController: WKInterfaceController {
         openMainScene()
     }
     
+    @IBAction func onTouchResetBtn() {
+        self.presentControllerWithName("Top", context: "hoge")
+    }
     private func openMainScene()
     {
         if (monsterNo == 1)

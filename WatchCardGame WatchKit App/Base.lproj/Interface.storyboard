@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
     </dependencies>
     <scenes>
-        <!--Main-->
+        <!--Top-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller identifier="Main" contentMode="TopLeft" spacing="0.0" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WatchCardGame_WatchKit_Extension">
+                <controller identifier="Top" contentMode="TopLeft" spacing="0.0" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WatchCardGame_WatchKit_Extension">
                     <items>
                         <button width="156" height="115" alignment="left" title="GAME START" id="CD5-XK-Aa0">
                             <connections>
@@ -98,6 +98,11 @@
                         <button width="156" height="32" alignment="left" id="iAf-nL-xey">
                             <connections>
                                 <action selector="onTouchMonsterList2" destination="JEJ-O9-8jm" id="ITK-SW-xzY"/>
+                            </connections>
+                        </button>
+                        <button width="156" height="32" alignment="left" title="TOP" id="4Dp-o1-AIe">
+                            <connections>
+                                <action selector="onTouchResetBtn" destination="JEJ-O9-8jm" id="DqF-0i-hwe"/>
                             </connections>
                         </button>
                     </items>
