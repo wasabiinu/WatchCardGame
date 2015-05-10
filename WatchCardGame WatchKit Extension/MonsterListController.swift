@@ -15,6 +15,7 @@ class MonsterListController: WKInterfaceController {
     @IBOutlet weak var MonsterList2: WKInterfaceButton!
     
     private var monsterNo:Int = 0
+    private var floorNo:Int = 0
     
     override func awakeWithContext(context: AnyObject?) {
         var contextString:String = context as! String
@@ -23,12 +24,39 @@ class MonsterListController: WKInterfaceController {
         {
         case "onPush1FRightBtn" :
             monsterNo = 0
+            floorNo = 0
             break
         case "onPush1FLeftBtn" :
             monsterNo = 1
+            floorNo = 0
+            break
+        case "onPush2FRightBtn" :
+            monsterNo = 0
+            floorNo = 1
+            break
+        case "onPush2FLeftBtn" :
+            monsterNo = 1
+            floorNo = 1
+            break
+        case "onPush3FRightBtn" :
+            monsterNo = 0
+            floorNo = 2
+            break
+        case "onPush3FLeftBtn" :
+            monsterNo = 1
+            floorNo = 2
+            break
+        case "onPush4FRightBtn" :
+            monsterNo = 0
+            floorNo = 3
+            break
+        case "onPush4FLeftBtn" :
+            monsterNo = 1
+            floorNo = 3
             break
         default :
             monsterNo = 0
+            floorNo = 0
             break
         }
         
@@ -51,11 +79,11 @@ class MonsterListController: WKInterfaceController {
     }
     
     @IBAction func onTouchMonsterList1() {
-        Config.floorManagers[0].monsters[monsterNo] = Slime()
+        Config.floorManagers[floorNo].monsters[monsterNo] = Slime()
         openMainScene()
     }
     @IBAction func onTouchMonsterList2() {
-        Config.floorManagers[0].monsters[monsterNo] = Bat()
+        Config.floorManagers[floorNo].monsters[monsterNo] = Bat()
         openMainScene()
     }
     

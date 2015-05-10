@@ -18,9 +18,31 @@ class GameMainSceneController: WKInterfaceController {
     @IBOutlet weak var Floor1Content: WKInterfaceImage!
     @IBOutlet weak var HeroRightHpBar: WKInterfaceImage!
     
-    private var _turnTimer:NSTimer!
+    @IBOutlet weak var Floor2Content: WKInterfaceImage!
+    @IBOutlet weak var MonsterLeftHpBar2: WKInterfaceImage!
+    @IBOutlet weak var MonsterRightHpBar2: WKInterfaceImage!
+    @IBOutlet weak var HeroLeftHpBar2: WKInterfaceImage!
+    @IBOutlet weak var HeroRightHpBar2: WKInterfaceImage!
+    
+    @IBOutlet weak var Floor3Content: WKInterfaceImage!
+    @IBOutlet weak var MonsterLeftHpBar3: WKInterfaceImage!
+    @IBOutlet weak var MonsterRightHpBar3: WKInterfaceImage!
+    @IBOutlet weak var HeroLeftHpBar3: WKInterfaceImage!
+    @IBOutlet weak var HeroRightHpBar3: WKInterfaceImage!
+    
+    @IBOutlet weak var Floor4Content: WKInterfaceImage!
+    @IBOutlet weak var MonsterLeftHpBar4: WKInterfaceImage!
+    @IBOutlet weak var MonsterRightHpBar4: WKInterfaceImage!
+    @IBOutlet weak var HeroLeftHpBar4: WKInterfaceImage!
+    @IBOutlet weak var HeroRightHpBar4: WKInterfaceImage!
+    
+    //private var _turnTimer:NSTimer!
     private var _manageHpTimer:NSTimer!
     private var _floor1Manager:FloorManager!
+    private var _floor2Manager:FloorManager!
+    private var _floor3Manager:FloorManager!
+    private var _floor4Manager:FloorManager!
+    
     override init()
     {
         println("init")
@@ -29,7 +51,7 @@ class GameMainSceneController: WKInterfaceController {
     deinit
     {
         
-        _turnTimer = nil
+        _floor1Manager.turnTimer = nil
         println("deinit")
     }
     
@@ -46,11 +68,50 @@ class GameMainSceneController: WKInterfaceController {
         var monster:Monster = Slime()
         var monster2:Monster = Bat()
         monster2.xPosition -= 20
+        
         _floor1Manager = floorManagerArray[0]
+        _floor1Manager.scene = Floor1Content
         _floor1Manager.heroes.append(hero)
         _floor1Manager.heroes.append(hero2)
         _floor1Manager.monsters.append(monster)
         _floor1Manager.monsters.append(monster2)
+        
+        
+        
+        var hero_2:Hero = Warrior()
+        var monster_2:Monster = Slime()
+        var monster2_2:Monster = Bat()
+        monster2_2.xPosition -= 20
+        _floor2Manager = floorManagerArray[1]
+        _floor2Manager.scene = Floor2Content
+        _floor2Manager.monsters.append(monster_2)
+        _floor2Manager.monsters.append(monster2_2)
+        
+        
+        
+        var hero_3:Hero = Warrior()
+        var monster_3:Monster = Slime()
+        var monster2_3:Monster = Bat()
+        monster2_3.xPosition -= 20
+        _floor3Manager = floorManagerArray[2]
+        _floor3Manager.scene = Floor3Content
+        _floor3Manager.monsters.append(monster_3)
+        _floor3Manager.monsters.append(monster2_3)
+        
+        
+        
+        var hero_4:Hero = Warrior()
+        var monster_4:Monster = Slime()
+        var monster2_4:Monster = Bat()
+        monster2_4.xPosition -= 20
+        _floor4Manager = floorManagerArray[3]
+        _floor4Manager.scene = Floor4Content
+        _floor4Manager.monsters.append(monster_4)
+        _floor4Manager.monsters.append(monster2_4)
+        
+        _floor1Manager.nextFloor = _floor2Manager
+        _floor2Manager.nextFloor = _floor3Manager
+        _floor3Manager.nextFloor = _floor4Manager
         
         
         println("awakeWithContext")
@@ -59,76 +120,99 @@ class GameMainSceneController: WKInterfaceController {
     override func willActivate() {
         super.willActivate()
         _manageHpTimer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(0.25), target: self, selector: Selector("manageHp:"), userInfo: nil, repeats: true)
-        stockMethods()
+        stockMethods(_floor1Manager)
+        stockMethods(_floor2Manager)
+        stockMethods(_floor3Manager)
+        stockMethods(_floor4Manager)
         println("willActivate")
     }
     
     override func didDeactivate() {
         super.didDeactivate()
-        _turnTimer.invalidate()
+        if (_floor1Manager.turnTimer != nil)
+        {
+            _floor1Manager.turnTimer.invalidate()
+        }
+        if (_floor2Manager.turnTimer != nil)
+        {
+            _floor2Manager.turnTimer.invalidate()
+        }
+        if (_floor3Manager.turnTimer != nil)
+        {
+            _floor3Manager.turnTimer.invalidate()
+        }
+        if (_floor4Manager.turnTimer != nil)
+        {
+            _floor4Manager.turnTimer.invalidate()
+        }
         println("didDeactivate")
     }
     
-    internal func stockMethods()
+    internal func stockMethods(currentFloorManager:FloorManager)
     {
-        println("stockMethods")
+        //println("stockMethods")
         var animationArray:[UIImage] = [UIImage]()
         var count:Int = 0
         var interval:NSTimeInterval = 0
         var play1TurnArray:[AnyObject] = [AnyObject]()
         
-        if (_floor1Manager.heroes[0].xPosition > 71 && _floor1Manager.isBattle == false)
+        if (currentFloorManager.heroes.count >= 1 && currentFloorManager.heroes[0].xPosition > 71 && currentFloorManager.isBattle == false)
         {
-            while (_floor1Manager.heroes[0].xPosition > 71 || _floor1Manager.isBattle == true)
+            if (currentFloorManager === _floor2Manager)
             {
-                animationArray.append(_floor1Manager.enterFloor())
+                println("enterFloor")
+            }
+            while (currentFloorManager.heroes[0].xPosition > 71 || currentFloorManager.isBattle == true)
+            {
+                //println("enterFloor: loop")
+                animationArray.append(currentFloorManager.enterFloor())
                 count++
             }
         }
-        else if (_floor1Manager.battleStartProgress < 8)
+        else if (currentFloorManager.heroes.count >= 1 && currentFloorManager.battleStartProgress < 8)
         {
-            while (_floor1Manager.battleStartProgress < 8 )
+            while (currentFloorManager.battleStartProgress < 8 )
             {
-                animationArray.append(_floor1Manager.battleStart())
+                animationArray.append(currentFloorManager.battleStart())
                 count++
             }
         }
         
-        else if (isPlay1Turn())
+        else if (currentFloorManager.monsters.count >= 1 && currentFloorManager.heroes.count >= 1 && isPlay1Turn(currentFloorManager))
         {
             
-            if (_floor1Manager.monsters[0].attackProgress <= 9 && _floor1Manager.isMonsterTurn == true && _floor1Manager.monsters[0].hp > 0)
+            if (currentFloorManager.monsters[0].attackProgress <= 9 && currentFloorManager.isMonsterTurn == true && currentFloorManager.monsters[0].hp > 0)
             {
-                while (_floor1Manager.monsters[0].attackProgress <= 9 && _floor1Manager.isMonsterTurn == true && _floor1Manager.monsters[0].hp > 0)
+                while (currentFloorManager.monsters[0].attackProgress <= 9 && currentFloorManager.isMonsterTurn == true && currentFloorManager.monsters[0].hp > 0)
                 {
-                    play1TurnArray = _floor1Manager.play1Turn()
+                    play1TurnArray = currentFloorManager.play1Turn()
                     animationArray.append(play1TurnArray[0] as! UIImage)
                     count++
                 }
             }
-            else if(_floor1Manager.monsters.count >= 2 && _floor1Manager.monsters[1].attackProgress <= 9 && _floor1Manager.isMonsterTurn == true && _floor1Manager.monsters[1].hp > 0)
+            else if(currentFloorManager.monsters.count >= 2 && currentFloorManager.monsters[1].attackProgress <= 9 && currentFloorManager.isMonsterTurn == true && currentFloorManager.monsters[1].hp > 0)
             {
-                while (_floor1Manager.monsters.count >= 2 && _floor1Manager.monsters[1].attackProgress <= 9 && _floor1Manager.isMonsterTurn == true && _floor1Manager.monsters[1].hp > 0)
+                while (currentFloorManager.monsters.count >= 2 && currentFloorManager.monsters[1].attackProgress <= 9 && currentFloorManager.isMonsterTurn == true && currentFloorManager.monsters[1].hp > 0)
                 {
-                    play1TurnArray = _floor1Manager.play1Turn()
+                    play1TurnArray = currentFloorManager.play1Turn()
                     animationArray.append(play1TurnArray[0] as! UIImage)
                     count++
                 }
             }
-            else if (_floor1Manager.heroes[0].attackProgress <= 9 && _floor1Manager.isMonsterTurn == false && _floor1Manager.heroes[0].hp > 0)
+            else if (currentFloorManager.heroes[0].attackProgress <= 9 && currentFloorManager.isMonsterTurn == false && currentFloorManager.heroes[0].hp > 0)
             {
-                while (_floor1Manager.heroes[0].attackProgress <= 9 && _floor1Manager.isMonsterTurn == false && _floor1Manager.heroes[0].hp > 0)
+                while (currentFloorManager.heroes[0].attackProgress <= 9 && currentFloorManager.isMonsterTurn == false && currentFloorManager.heroes[0].hp > 0)
                 {
-                    play1TurnArray = _floor1Manager.play1Turn()
+                    play1TurnArray = currentFloorManager.play1Turn()
                     animationArray.append(play1TurnArray[0] as! UIImage)
                     count++
                 }
             }
-            else if (_floor1Manager.heroes[1].attackProgress <= 9 && _floor1Manager.isMonsterTurn == false && _floor1Manager.heroes[1].hp > 0)
+            else if (currentFloorManager.heroes[1].attackProgress <= 9 && currentFloorManager.isMonsterTurn == false && currentFloorManager.heroes[1].hp > 0)
             {
-                while (_floor1Manager.heroes.count >= 2 && _floor1Manager.heroes[1].attackProgress <= 9 && _floor1Manager.isMonsterTurn == false && _floor1Manager.heroes[1].hp > 0)
+                while (currentFloorManager.heroes.count >= 2 && currentFloorManager.heroes[1].attackProgress <= 9 && currentFloorManager.isMonsterTurn == false && currentFloorManager.heroes[1].hp > 0)
                 {
-                    play1TurnArray = _floor1Manager.play1Turn()
+                    play1TurnArray = currentFloorManager.play1Turn()
                     animationArray.append(play1TurnArray[0] as! UIImage)
                     count++
                 }
@@ -136,48 +220,59 @@ class GameMainSceneController: WKInterfaceController {
         }
             //ヒーローのHPが0かつ、進捗が0の場合　または、モンスターのHPが0かつ、進捗が0の場合　下に抜ける
             
-        else if (_floor1Manager.heroes[0].hp <= 0 && (_floor1Manager.heroes.count < 2 || (_floor1Manager.heroes.count >= 2 && _floor1Manager.heroes[1].hp <= 0)))
+        else if (currentFloorManager.monsters.count >= 1 && currentFloorManager.heroes.count >= 1 && currentFloorManager.heroes[0].hp <= 0 && (currentFloorManager.heroes.count < 2 || (currentFloorManager.heroes.count >= 2 && currentFloorManager.heroes[1].hp <= 0)))
         {
             //ヒーローが負けた場合の処理
-            if (_floor1Manager.winEffect.progress < 8)
+            if (currentFloorManager.winEffect.progress < 8)
             {
                 //勝利演出
-                while (_floor1Manager.winEffect.progress < 8)
+                while (currentFloorManager.winEffect.progress < 8)
                 {
-                    animationArray.append(_floor1Manager.playWin())
+                    animationArray.append(currentFloorManager.playWin())
                     count++
                 }
             }
             else
             {
                 //次のヒーロー登場演出
-                animationArray.append(_floor1Manager.summonNextHero())
-                _floor1Manager.heroes.append(Warrior())
+                animationArray.append(currentFloorManager.summonNextHero())
+                currentFloorManager.heroes.append(Warrior())
                 count++
             }
         }
-        else if (_floor1Manager.monsters[0].hp <= 0)
+        else if (currentFloorManager.monsters.count >= 1 && currentFloorManager.heroes.count >= 1 && currentFloorManager.monsters[0].hp <= 0)
         {
             //モンスターが負けた場合の処理
             //負け演出
-            if (_floor1Manager.loseEffect.progress < 8)
+            if (currentFloorManager.loseEffect.progress < 8)
             {
-                while (_floor1Manager.loseEffect.progress < 8)
+                while (currentFloorManager.loseEffect.progress < 8)
                 {
-                    animationArray.append(_floor1Manager.playLose())
+                    animationArray.append(currentFloorManager.playLose())
                     count++
                 }
             }
             else
             {
                 //次のフロアまで歩く
-                animationArray.append(_floor1Manager.enterFloor())
-                count++
+                while (
+                (currentFloorManager.heroes[0].hp > 0 && currentFloorManager.heroes[0].xPosition > -30)
+                    ||
+                (currentFloorManager.heroes.count >= 2 && currentFloorManager.heroes[1].hp > 0 && currentFloorManager.heroes[1].xPosition > -30)
+                )
+                {
+                    animationArray.append(currentFloorManager.enterFloor())
+                    count++
+                }
+                
             }
         }
         else
         {
-            println("super exception")
+            play1TurnArray = currentFloorManager.play1Turn()
+            animationArray.append(play1TurnArray[0] as! UIImage)
+            count++
+            //println("super exception")
         }
         
         if ( count > 0)
@@ -193,22 +288,22 @@ class GameMainSceneController: WKInterfaceController {
                 
                 if (Config.DEVICE.cachedImages[cacheName] != nil)
                 {
-                    Floor1Content.setImageNamed(cacheName)
+                    currentFloorManager.scene.setImageNamed(cacheName)
                 }
                 else
                 {
                     //Config.DEVICE.removeCachedImageWithName(cacheName)
                     Config.DEVICE.addCachedImage(setImage, name: cacheName)
-                    Floor1Content.setImage(setImage)
+                    currentFloorManager.scene.setImage(setImage)
                 }
             }
             else
             {
-                Floor1Content.setImage(setImage)
+                currentFloorManager.scene.setImage(setImage)
             }
             
             interval = NSTimeInterval(Double(count + 1) * 0.25)
-            Floor1Content.startAnimatingWithImagesInRange(range, duration: interval, repeatCount: 1)
+            currentFloorManager.scene.startAnimatingWithImagesInRange(range, duration: interval, repeatCount: 1)
         }
         else
         {
@@ -216,31 +311,47 @@ class GameMainSceneController: WKInterfaceController {
         }
         
         
-        println("interval: \(interval)")
+        //println("interval: \(interval)")
         if (interval > 0)
         {
-            _turnTimer = NSTimer.scheduledTimerWithTimeInterval(interval, target: self, selector: Selector("onTurn:"), userInfo: nil, repeats: false)
+            if (currentFloorManager === _floor2Manager)
+            {
+                println("_floor2Manager, interval:\(interval)")
+            }
+            currentFloorManager.turnTimer = NSTimer.scheduledTimerWithTimeInterval(interval, target: self, selector: Selector("onTurn:"), userInfo: currentFloorManager, repeats: false)
+            //NSTimer.scheduledTimerWithTimeInterval(interval, target: self, selector: Selector("onTurn:"), userInfo: currentFloorManager, repeats: false)
         }
     }
     
     internal func onTurn(timer:NSTimer)
     {
-        stockMethods()
+        var currentFloorManager = timer.userInfo as! FloorManager
+        
+        if (
+            (currentFloorManager.heroes.count >= 1 && currentFloorManager.heroes[0].hp > 0 && currentFloorManager.heroes[0].xPosition <= -30)
+            ||
+            (currentFloorManager.heroes.count >= 2 && currentFloorManager.heroes[1].hp > 0 && currentFloorManager.heroes[1].xPosition <= -30)
+        )
+        {
+            currentFloorManager.jumpToNextFloor()
+        }
+        
+        stockMethods(currentFloorManager)
     }
     
     //処理が複雑なので別メソッド化
-    private func isPlay1Turn() -> Bool
+    private func isPlay1Turn(currentFloorManager:FloorManager) -> Bool
     {
         return !(
             (
                 //生き残っているヒーローがいなかったらtrue
-                (_floor1Manager.heroes[0].hp <= 0 && (_floor1Manager.monsters[0].attackProgress == 0 || _floor1Manager.monsters[1].attackProgress == 0))
+                (currentFloorManager.heroes[0].hp <= 0 && (currentFloorManager.monsters[0].attackProgress == 0 || currentFloorManager.monsters[1].attackProgress == 0))
                     &&
                     (
-                        _floor1Manager.heroes.count < 2
+                        currentFloorManager.heroes.count < 2
                             ||
-                            (_floor1Manager.heroes.count >= 2 && _floor1Manager.heroes[1].hp <= 0 &&
-                                (_floor1Manager.monsters[0].attackProgress == 0 || _floor1Manager.monsters[1].attackProgress == 0)
+                            (currentFloorManager.heroes.count >= 2 && currentFloorManager.heroes[1].hp <= 0 &&
+                                (currentFloorManager.monsters[0].attackProgress == 0 || currentFloorManager.monsters[1].attackProgress == 0)
                         )
                 )
                 )
@@ -248,22 +359,22 @@ class GameMainSceneController: WKInterfaceController {
                 (
                     //モンスター0とモンスター１が死んだらtrue
                     (
-                        (_floor1Manager.monsters[0].hp <= 0 && _floor1Manager.heroes[0].attackProgress == 0)
+                        (currentFloorManager.monsters[0].hp <= 0 && currentFloorManager.heroes[0].attackProgress == 0)
                             &&
                             (
-                                _floor1Manager.heroes.count < 2
+                                currentFloorManager.heroes.count < 2
                                     ||
-                                    (_floor1Manager.heroes.count >= 2 && _floor1Manager.monsters[0].hp <= 0 && _floor1Manager.heroes[1].attackProgress == 0)
+                                    (currentFloorManager.heroes.count >= 2 && currentFloorManager.monsters[0].hp <= 0 && currentFloorManager.heroes[1].attackProgress == 0)
                         )
                         )
                         &&
                         (
-                            (_floor1Manager.monsters[1].hp <= 0 && _floor1Manager.heroes[0].attackProgress == 0)
+                            (currentFloorManager.monsters[1].hp <= 0 && currentFloorManager.heroes[0].attackProgress == 0)
                                 &&
                                 (
-                                    _floor1Manager.heroes.count < 2
+                                    currentFloorManager.heroes.count < 2
                                         ||
-                                        (_floor1Manager.heroes.count >= 2 && _floor1Manager.monsters[1].hp <= 0 && _floor1Manager.heroes[1].attackProgress == 0)
+                                        (currentFloorManager.heroes.count >= 2 && currentFloorManager.monsters[1].hp <= 0 && currentFloorManager.heroes[1].attackProgress == 0)
                             )
                     )
             )

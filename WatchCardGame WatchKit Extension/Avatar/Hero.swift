@@ -81,4 +81,11 @@ internal class Hero : Avatar
             return num
         }
     }
+    
+    internal func restart()
+    {
+        xPosition = 170
+        attackLock = false
+        attackProgress = 0
+    }
 }

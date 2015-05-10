@@ -14,7 +14,7 @@ internal class Slime : Monster
     override init()
     {
         super.init()
-        hp = super.level * 100
+        hp = super.level * 20
         maxHp = hp
         attack = super.level * 30
         defence = super.level * 30

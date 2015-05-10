@@ -18,6 +18,9 @@ internal class FloorManager
     internal var winEffect:Effect!
     internal var loseEffect:Effect!
     internal var isBattle:Bool
+    internal var scene:WKInterfaceImage!
+    internal var nextFloor:FloorManager!
+    internal var turnTimer:NSTimer!
     private var _alphaImage:UIImage = UIImage(named: "floor_origin.png")!
     private var _effectImage:UIImage!
     private var _heroImage1:UIImage!
@@ -33,6 +36,7 @@ internal class FloorManager
         battleStartProgress = 0
         isMonsterTurn = true
         isBattle = false
+        scene = WKInterfaceImage()
     }
     
     internal func reset()
@@ -105,7 +109,7 @@ internal class FloorManager
         isBattle = true
         
         cacheName += "heroSide:"
-        if (heroes[0].hp > 0)
+        if (heroes.count >= 1 && heroes[0].hp > 0)
         {
             _heroImage1 = heroes[0].stopImage
             cacheName += heroes[0].name
@@ -117,7 +121,7 @@ internal class FloorManager
         }
         
         cacheName += "monsterSide:"
-        if (monsters[0].hp > 0)
+        if (monsters.count >= 1 && monsters[0].hp > 0)
         {
             _monsterImage1 = monsters[0].image
             cacheName += monsters[0].name
@@ -150,13 +154,13 @@ internal class FloorManager
             }
             
             //１匹目のモンスター処理
-            else if (monsters[0].hp > 0 && monsters[0].attackProgress <= 8)
+            else if (monsters.count >= 1 && monsters[0].hp > 0 && monsters[0].attackProgress <= 8)
             {
                 
                 _previousProgressName = "firstMonsterProgress\(firstMonsterProgress())"
                 effectPoint = monsters[0].attackEffect.point
             }
-            else if (monsters[0].attackProgress == 9 || monsters[0].hp <= 0)
+            else if (monsters.count >= 1 && monsters[0].attackProgress == 9 || monsters[0].hp <= 0)
             {
                 
                 //2匹目のモンスターがいない、又は、2匹目のモンスターが死亡している場合、ターンエンド
@@ -194,14 +198,14 @@ internal class FloorManager
             }
                 
             //１人目のヒーロー処理
-            else if (heroes[0].hp > 0 && heroes[0].attackProgress <= 8)
+            else if (heroes.count >= 1 && heroes[0].hp > 0 && heroes[0].attackProgress <= 8)
             {
                 
                 _previousProgressName = "firstHeroProgress\(firstHeroProgress())"
                 effectPoint = heroes[0].attackEffect.point
             }
             
-            else if (heroes[0].attackProgress == 9 || heroes[0].hp <= 0)
+            else if (heroes.count >= 1 && heroes[0].attackProgress == 9 || heroes[0].hp <= 0)
             {
                 
                 //2人目のヒーローがいない、又は、2人目のヒーローが死亡している場合、ターンエンド
@@ -226,8 +230,11 @@ internal class FloorManager
         }
         
         //ヒーロー画像
-        var image:UIImage = DrawUtil.synthesizeImage(_alphaImage, synthImage: _heroImage1, x: CGFloat(heroes[0].xPosition), y: CGFloat(heroes[0].yPosition))
-        
+        var image:UIImage = _alphaImage
+        if (heroes.count >= 1)
+        {
+            image = DrawUtil.synthesizeImage(_alphaImage, synthImage: _heroImage1, x: CGFloat(heroes[0].xPosition), y: CGFloat(heroes[0].yPosition))
+        }
         if (heroes.count >= 2)
         {
             //ヒーロー2人目画像
@@ -235,8 +242,10 @@ internal class FloorManager
         }
         
         //モンスター画像
-        image = DrawUtil.synthesizeImage(image, synthImage: _monsterImage1, x: CGFloat(monsters[0].xPosition), y: CGFloat(monsters[0].yPosition))
-        
+        if (monsters.count >= 1)
+        {
+            image = DrawUtil.synthesizeImage(image, synthImage: _monsterImage1, x: CGFloat(monsters[0].xPosition), y: CGFloat(monsters[0].yPosition))
+        }
         if (monsters.count >= 2)
         {
             //モンスター２匹目画像
@@ -258,6 +267,11 @@ internal class FloorManager
     //１匹目のモンスター処理
     private func firstMonsterProgress() -> Int
     {
+        if (heroes.count < 1)
+        {
+            return 0
+        }
+        
         monsters[0].attackProgress++
         
         var currentTargetNo:Int = 0
@@ -365,6 +379,11 @@ internal class FloorManager
     //2匹目のモンスター処理
     private func secondMonsterProgress() -> Int
     {
+        if (monsters.count < 1)
+        {
+            return 0
+        }
+        
         monsters[1].attackProgress++
         
         var currentTargetNo:Int = 0
@@ -472,6 +491,11 @@ internal class FloorManager
     //1人目のヒーロー処理
     private func firstHeroProgress() -> Int
     {
+        if (monsters.count < 1)
+        {
+            return 0
+        }
+        
         var currentTargetNo:Int = 0
         var currentMonster:Monster = monsters[0]
         var currentMonsterImage:UIImage!
@@ -584,6 +608,11 @@ internal class FloorManager
     //2人目のヒーロー処理
     private func secondHeroProgress() -> Int
     {
+        if (monsters.count < 1)
+        {
+            return 0
+        }
+        
         //ヒーローのターン処理を書く
         heroes[1].attackProgress++
         var currentTargetNo:Int = 0
@@ -730,7 +759,7 @@ internal class FloorManager
             image = DrawUtil.synthesizeImage(image, synthImage: _heroImage, x: CGFloat(heroes[0].xPosition), y: CGFloat(heroes[0].yPosition))
         }
         
-        if (heroes.count <= 2 && heroes[1].hp > 0)
+        if (heroes.count >= 2 && heroes[1].hp > 0)
         {
             image = DrawUtil.synthesizeImage(image, synthImage: heroes[1].image, x: CGFloat(heroes[1].xPosition), y: CGFloat(heroes[1].yPosition))
         }
@@ -739,6 +768,24 @@ internal class FloorManager
         image = DrawUtil.synthesizeImage(image, synthImage: _effectImage, x: 28, y: 1)
         
         return image
+    }
+    
+    internal func jumpToNextFloor()
+    {
+        println("jumpToNextFloor")
+        //ヒーローが次の階に進む
+        if (nextFloor != nil)
+        {
+            nextFloor.heroes = heroes
+            if (nextFloor.heroes.count >= 2 && nextFloor.heroes[0].hp > 0)
+            {
+                nextFloor.heroes[0].restart()
+            }
+            if (nextFloor.heroes.count >= 2 && nextFloor.heroes[1].hp > 0)
+            {
+                nextFloor.heroes[1].restart()
+            }
+        }
     }
     
     //次のヒーローを呼ぶ

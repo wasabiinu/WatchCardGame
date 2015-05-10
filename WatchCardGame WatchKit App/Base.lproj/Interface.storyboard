@@ -31,6 +31,48 @@
             <objects>
                 <controller identifier="GameMainSceneController" title="メイン" id="mGx-Vv-ZXk" customClass="GameMainSceneController" customModule="WatchCardGame_WatchKit_Extension">
                     <items>
+                        <group width="156" height="32" alignment="left" backgroundImage="floor_bg.png" radius="0.0" spacing="0.0" id="RG9-ka-hKV" userLabel="FloorBg">
+                            <items>
+                                <imageView width="156" height="32" alignment="left" id="3q3-Ip-arW"/>
+                            </items>
+                        </group>
+                        <group width="156" height="6" alignment="left" radius="0.0" spacing="0.0" id="N35-uG-dBr" userLabel="StatusBox">
+                            <items>
+                                <imageView width="41" height="6" alignment="left" contentMode="TopLeft" id="kUq-yH-w6R" userLabel="LeftSpace"/>
+                                <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="1g6-D8-ITn" userLabel="LeftEnemyStatus"/>
+                                <imageView width="21" height="6" alignment="left" contentMode="TopLeft" id="uIy-3L-W9l" userLabel="RightEnemyStatus"/>
+                                <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="H4U-2f-Tjb" userLabel="LeftAvatorStatus"/>
+                                <imageView width="56" height="6" alignment="left" contentMode="TopLeft" id="vpi-Tt-ON8" userLabel="RightAvatorStatus"/>
+                            </items>
+                        </group>
+                        <group width="156" height="32" alignment="left" backgroundImage="floor_bg.png" radius="0.0" spacing="0.0" id="qjT-dK-lhR" userLabel="FloorBg">
+                            <items>
+                                <imageView width="156" height="32" alignment="left" id="x00-c2-zpS"/>
+                            </items>
+                        </group>
+                        <group width="156" height="6" alignment="left" radius="0.0" spacing="0.0" id="LU1-Dr-tzo" userLabel="StatusBox">
+                            <items>
+                                <imageView width="41" height="6" alignment="left" contentMode="TopLeft" id="2iD-FU-Si2" userLabel="LeftSpace"/>
+                                <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="Kez-ki-AnA" userLabel="LeftEnemyStatus"/>
+                                <imageView width="21" height="6" alignment="left" contentMode="TopLeft" id="o7P-Pe-dnd" userLabel="RightEnemyStatus"/>
+                                <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="M2m-j1-XCI" userLabel="LeftAvatorStatus"/>
+                                <imageView width="56" height="6" alignment="left" contentMode="TopLeft" id="Qkn-Qo-YgT" userLabel="RightAvatorStatus"/>
+                            </items>
+                        </group>
+                        <group width="156" height="32" alignment="left" backgroundImage="floor_bg.png" radius="0.0" spacing="0.0" id="mMM-oC-EyI" userLabel="FloorBg">
+                            <items>
+                                <imageView width="156" height="32" alignment="left" id="BlK-3T-Bnm"/>
+                            </items>
+                        </group>
+                        <group width="156" height="6" alignment="left" radius="0.0" spacing="0.0" id="3lP-48-EbJ" userLabel="StatusBox">
+                            <items>
+                                <imageView width="41" height="6" alignment="left" contentMode="TopLeft" id="UCr-TT-kPJ" userLabel="LeftSpace"/>
+                                <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="yz8-7f-OWg" userLabel="LeftEnemyStatus"/>
+                                <imageView width="21" height="6" alignment="left" contentMode="TopLeft" id="Xm1-Ho-Ojr" userLabel="RightEnemyStatus"/>
+                                <imageView width="19" height="6" alignment="left" contentMode="TopLeft" id="odu-Xp-lPa" userLabel="LeftAvatorStatus"/>
+                                <imageView width="56" height="6" alignment="left" contentMode="TopLeft" id="zuP-fg-lRa" userLabel="RightAvatorStatus"/>
+                            </items>
+                        </group>
                         <group width="156" height="32" alignment="left" backgroundImage="floor_bg.png" radius="0.0" spacing="0.0" id="0y6-eh-g3f" userLabel="FloorBg">
                             <items>
                                 <imageView width="156" height="32" alignment="left" id="M45-z4-3im"/>
@@ -48,10 +90,25 @@
                     </items>
                     <connections>
                         <outlet property="Floor1Content" destination="M45-z4-3im" id="ta9-cF-VcZ"/>
+                        <outlet property="Floor2Content" destination="BlK-3T-Bnm" id="zre-Ce-XHp"/>
+                        <outlet property="Floor3Content" destination="x00-c2-zpS" id="7GE-5W-rmf"/>
+                        <outlet property="Floor4Content" destination="3q3-Ip-arW" id="7ZJ-4Y-Xkp"/>
                         <outlet property="HeroLeftHpBar" destination="X1P-cH-HCf" id="MY5-rS-4fI"/>
+                        <outlet property="HeroLeftHpBar2" destination="odu-Xp-lPa" id="wei-dn-aip"/>
+                        <outlet property="HeroLeftHpBar3" destination="M2m-j1-XCI" id="b9q-kP-heN"/>
+                        <outlet property="HeroLeftHpBar4" destination="H4U-2f-Tjb" id="1kq-Pk-jdL"/>
                         <outlet property="HeroRightHpBar" destination="Aeo-Ab-KP5" id="rO4-6g-N30"/>
+                        <outlet property="HeroRightHpBar2" destination="zuP-fg-lRa" id="a0L-8t-7GQ"/>
+                        <outlet property="HeroRightHpBar3" destination="Qkn-Qo-YgT" id="b2y-4N-cSh"/>
+                        <outlet property="HeroRightHpBar4" destination="vpi-Tt-ON8" id="eYX-OI-uJg"/>
                         <outlet property="MonsterLeftHpBar" destination="8Ee-sc-4c7" id="wOG-55-URc"/>
+                        <outlet property="MonsterLeftHpBar2" destination="yz8-7f-OWg" id="3cT-S1-gl3"/>
+                        <outlet property="MonsterLeftHpBar3" destination="Kez-ki-AnA" id="gzH-rN-DCA"/>
+                        <outlet property="MonsterLeftHpBar4" destination="1g6-D8-ITn" id="yfI-Ru-PaM"/>
                         <outlet property="MonsterRightHpBar" destination="vLV-Ji-TwL" id="7r8-9N-ECh"/>
+                        <outlet property="MonsterRightHpBar2" destination="Xm1-Ho-Ojr" id="WGl-rF-hgD"/>
+                        <outlet property="MonsterRightHpBar3" destination="o7P-Pe-dnd" id="LNd-hF-Jo4"/>
+                        <outlet property="MonsterRightHpBar4" destination="uIy-3L-W9l" id="6q6-Qe-cjC"/>
                     </connections>
                 </controller>
             </objects>
@@ -62,6 +119,48 @@
             <objects>
                 <controller identifier="MonsterSelectController" title="モンスター選択" id="MPV-do-OPo" customClass="MonsterSelectController" customModule="WatchCardGame_WatchKit_Extension">
                     <items>
+                        <group width="156" height="38" alignment="left" id="nRF-cK-n0u">
+                            <items>
+                                <button width="0.5" height="38" alignment="left" id="Ccb-Eb-vFw">
+                                    <connections>
+                                        <action selector="onPush4FLeftBtn" destination="MPV-do-OPo" id="3U9-nE-H3J"/>
+                                    </connections>
+                                </button>
+                                <button width="0.5" height="38" alignment="left" id="kh5-sx-CaR">
+                                    <connections>
+                                        <action selector="onPush4FRightBtn" destination="MPV-do-OPo" id="nrv-Cr-aVe"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <group width="134" height="38" alignment="left" id="CZd-GJ-fxh">
+                            <items>
+                                <button width="0.5" height="38" alignment="left" id="xlQ-lN-OGu">
+                                    <connections>
+                                        <action selector="onPush3FLeftBtn" destination="MPV-do-OPo" id="Htl-yV-xVa"/>
+                                    </connections>
+                                </button>
+                                <button width="0.5" height="38" alignment="left" id="gdN-Di-YO8">
+                                    <connections>
+                                        <action selector="onPush3FRightBtn" destination="MPV-do-OPo" id="8eo-YV-PGg"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <group width="134" height="38" alignment="left" id="758-QV-rko">
+                            <items>
+                                <button width="0.5" height="38" alignment="left" id="BTN-yW-dZe">
+                                    <connections>
+                                        <action selector="onPush2FLeftBtn" destination="MPV-do-OPo" id="Tee-yP-l8g"/>
+                                    </connections>
+                                </button>
+                                <button width="0.5" height="38" alignment="left" id="xGu-fc-RFT">
+                                    <connections>
+                                        <action selector="onPush2FRightBtn" destination="MPV-do-OPo" id="DXa-vG-4vZ"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
                         <group width="156" height="38" alignment="left" id="pGL-Wm-n0G">
                             <items>
                                 <button width="0.5" height="38" alignment="left" id="GRy-l0-IWw">
@@ -80,10 +179,16 @@
                     <connections>
                         <outlet property="FirstFloorLeftBtn" destination="GRy-l0-IWw" id="1Rw-RU-PrM"/>
                         <outlet property="FirstFloorRightBtn" destination="TYh-xs-Sii" id="Ddd-eR-3Rv"/>
+                        <outlet property="FourthFloorLeftBtn" destination="Ccb-Eb-vFw" id="BE4-tg-pgW"/>
+                        <outlet property="FourthFloorRightBtn" destination="kh5-sx-CaR" id="cqx-z6-R7j"/>
+                        <outlet property="SecondFloorLeftBtn" destination="BTN-yW-dZe" id="Wf1-rV-hgd"/>
+                        <outlet property="SecondFloorRightBtn" destination="xGu-fc-RFT" id="AST-Og-l4F"/>
+                        <outlet property="ThirdFloorLeftBtn" destination="xlQ-lN-OGu" id="9lT-Di-AcH"/>
+                        <outlet property="ThirdFloorRightBtn" destination="gdN-Di-YO8" id="xbJ-9a-OSL"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="540" y="346"/>
+            <point key="canvasLocation" x="540" y="345.5"/>
         </scene>
         <!--モンスターリスト-->
         <scene sceneID="D5a-iC-ZrS">

@@ -13,15 +13,24 @@ import Foundation
 class InterfaceController: WKInterfaceController {
     
     private var _floor1Manager:FloorManager!
+    private var _floor2Manager:FloorManager!
+    private var _floor3Manager:FloorManager!
+    private var _floor4Manager:FloorManager!
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
         // Configure interface objects here.
         
         _floor1Manager = FloorManager()
+        _floor2Manager = FloorManager()
+        _floor3Manager = FloorManager()
+        _floor4Manager = FloorManager()
         
         var floorManagerArray:[FloorManager] = [FloorManager]()
         floorManagerArray.append(_floor1Manager)
+        floorManagerArray.append(_floor2Manager)
+        floorManagerArray.append(_floor3Manager)
+        floorManagerArray.append(_floor4Manager)
         
         Config.DEVICE = WKInterfaceDevice.currentDevice()
         
@@ -31,12 +40,6 @@ class InterfaceController: WKInterfaceController {
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        
-        /*
-        TimerManager.FLOOR1CONTENT = Floor1Content
-        
-        TimerManager.start("floor1Start:", turnTime: NSTimeInterval(0.0))
-        */
     }
 
     override func didDeactivate() {
@@ -45,6 +48,9 @@ class InterfaceController: WKInterfaceController {
     }
     @IBAction func onTouchResetBtn() {
         _floor1Manager.reset()
+        _floor2Manager.reset()
+        _floor3Manager.reset()
+        _floor4Manager.reset()
     }
     @IBAction func onTouchGameStartBtn() {
         var array:NSArray = ["GameMainSceneController", "MonsterSelectController"]
